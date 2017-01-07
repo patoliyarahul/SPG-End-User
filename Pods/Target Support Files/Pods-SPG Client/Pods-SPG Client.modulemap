@@ -1,0 +1,6 @@
+framework module Pods_SPG_Client {
+  umbrella header "Pods-SPG Client-umbrella.h"
+
+  export *
+  module * { export * }
+}
