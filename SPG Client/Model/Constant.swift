@@ -83,6 +83,7 @@ struct StylistSegue {
     static let showAllServicesSegue     =   "viewAllServices"
     static let chooseDateSegue          =   "selectDateSegue"
     static let selfieSegue              =   "selfieSegue"
+    static let additionalSegue          =   "additionalInfoSegue"
 }
 
 struct Segue {

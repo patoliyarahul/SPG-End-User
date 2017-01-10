@@ -15,6 +15,7 @@ class SelfieViewController: UIViewController {
     @IBOutlet weak var retakeView: UIView!
     
     @IBOutlet weak var imgSelfieView: UIImageView!
+    @IBOutlet weak var btnSkip: UIBarButtonItem!
     //MARK: - Variables
     
     var selectedImage = UIImage()
@@ -23,7 +24,8 @@ class SelfieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+        imgSelfieView.layer.cornerRadius = imgSelfieView.frame.size.width / 2
     }
     
     //MARK: - Helper Methods
@@ -47,14 +49,13 @@ class SelfieViewController: UIViewController {
     }
     
     @IBAction func btnSkip_Click(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: StylistSegue.additionalSegue, sender: self)
     }
     //MARK: - MemoryWarning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     // MARK: - Navigation
     
@@ -72,6 +73,9 @@ extension SelfieViewController: UIImagePickerControllerDelegate, UINavigationCon
             
             takeSelfieView.alpha = 0
             selectedImage = pickedImage
+            imgSelfieView.image = selectedImage
+            
+            btnSkip.title = "Done"
         }
         dismiss(animated: true, completion: {
             

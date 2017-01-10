@@ -28,9 +28,10 @@
 		55CD12A11E1536EC00ABA7DB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A01E1536EC00ABA7DB /* DashboardViewController.swift */; };
 		55CD12A41E1536FC00ABA7DB /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A31E1536FC00ABA7DB /* BookingViewController.swift */; };
 		55CD12A61E1545D100ABA7DB /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */; };
-		792899AD1E24AC1B00D3A8FD /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899AC1E24AC1B00D3A8FD /* SelectDateVC.swift */; };
 		792899AF1E24BAC700D3A8FD /* TimeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */; };
 		792899B11E24F2C600D3A8FD /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B01E24F2C500D3A8FD /* SelfieViewController.swift */; };
+		792899B31E25018A00D3A8FD /* AdditionalInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B21E25018A00D3A8FD /* AdditionalInfoVC.swift */; };
+		792899B51E250C5A00D3A8FD /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B41E250C5A00D3A8FD /* SelectDateVC.swift */; };
 		7946B33A1DA3BCEE004C5333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7946B3391DA3BCEE004C5333 /* AppDelegate.swift */; };
 		7946B33F1DA3BCEE004C5333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7946B33D1DA3BCEE004C5333 /* Main.storyboard */; };
 		7946B3411DA3BCEE004C5333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7946B3401DA3BCEE004C5333 /* Assets.xcassets */; };
@@ -113,9 +114,10 @@
 		55CD12A01E1536EC00ABA7DB /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		55CD12A31E1536FC00ABA7DB /* BookingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
-		792899AC1E24AC1B00D3A8FD /* SelectDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectDateVC.swift; path = ../../../../SelectDateVC.swift; sourceTree = "<group>"; };
 		792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectionCell.swift; sourceTree = "<group>"; };
 		792899B01E24F2C500D3A8FD /* SelfieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
+		792899B21E25018A00D3A8FD /* AdditionalInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalInfoVC.swift; sourceTree = "<group>"; };
+		792899B41E250C5A00D3A8FD /* SelectDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateVC.swift; sourceTree = "<group>"; };
 		7946B3361DA3BCEE004C5333 /* SPG Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SPG Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7946B3391DA3BCEE004C5333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7946B33E1DA3BCEE004C5333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -327,12 +329,13 @@
 		79687A531E1E9C02004B840E /* Stylist */ = {
 			isa = PBXGroup;
 			children = (
+				792899B41E250C5A00D3A8FD /* SelectDateVC.swift */,
 				79687A551E1E9C02004B840E /* StylistsViewController.swift */,
 				79687A581E1ED364004B840E /* StylistProfileVC.swift */,
 				799882E61E1FAA6700BE1906 /* GalleryViewController.swift */,
 				799882E81E1FAC7800BE1906 /* ServicesListVC.swift */,
-				792899AC1E24AC1B00D3A8FD /* SelectDateVC.swift */,
 				792899B01E24F2C500D3A8FD /* SelfieViewController.swift */,
+				792899B21E25018A00D3A8FD /* AdditionalInfoVC.swift */,
 			);
 			path = Stylist;
 			sourceTree = "<group>";
@@ -647,7 +650,6 @@
 				5557E6721E1136B3008606A5 /* RequestManager.m in Sources */,
 				55CD12A11E1536EC00ABA7DB /* DashboardViewController.swift in Sources */,
 				553DA2D71E13CB6C001A674D /* SignUpViewController.swift in Sources */,
-				792899AD1E24AC1B00D3A8FD /* SelectDateVC.swift in Sources */,
 				79687A591E1ED364004B840E /* StylistProfileVC.swift in Sources */,
 				D1BFBAE61DF931C7003CC5E7 /* ProfileViewController.swift in Sources */,
 				5528AAC31E16870000536BCA /* DesiredLookCell.swift in Sources */,
@@ -668,11 +670,13 @@
 				55CD12A61E1545D100ABA7DB /* BookingDetailViewController.swift in Sources */,
 				D164FD911DD2E46F0043CF03 /* LookbookDisplayViewController.swift in Sources */,
 				7946B33A1DA3BCEE004C5333 /* AppDelegate.swift in Sources */,
+				792899B31E25018A00D3A8FD /* AdditionalInfoVC.swift in Sources */,
 				553DA2D51E13CB6B001A674D /* ForgotPasswordViewController.swift in Sources */,
 				D14310781DDF79C2001F542C /* discoverCollectionViewCell.swift in Sources */,
 				799882E91E1FAC7800BE1906 /* ServicesListVC.swift in Sources */,
 				553DA2D81E13CB6C001A674D /* TermsAndConditionsViewController.swift in Sources */,
 				7979C50A1E20BC8900C708D7 /* PinkSectionHeaderView.swift in Sources */,
+				792899B51E250C5A00D3A8FD /* SelectDateVC.swift in Sources */,
 				5528AAC21E16870000536BCA /* AppointmentServiceCell.swift in Sources */,
 				7979C5051E20BC8900C708D7 /* CodeCellView.swift in Sources */,
 				792899B11E24F2C600D3A8FD /* SelfieViewController.swift in Sources */,
