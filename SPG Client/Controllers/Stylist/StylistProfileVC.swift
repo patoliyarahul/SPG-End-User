@@ -110,7 +110,9 @@ class StylistProfileVC: UIViewController {
     }
     
     @IBAction func btnChooseDate_Click(_ sender: Any) {
+        self.performSegue(withIdentifier: StylistSegue.chooseDateSegue, sender: self)
     }
+    
     //MARK: - MemoryWarning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -132,6 +134,11 @@ class StylistProfileVC: UIViewController {
         } else if segue.identifier == StylistSegue.showAllGalleryImageSegue {
             let dv = segue.destination as! GalleryViewController
             dv.galleryImgaeArray    =   desiredLookArray
+            dv.stylistName          =   lblStylistName.text!
+            dv.profession           =   lblProfession.text!
+            dv.logoUrl              =   logoUrl
+        } else if segue.identifier == StylistSegue.chooseDateSegue {
+            let dv = segue.destination as! SelectDateVC
             dv.stylistName          =   lblStylistName.text!
             dv.profession           =   lblProfession.text!
             dv.logoUrl              =   logoUrl

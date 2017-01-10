@@ -45,7 +45,7 @@ class ServicesListVC: UIViewController {
     
     //MARK: - UIButton Action Methods
     @IBAction func btnChooseDate_Click(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: StylistSegue.chooseDateSegue, sender: self)
     }
     
     //MARK: - MemoryWarning
@@ -58,7 +58,12 @@ class ServicesListVC: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == StylistSegue.chooseDateSegue {
+            let dv = segue.destination as! SelectDateVC
+            dv.stylistName          =   lblStylistName.text!
+            dv.profession           =   lblProfession.text!
+            dv.logoUrl              =   logoUrl
+        }
     }
 }
 

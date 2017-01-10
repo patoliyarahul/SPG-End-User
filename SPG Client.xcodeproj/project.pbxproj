@@ -28,6 +28,8 @@
 		55CD12A11E1536EC00ABA7DB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A01E1536EC00ABA7DB /* DashboardViewController.swift */; };
 		55CD12A41E1536FC00ABA7DB /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A31E1536FC00ABA7DB /* BookingViewController.swift */; };
 		55CD12A61E1545D100ABA7DB /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */; };
+		792899AD1E24AC1B00D3A8FD /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899AC1E24AC1B00D3A8FD /* SelectDateVC.swift */; };
+		792899AF1E24BAC700D3A8FD /* TimeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */; };
 		7946B33A1DA3BCEE004C5333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7946B3391DA3BCEE004C5333 /* AppDelegate.swift */; };
 		7946B33F1DA3BCEE004C5333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7946B33D1DA3BCEE004C5333 /* Main.storyboard */; };
 		7946B3411DA3BCEE004C5333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7946B3401DA3BCEE004C5333 /* Assets.xcassets */; };
@@ -110,6 +112,8 @@
 		55CD12A01E1536EC00ABA7DB /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		55CD12A31E1536FC00ABA7DB /* BookingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
+		792899AC1E24AC1B00D3A8FD /* SelectDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectDateVC.swift; path = ../../../../SelectDateVC.swift; sourceTree = "<group>"; };
+		792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectionCell.swift; sourceTree = "<group>"; };
 		7946B3361DA3BCEE004C5333 /* SPG Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SPG Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7946B3391DA3BCEE004C5333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7946B33E1DA3BCEE004C5333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,17 +138,11 @@
 		799882E61E1FAA6700BE1906 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		799882E81E1FAC7800BE1906 /* ServicesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesListVC.swift; sourceTree = "<group>"; };
 		79A91E7D1E1FE37200AA293E /* Gotham-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.ttf"; sourceTree = "<group>"; };
-		79A91E7E1E1FE37200AA293E /* Gotham-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackItalic.ttf"; sourceTree = "<group>"; };
 		79A91E7F1E1FE37200AA293E /* Gotham-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.ttf"; sourceTree = "<group>"; };
-		79A91E801E1FE37200AA293E /* Gotham-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BoldItalic.ttf"; sourceTree = "<group>"; };
 		79A91E811E1FE37200AA293E /* Gotham-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.ttf"; sourceTree = "<group>"; };
-		79A91E821E1FE37200AA293E /* Gotham-BookItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BookItalic.ttf"; sourceTree = "<group>"; };
 		79A91E831E1FE37200AA293E /* Gotham-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.ttf"; sourceTree = "<group>"; };
-		79A91E841E1FE37200AA293E /* Gotham-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-LightItalic.ttf"; sourceTree = "<group>"; };
 		79A91E851E1FE37200AA293E /* Gotham-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.ttf"; sourceTree = "<group>"; };
-		79A91E861E1FE37200AA293E /* Gotham-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-MediumItalic.ttf"; sourceTree = "<group>"; };
 		79A91E871E1FE37200AA293E /* Gotham-Ultra.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Ultra.ttf"; sourceTree = "<group>"; };
-		79A91E881E1FE37200AA293E /* Gotham-UltraItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-UltraItalic.ttf"; sourceTree = "<group>"; };
 		BDD9AF6061B7C93C09BBD4DC /* Pods-SPG Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPG Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-SPG Client/Pods-SPG Client.release.xcconfig"; sourceTree = "<group>"; };
 		BE9C933634DC909F377E689D /* Pods_SPG_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SPG_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13672F71DDEC25A00147126 /* locationListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationListingTableViewCell.swift; sourceTree = "<group>"; };
@@ -331,6 +329,7 @@
 				79687A581E1ED364004B840E /* StylistProfileVC.swift */,
 				799882E61E1FAA6700BE1906 /* GalleryViewController.swift */,
 				799882E81E1FAC7800BE1906 /* ServicesListVC.swift */,
+				792899AC1E24AC1B00D3A8FD /* SelectDateVC.swift */,
 			);
 			path = Stylist;
 			sourceTree = "<group>";
@@ -421,17 +420,11 @@
 			isa = PBXGroup;
 			children = (
 				79A91E7D1E1FE37200AA293E /* Gotham-Black.ttf */,
-				79A91E7E1E1FE37200AA293E /* Gotham-BlackItalic.ttf */,
 				79A91E7F1E1FE37200AA293E /* Gotham-Bold.ttf */,
-				79A91E801E1FE37200AA293E /* Gotham-BoldItalic.ttf */,
 				79A91E811E1FE37200AA293E /* Gotham-Book.ttf */,
-				79A91E821E1FE37200AA293E /* Gotham-BookItalic.ttf */,
 				79A91E831E1FE37200AA293E /* Gotham-Light.ttf */,
-				79A91E841E1FE37200AA293E /* Gotham-LightItalic.ttf */,
 				79A91E851E1FE37200AA293E /* Gotham-Medium.ttf */,
-				79A91E861E1FE37200AA293E /* Gotham-MediumItalic.ttf */,
 				79A91E871E1FE37200AA293E /* Gotham-Ultra.ttf */,
-				79A91E881E1FE37200AA293E /* Gotham-UltraItalic.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -475,6 +468,7 @@
 				553DA2EB1E13DF59001A674D /* DashboardImageBoardView.xib */,
 				797914071E1E67A400093FFD /* StylistTableViewCell.swift */,
 				799882E41E1F675B00BE1906 /* ServiceSelectionCell.swift */,
+				792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -650,10 +644,12 @@
 				5557E6721E1136B3008606A5 /* RequestManager.m in Sources */,
 				55CD12A11E1536EC00ABA7DB /* DashboardViewController.swift in Sources */,
 				553DA2D71E13CB6C001A674D /* SignUpViewController.swift in Sources */,
+				792899AD1E24AC1B00D3A8FD /* SelectDateVC.swift in Sources */,
 				79687A591E1ED364004B840E /* StylistProfileVC.swift in Sources */,
 				D1BFBAE61DF931C7003CC5E7 /* ProfileViewController.swift in Sources */,
 				5528AAC31E16870000536BCA /* DesiredLookCell.swift in Sources */,
 				5557E6741E1136B3008606A5 /* UITextField+Shake.m in Sources */,
+				792899AF1E24BAC700D3A8FD /* TimeSelectionCell.swift in Sources */,
 				D1CD22591DE53C5C00D65E2F /* galleryCollectionViewCell.swift in Sources */,
 				799882E51E1F675B00BE1906 /* ServiceSelectionCell.swift in Sources */,
 				553DA2EA1E13DF4D001A674D /* DashboardImageBoardView.swift in Sources */,
