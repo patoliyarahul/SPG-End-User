@@ -270,7 +270,7 @@ struct Time {
         }
     }
     
-    var timeIntervals: [TimeInterval]{
+    var timeIntervals: [TimeInterval] {
         return Array(stride(from: start, to: end, by: interval))
     }
 }

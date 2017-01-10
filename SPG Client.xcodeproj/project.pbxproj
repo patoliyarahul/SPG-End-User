@@ -30,6 +30,7 @@
 		55CD12A61E1545D100ABA7DB /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */; };
 		792899AD1E24AC1B00D3A8FD /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899AC1E24AC1B00D3A8FD /* SelectDateVC.swift */; };
 		792899AF1E24BAC700D3A8FD /* TimeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */; };
+		792899B11E24F2C600D3A8FD /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B01E24F2C500D3A8FD /* SelfieViewController.swift */; };
 		7946B33A1DA3BCEE004C5333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7946B3391DA3BCEE004C5333 /* AppDelegate.swift */; };
 		7946B33F1DA3BCEE004C5333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7946B33D1DA3BCEE004C5333 /* Main.storyboard */; };
 		7946B3411DA3BCEE004C5333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7946B3401DA3BCEE004C5333 /* Assets.xcassets */; };
@@ -114,6 +115,7 @@
 		55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
 		792899AC1E24AC1B00D3A8FD /* SelectDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectDateVC.swift; path = ../../../../SelectDateVC.swift; sourceTree = "<group>"; };
 		792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectionCell.swift; sourceTree = "<group>"; };
+		792899B01E24F2C500D3A8FD /* SelfieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
 		7946B3361DA3BCEE004C5333 /* SPG Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SPG Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7946B3391DA3BCEE004C5333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7946B33E1DA3BCEE004C5333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				799882E61E1FAA6700BE1906 /* GalleryViewController.swift */,
 				799882E81E1FAC7800BE1906 /* ServicesListVC.swift */,
 				792899AC1E24AC1B00D3A8FD /* SelectDateVC.swift */,
+				792899B01E24F2C500D3A8FD /* SelfieViewController.swift */,
 			);
 			path = Stylist;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				7979C50A1E20BC8900C708D7 /* PinkSectionHeaderView.swift in Sources */,
 				5528AAC21E16870000536BCA /* AppointmentServiceCell.swift in Sources */,
 				7979C5051E20BC8900C708D7 /* CodeCellView.swift in Sources */,
+				792899B11E24F2C600D3A8FD /* SelfieViewController.swift in Sources */,
 				D190C0A21DD5399F00A01FC5 /* DiscoverScreenViewController.swift in Sources */,
 				D1CD22401DE3E2C200D65E2F /* AnimationClass.swift in Sources */,
 				799882E71E1FAA6900BE1906 /* GalleryViewController.swift in Sources */,
