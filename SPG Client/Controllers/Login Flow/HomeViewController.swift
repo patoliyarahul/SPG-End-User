@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
     @IBOutlet var logoImageView: UIImageView!
     @IBOutlet var btnTermsAndConditions: UIButton!
     
+    @IBOutlet weak var splashView: UIView!
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -24,17 +26,24 @@ class HomeViewController: UIViewController {
         
         btnLogin.layer.borderColor = UIColor.white.cgColor
         btnSignUP.layer.borderColor = UIColor.white.cgColor
+        
+        splashView.alpha = 1;
+        self.view.bringSubview(toFront: splashView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if userDefault.bool(forKey: Constant.userIsLogedIn) {
             self.performSegue(withIdentifier: InitialSegue.homeToDashboardSegue, sender: self)
         } else {
-            imageView.alpha = 1.0
-            logoImageView.alpha = 0.0
-            btnLogin.alpha = 0.0
-            btnSignUP.alpha = 0.0
-            btnTermsAndConditions.alpha = 0.0
+            UIView.animate(withDuration: 0.5, animations: {
+                self.splashView.alpha = 0
+            }, completion: { (value: Bool) in
+                self.imageView.alpha = 1.0
+                self.logoImageView.alpha = 0.0
+                self.btnLogin.alpha = 0.0
+                self.btnSignUP.alpha = 0.0
+                self.btnTermsAndConditions.alpha = 0.0
+            })
         }
     }
     
@@ -50,6 +59,9 @@ class HomeViewController: UIViewController {
     
     //MARK: - UINavigation Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        splashView.alpha = 0
+        
         if segue.identifier == InitialSegue.loginSegue {
             let nv = segue.destination as! UINavigationController
             let dv = nv.viewControllers[0] as! LoginViewController

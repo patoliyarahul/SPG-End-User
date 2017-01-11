@@ -36,8 +36,9 @@ class AdditionalInfoVC: UIViewController {
     //MARK: - UIButton Action Methods
     
     @IBAction func btnNext_Click(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: StylistSegue.reviewSegue, sender: self)
     }
+    
     
     //MARK: - MemoryWarning
     override func didReceiveMemoryWarning() {
@@ -50,7 +51,9 @@ class AdditionalInfoVC: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == StylistSegue.reviewSegue {
+            
+        }
     }
 }
 
@@ -89,12 +92,4 @@ extension AdditionalInfoVC: UICollectionViewDelegate, UICollectionViewDataSource
             return cell
         }
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        
-//        if desiredLookArray.count > 0 {
-//            //            selectedImageUrl = ImageDirectory.desiredLookDir + "\(desiredLookArray[indexPath.row])"
-//            //            self.performSegue(withIdentifier: "imageSegue", sender: self)
-//        }
-//    }
 }

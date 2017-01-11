@@ -185,3 +185,5 @@ extension StylistsViewController: RequestManagerDelegate {
         Utils.HideHud()
     }
 }
+
+

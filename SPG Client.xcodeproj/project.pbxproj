@@ -32,6 +32,7 @@
 		792899B11E24F2C600D3A8FD /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B01E24F2C500D3A8FD /* SelfieViewController.swift */; };
 		792899B31E25018A00D3A8FD /* AdditionalInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B21E25018A00D3A8FD /* AdditionalInfoVC.swift */; };
 		792899B51E250C5A00D3A8FD /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B41E250C5A00D3A8FD /* SelectDateVC.swift */; };
+		792899B71E2513CA00D3A8FD /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B61E2513CA00D3A8FD /* ReviewViewController.swift */; };
 		7946B33A1DA3BCEE004C5333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7946B3391DA3BCEE004C5333 /* AppDelegate.swift */; };
 		7946B33F1DA3BCEE004C5333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7946B33D1DA3BCEE004C5333 /* Main.storyboard */; };
 		7946B3411DA3BCEE004C5333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7946B3401DA3BCEE004C5333 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		799882E51E1F675B00BE1906 /* ServiceSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799882E41E1F675B00BE1906 /* ServiceSelectionCell.swift */; };
 		799882E71E1FAA6900BE1906 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799882E61E1FAA6700BE1906 /* GalleryViewController.swift */; };
 		799882E91E1FAC7800BE1906 /* ServicesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799882E81E1FAC7800BE1906 /* ServicesListVC.swift */; };
+		799FBD151E261913002B1AA9 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799FBD141E261913002B1AA9 /* DiscoverViewController.swift */; };
 		79A91E891E1FE37200AA293E /* Gotham-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79A91E7D1E1FE37200AA293E /* Gotham-Black.ttf */; };
 		79A91E8B1E1FE37200AA293E /* Gotham-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79A91E7F1E1FE37200AA293E /* Gotham-Bold.ttf */; };
 		79A91E8F1E1FE37200AA293E /* Gotham-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79A91E831E1FE37200AA293E /* Gotham-Light.ttf */; };
@@ -118,6 +120,7 @@
 		792899B01E24F2C500D3A8FD /* SelfieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
 		792899B21E25018A00D3A8FD /* AdditionalInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalInfoVC.swift; sourceTree = "<group>"; };
 		792899B41E250C5A00D3A8FD /* SelectDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateVC.swift; sourceTree = "<group>"; };
+		792899B61E2513CA00D3A8FD /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		7946B3361DA3BCEE004C5333 /* SPG Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SPG Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7946B3391DA3BCEE004C5333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7946B33E1DA3BCEE004C5333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		799882E41E1F675B00BE1906 /* ServiceSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceSelectionCell.swift; path = Views/ServiceSelectionCell.swift; sourceTree = "<group>"; };
 		799882E61E1FAA6700BE1906 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		799882E81E1FAC7800BE1906 /* ServicesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesListVC.swift; sourceTree = "<group>"; };
+		799FBD141E261913002B1AA9 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		79A91E7D1E1FE37200AA293E /* Gotham-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.ttf"; sourceTree = "<group>"; };
 		79A91E7F1E1FE37200AA293E /* Gotham-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.ttf"; sourceTree = "<group>"; };
 		79A91E811E1FE37200AA293E /* Gotham-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.ttf"; sourceTree = "<group>"; };
@@ -336,6 +340,7 @@
 				799882E81E1FAC7800BE1906 /* ServicesListVC.swift */,
 				792899B01E24F2C500D3A8FD /* SelfieViewController.swift */,
 				792899B21E25018A00D3A8FD /* AdditionalInfoVC.swift */,
+				792899B61E2513CA00D3A8FD /* ReviewViewController.swift */,
 			);
 			path = Stylist;
 			sourceTree = "<group>";
@@ -422,6 +427,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		799FBD131E26158F002B1AA9 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				799FBD141E261913002B1AA9 /* DiscoverViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
 		79A91E7C1E1FE37200AA293E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +451,7 @@
 		79FBB9EE1DA3D29600045725 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				799FBD131E26158F002B1AA9 /* Discover */,
 				553DA2D01E13CB3E001A674D /* Login Flow */,
 				55CD129F1E1536EC00ABA7DB /* Dashboard */,
 				55CD12A21E1536FC00ABA7DB /* Booking */,
@@ -642,6 +656,7 @@
 			files = (
 				5557E6921E114006008606A5 /* Constant.swift in Sources */,
 				7979C50C1E20BC8900C708D7 /* WhiteSectionHeaderView.swift in Sources */,
+				792899B71E2513CA00D3A8FD /* ReviewViewController.swift in Sources */,
 				79687A571E1E9C02004B840E /* StylistsViewController.swift in Sources */,
 				D17D7E921DE966FE00250298 /* LookbookPictureDisplayViewController.swift in Sources */,
 				D164FD891DD2D6C70043CF03 /* MyLookBooksViewController.swift in Sources */,
@@ -686,6 +701,7 @@
 				D14310761DDF5CC3001F542C /* CustomMKPointAnnotation.swift in Sources */,
 				553DA2D61E13CB6C001A674D /* LoginViewController.swift in Sources */,
 				D17D0CA21DD3FACE00E6CD67 /* bookingsTableViewCell.swift in Sources */,
+				799FBD151E261913002B1AA9 /* DiscoverViewController.swift in Sources */,
 				7979C5081E20BC8900C708D7 /* CodePinkSectionHeaderView.swift in Sources */,
 				5557E6731E1136B3008606A5 /* TextFieldValidator.m in Sources */,
 				D147CFB51DE11F5B00964AFC /* PictureDisplayViewController.swift in Sources */,

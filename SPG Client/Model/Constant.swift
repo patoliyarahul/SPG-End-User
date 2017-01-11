@@ -42,6 +42,9 @@ struct Api {
     
     //
     
+    //Dicsover Services
+    static let getDiscoverImages        =   "get_discover_end_user_gallery_image_by_business_id.php"
+    
     static let updateStylistInfo        =   "update_stylist_user_personal_detail.php"
     static let updateBusinessInfo       =   "update_stylist_user_business_detail.php"
     
@@ -69,6 +72,7 @@ struct Api {
     
     static let addManualAppointment     =   "add_stylist_user_manual_appointment.php"
     static let getStylistProfile        =   "get_end_user_stylist_profile.php"
+    
 }
 
 struct InitialSegue {
@@ -84,6 +88,7 @@ struct StylistSegue {
     static let chooseDateSegue          =   "selectDateSegue"
     static let selfieSegue              =   "selfieSegue"
     static let additionalSegue          =   "additionalInfoSegue"
+    static let reviewSegue              =   "reviewSegue"
 }
 
 struct Segue {

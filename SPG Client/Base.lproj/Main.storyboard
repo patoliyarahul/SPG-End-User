@@ -555,6 +555,19 @@ a soft wash to bright and bold.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSh-tg-pWp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="faH-33-cjk">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1334"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="faH-33-cjk" secondAttribute="trailing" id="eSW-g2-AqU"/>
+                                    <constraint firstItem="faH-33-cjk" firstAttribute="leading" secondItem="eSh-tg-pWp" secondAttribute="leading" id="jLT-kt-Qs3"/>
+                                    <constraint firstItem="faH-33-cjk" firstAttribute="top" secondItem="eSh-tg-pWp" secondAttribute="top" id="s3q-dO-vrW"/>
+                                </constraints>
+                            </view>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="collage" translatesAutoresizingMaskIntoConstraints="NO" id="r8U-Ug-9yh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
@@ -631,6 +644,7 @@ a soft wash to bright and bold.</string>
                             <constraint firstItem="cM6-qd-YRp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4nx-cg-UyE"/>
                             <constraint firstAttribute="bottom" secondItem="cM6-qd-YRp" secondAttribute="bottom" id="6DS-n5-rxl"/>
                             <constraint firstItem="3zi-Le-GFv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EXy-Gc-pXl"/>
+                            <constraint firstItem="eSh-tg-pWp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Heh-fI-BGL"/>
                             <constraint firstItem="2Xu-jd-lkI" firstAttribute="bottom" secondItem="0e0-gi-hFu" secondAttribute="bottom" id="L6B-CU-89e"/>
                             <constraint firstAttribute="trailing" secondItem="r8U-Ug-9yh" secondAttribute="trailing" id="LS9-Ih-oJs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3zi-Le-GFv" secondAttribute="bottom" constant="29" id="Pds-JI-bp7"/>
@@ -638,9 +652,12 @@ a soft wash to bright and bold.</string>
                             <constraint firstItem="r8U-Ug-9yh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VOh-3s-mjy"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="r8U-Ug-9yh" secondAttribute="bottom" id="b5L-kn-kLh"/>
                             <constraint firstItem="3zi-Le-GFv" firstAttribute="top" secondItem="0e0-gi-hFu" secondAttribute="bottom" constant="15" id="eY1-OE-hDo"/>
+                            <constraint firstAttribute="trailing" secondItem="eSh-tg-pWp" secondAttribute="trailing" id="gMp-sJ-W1I"/>
                             <constraint firstItem="EAz-AV-9Wd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hG5-uf-W2z"/>
                             <constraint firstItem="0e0-gi-hFu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.5" id="obg-3S-pP3"/>
+                            <constraint firstItem="eSh-tg-pWp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ssh-JO-dLE"/>
                             <constraint firstItem="0e0-gi-hFu" firstAttribute="width" secondItem="2Xu-jd-lkI" secondAttribute="width" id="stK-Rj-J5v"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eSh-tg-pWp" secondAttribute="bottom" id="uAe-Mk-1hD"/>
                             <constraint firstItem="2Xu-jd-lkI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.44" id="vPn-4y-S2x"/>
                             <constraint firstAttribute="trailing" secondItem="cM6-qd-YRp" secondAttribute="trailing" id="vQW-iI-dXR"/>
                             <constraint firstItem="EAz-AV-9Wd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ytg-JY-Z9L"/>
@@ -654,6 +671,7 @@ a soft wash to bright and bold.</string>
                         <outlet property="btnTermsAndConditions" destination="3zi-Le-GFv" id="1Bd-ev-BnW"/>
                         <outlet property="imageView" destination="r8U-Ug-9yh" id="GIF-rC-N13"/>
                         <outlet property="logoImageView" destination="cM6-qd-YRp" id="VCX-ri-VpL"/>
+                        <outlet property="splashView" destination="eSh-tg-pWp" id="ARR-EY-uYh"/>
                         <segue destination="YuA-0Q-Urj" kind="show" identifier="homeSegue" id="O4q-fB-Ghr"/>
                     </connections>
                 </viewController>
@@ -1506,38 +1524,38 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="Katie Summer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x58-8M-wI8">
-                                                    <rect key="frame" x="77" y="25" width="192" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" misplaced="YES" text="Katie Summer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x58-8M-wI8">
+                                                    <rect key="frame" x="77" y="25" width="192" height="19"/>
                                                     <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="16"/>
                                                     <color key="textColor" red="0.36078431372549019" green="0.3411764705882353" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="3017 Ocean Park Blvd. Santa Monica, CA 90405" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y79-1g-Wfy">
-                                                    <rect key="frame" x="77" y="44" width="278" height="10"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="3017 Ocean Park Blvd. Santa Monica, CA 90405" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y79-1g-Wfy">
+                                                    <rect key="frame" x="77" y="48" width="278" height="13"/>
                                                     <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="11"/>
                                                     <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="HAIR &amp; SALON SERVICES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3N-Qt-86Y">
-                                                    <rect key="frame" x="77" y="60" width="278" height="8"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" misplaced="YES" text="HAIR &amp; SALON SERVICES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3N-Qt-86Y">
+                                                    <rect key="frame" x="77" y="67" width="278" height="1"/>
                                                     <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="8"/>
                                                     <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="104" contentMode="center" image="starEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="Fe2-Zg-enZ">
-                                                    <rect key="frame" x="344" y="28" width="11" height="10"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="104" contentMode="center" misplaced="YES" image="starEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="Fe2-Zg-enZ">
+                                                    <rect key="frame" x="344" y="30" width="11" height="10"/>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="103" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-3b-KXE">
-                                                    <rect key="frame" x="329" y="28" width="11" height="10"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="103" contentMode="center" misplaced="YES" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-3b-KXE">
+                                                    <rect key="frame" x="329" y="30" width="11" height="10"/>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="102" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-cz-7Lf">
-                                                    <rect key="frame" x="314" y="28" width="11" height="10"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="102" contentMode="center" misplaced="YES" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-cz-7Lf">
+                                                    <rect key="frame" x="314" y="30" width="11" height="10"/>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="5YN-50-0xj">
-                                                    <rect key="frame" x="299" y="28" width="11" height="10"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" misplaced="YES" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="5YN-50-0xj">
+                                                    <rect key="frame" x="299" y="30" width="11" height="10"/>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="kp8-kv-EMf">
-                                                    <rect key="frame" x="284" y="28" width="11" height="10"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" misplaced="YES" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="kp8-kv-EMf">
+                                                    <rect key="frame" x="284" y="30" width="11" height="10"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -1754,7 +1772,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNR-sc-KsG">
-                                                <rect key="frame" x="0.0" y="222" width="187.5" height="55"/>
+                                                <rect key="frame" x="0.0" y="222" width="188" height="55"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="Ub3-Z0-A4m"/>
                                                 </constraints>
@@ -1767,7 +1785,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUG-ym-k5d">
-                                                <rect key="frame" x="187.5" y="222" width="187.5" height="55"/>
+                                                <rect key="frame" x="188" y="222" width="187" height="55"/>
                                                 <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="titleEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="-3"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="12" maxY="0.0"/>
@@ -2609,120 +2627,188 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
             <point key="canvasLocation" x="-1972" y="67"/>
         </scene>
         <!--Discover-->
-        <scene sceneID="hcv-fp-bgJ">
+        <scene sceneID="H9h-bH-0cC">
             <objects>
-                <viewController id="h9b-eM-afo" userLabel="Discover" customClass="DiscoverScreenViewController" customModule="SPG_Client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Mfa-cK-GVQ" customClass="DiscoverViewController" customModule="SPG_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="b71-2W-evX"/>
-                        <viewControllerLayoutGuide type="bottom" id="2V8-ZK-5G4"/>
+                        <viewControllerLayoutGuide type="top" id="raj-fx-N6C"/>
+                        <viewControllerLayoutGuide type="bottom" id="A8d-V7-KoG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LId-bJ-4Vc">
+                    <view key="view" contentMode="scaleToFill" id="2XY-A6-dqh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg5-nR-rtG">
-                                <rect key="frame" x="0.0" y="132" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="za4-bN-9D7">
+                                <rect key="frame" x="0.0" y="64" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="SRg-i1-vMY"/>
+                                </constraints>
+                                <color key="tintColor" red="0.36470588235294116" green="0.039215686274509803" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="SPRAY">
+                                            <attributes>
+                                                <font key="NSFont" size="14" name="GothamMedium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="15"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Hair &amp; Training">
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="GothamBook"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="topHeaderButton_Click:" destination="Mfa-cK-GVQ" eventType="touchUpInside" id="5pD-y1-hpb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cwd-T0-JwZ">
+                                <rect key="frame" x="125" y="64" width="125" height="50"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="PAINT">
+                                            <attributes>
+                                                <color key="NSColor" red="0.36078431372549019" green="0.3411764705882353" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="GothamMedium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="15"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Makeup &amp; Nails">
+                                            <attributes>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="GothamBook"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="topHeaderButton_Click:" destination="Mfa-cK-GVQ" eventType="touchUpInside" id="koZ-Jx-pGb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uO1-pK-NWd">
+                                <rect key="frame" x="250" y="64" width="125" height="50"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="GO">
+                                            <attributes>
+                                                <color key="NSColor" red="0.36078431372549019" green="0.3411764705882353" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="GothamMedium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="15"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="All Things Skin">
+                                            <attributes>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="GothamBook"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="topHeaderButton_Click:" destination="Mfa-cK-GVQ" eventType="touchUpInside" id="lyD-Pg-8Iq"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="sSR-kE-Y2T">
+                                <rect key="frame" x="0.0" y="114" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
                             </searchBar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-GE-Nmm">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="21"/>
-                                    <color key="textColor" red="0.36078431372549019" green="0.3411764705882353" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Discover" id="pYh-CM-wLM"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pch-Pn-TCm">
-                                <rect key="frame" x="125" y="72" width="125" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_dis_paint">
-                                    <attributedString key="attributedTitle"/>
-                                </state>
-                                <state key="selected" image="icon_dis_paint_active"/>
-                                <connections>
-                                    <action selector="paintButton_Click:" destination="h9b-eM-afo" eventType="touchUpInside" id="KcI-cL-nVP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Er-nt-odV">
-                                <rect key="frame" x="250" y="72" width="125" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_dis_go">
-                                    <attributedString key="attributedTitle"/>
-                                </state>
-                                <connections>
-                                    <action selector="goButton_Click:" destination="h9b-eM-afo" eventType="touchUpInside" id="6Qj-Gb-F7u"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HUG-La-POk">
-                                <rect key="frame" x="0.0" y="72" width="125" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_dis_spray">
-                                    <attributedString key="attributedTitle"/>
-                                </state>
-                                <state key="selected" image="icon_dis_spray_active"/>
-                                <connections>
-                                    <action selector="sprayButton_Click:" destination="h9b-eM-afo" eventType="touchUpInside" id="zu6-EU-OI9"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7aA-fd-t4H">
-                                <rect key="frame" x="0.0" y="176" width="375" height="442"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wp2-zW-GXm">
+                                <rect key="frame" x="0.0" y="158" width="375" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yJ3-IG-TYF">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="vTN-EA-siq">
                                     <size key="itemSize" width="180" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="discoverCollectionViewCell" id="QY5-8p-l4X" userLabel="discoverCollectionViewCell" customClass="discoverCollectionViewCell" customModule="SPG_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="XQD-Nl-bEI" customClass="DesiredLookCell" customModule="SPG_Client" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="5" width="180" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYJ-Ud-Y2q">
-                                                    <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cHK-cO-FO9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="182" height="182"/>
-                                        <connections>
-                                            <outlet property="imageView" destination="lYJ-Ud-Y2q" id="YKw-9c-r1a"/>
-                                        </connections>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="cHK-cO-FO9" secondAttribute="bottom" id="9hy-S3-fst"/>
+                                            <constraint firstAttribute="trailing" secondItem="cHK-cO-FO9" secondAttribute="trailing" id="L6M-5j-STI"/>
+                                            <constraint firstItem="cHK-cO-FO9" firstAttribute="leading" secondItem="XQD-Nl-bEI" secondAttribute="leading" id="le0-1q-0sn"/>
+                                            <constraint firstItem="cHK-cO-FO9" firstAttribute="top" secondItem="XQD-Nl-bEI" secondAttribute="top" id="yFs-B4-XMg"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="h9b-eM-afo" id="xfa-DP-fFY"/>
-                                    <outlet property="delegate" destination="h9b-eM-afo" id="Eci-0u-1Jd"/>
+                                    <outlet property="dataSource" destination="Mfa-cK-GVQ" id="jOa-hs-BQG"/>
+                                    <outlet property="delegate" destination="Mfa-cK-GVQ" id="CSO-0l-5qG"/>
                                 </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A8d-V7-KoG" firstAttribute="top" secondItem="Wp2-zW-GXm" secondAttribute="bottom" id="0ON-EY-gYy"/>
+                            <constraint firstItem="Wp2-zW-GXm" firstAttribute="leading" secondItem="2XY-A6-dqh" secondAttribute="leading" id="2xu-MU-xTm"/>
+                            <constraint firstItem="cwd-T0-JwZ" firstAttribute="leading" secondItem="za4-bN-9D7" secondAttribute="trailing" id="53q-Tp-VDU"/>
+                            <constraint firstItem="uO1-pK-NWd" firstAttribute="top" secondItem="raj-fx-N6C" secondAttribute="bottom" id="5IX-gc-zQP"/>
+                            <constraint firstAttribute="trailing" secondItem="Wp2-zW-GXm" secondAttribute="trailing" id="BMG-TA-hN8"/>
+                            <constraint firstAttribute="trailing" secondItem="uO1-pK-NWd" secondAttribute="trailing" id="Ds3-dZ-C1U"/>
+                            <constraint firstItem="cwd-T0-JwZ" firstAttribute="width" secondItem="uO1-pK-NWd" secondAttribute="width" id="Dwb-a5-J7D"/>
+                            <constraint firstItem="cwd-T0-JwZ" firstAttribute="height" secondItem="za4-bN-9D7" secondAttribute="height" id="GaN-sk-bne"/>
+                            <constraint firstItem="za4-bN-9D7" firstAttribute="width" secondItem="cwd-T0-JwZ" secondAttribute="width" id="KnZ-tF-NeT"/>
+                            <constraint firstItem="Wp2-zW-GXm" firstAttribute="top" secondItem="sSR-kE-Y2T" secondAttribute="bottom" id="XEy-ue-JeQ"/>
+                            <constraint firstItem="uO1-pK-NWd" firstAttribute="leading" secondItem="cwd-T0-JwZ" secondAttribute="trailing" id="YQG-CT-rf2"/>
+                            <constraint firstAttribute="trailing" secondItem="sSR-kE-Y2T" secondAttribute="trailing" id="fYa-c8-WIr"/>
+                            <constraint firstItem="sSR-kE-Y2T" firstAttribute="leading" secondItem="2XY-A6-dqh" secondAttribute="leading" id="ot6-jf-VNJ"/>
+                            <constraint firstItem="za4-bN-9D7" firstAttribute="top" secondItem="raj-fx-N6C" secondAttribute="bottom" id="qbI-YN-TfX"/>
+                            <constraint firstItem="uO1-pK-NWd" firstAttribute="height" secondItem="cwd-T0-JwZ" secondAttribute="height" id="qlZ-dK-3eo"/>
+                            <constraint firstItem="sSR-kE-Y2T" firstAttribute="top" secondItem="uO1-pK-NWd" secondAttribute="bottom" id="vP0-10-jIy"/>
+                            <constraint firstItem="za4-bN-9D7" firstAttribute="leading" secondItem="2XY-A6-dqh" secondAttribute="leading" id="xMT-HJ-OTP"/>
+                            <constraint firstItem="cwd-T0-JwZ" firstAttribute="top" secondItem="raj-fx-N6C" secondAttribute="bottom" id="zEh-2h-mja"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5nC-76-2Kk"/>
+                    <navigationItem key="navigationItem" title="Discover" id="zKh-We-mHZ"/>
                     <connections>
-                        <outlet property="collectionView" destination="7aA-fd-t4H" id="B6X-Va-uBd"/>
-                        <outlet property="goButton" destination="9Er-nt-odV" id="bfb-Zj-1Mp"/>
-                        <outlet property="paintButton" destination="Pch-Pn-TCm" id="qWw-SG-RKq"/>
-                        <outlet property="sprayButton" destination="HUG-La-POk" id="IpA-ob-73k"/>
-                        <segue destination="dBd-3H-lX6" kind="presentation" identifier="showSinglePicture" id="eOj-iU-Ohy"/>
+                        <outlet property="myCollectionView" destination="Wp2-zW-GXm" id="6de-m2-irN"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yBA-SR-ehb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahx-0u-Tnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1972" y="-647"/>
+            <point key="canvasLocation" x="-1972" y="-647.22638680659679"/>
         </scene>
         <!--Picture Display View Controller-->
         <scene sceneID="zji-4D-XPz">
@@ -2815,7 +2901,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g9P-w9-BGw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="icon_nav_home" id="i3p-rt-Ty1" userLabel="Home"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9jY-Yk-wK4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9jY-Yk-wK4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3015,7 +3101,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3fy-gC-jlX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="VqU-Og-4ZG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="VqU-Og-4ZG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3034,7 +3120,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ihl-w2-xEK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U44-sg-N5w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U44-sg-N5w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3126,7 +3212,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Ht-9X-GSh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="EcD-mB-l7D">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EcD-mB-l7D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3147,7 +3233,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Mga-z0-RfO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FTu-f6-tPK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTu-f6-tPK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3166,13 +3252,13 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iw5-Yl-zs0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Discover" image="icon_nav_discover" id="MMx-Ty-Sup" userLabel="Discover"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fYg-qg-zAV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fYg-qg-zAV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="h9b-eM-afo" kind="relationship" relationship="rootViewController" id="c4j-xZ-8jb"/>
+                        <segue destination="Mfa-cK-GVQ" kind="relationship" relationship="rootViewController" id="aCj-vw-ZuV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0n-ph-B7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3185,7 +3271,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Qh-80-DOP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Local" image="icon_nav_local" id="pOg-mG-Re3" userLabel="Local"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fh3-i3-0kY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fh3-i3-0kY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3203,7 +3289,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AaD-Cy-HgZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ow8-IS-hqc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ow8-IS-hqc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -3225,7 +3311,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E41-rZ-znA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="F2l-mm-OJ9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="F2l-mm-OJ9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -3434,43 +3520,43 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-if-1NJ">
-                                        <rect key="frame" x="35" y="79" width="43.5" height="11"/>
+                                        <rect key="frame" x="35" y="79" width="44" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuR-cu-7Vf">
-                                        <rect key="frame" x="78.5" y="79" width="43.5" height="11"/>
+                                        <rect key="frame" x="79" y="79" width="43" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TUE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOC-9f-bG9">
-                                        <rect key="frame" x="122" y="79" width="43.5" height="11"/>
+                                        <rect key="frame" x="122" y="79" width="44" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHI-dV-bNb">
-                                        <rect key="frame" x="165.5" y="79" width="44" height="11"/>
+                                        <rect key="frame" x="166" y="79" width="44" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-Te-DOC">
-                                        <rect key="frame" x="209.5" y="79" width="43.5" height="11"/>
+                                        <rect key="frame" x="210" y="79" width="43" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FRI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHp-vQ-Cdp">
-                                        <rect key="frame" x="253" y="79" width="43.5" height="11"/>
+                                        <rect key="frame" x="253" y="79" width="44" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igw-w9-W5D">
-                                        <rect key="frame" x="296.5" y="79" width="43.5" height="11"/>
+                                        <rect key="frame" x="297" y="79" width="43" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3782,6 +3868,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Selfie" id="a5L-3m-ilI">
+                        <barButtonItem key="backBarButtonItem" title=" " id="uI9-0f-61x"/>
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="MaX-Uy-l2l">
                             <connections>
                                 <action selector="btnSkip_Click:" destination="FEM-6I-ijW" id="Ce9-dT-rBv"/>
@@ -4013,18 +4100,407 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Additional Info" id="Xpt-13-3gy">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="ePl-M9-5Oa"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="FJJ-BK-SIo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="ePl-M9-5Oa">
+                            <connections>
+                                <action selector="btnNext_Click:" destination="mkL-6U-rLb" id="z3w-05-iZd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnSkip" destination="ePl-M9-5Oa" id="1DH-7m-58J"/>
                         <outlet property="imgSelfie" destination="2BJ-9w-Kzj" id="bYb-P8-EcD"/>
                         <outlet property="myCollectionView" destination="ohj-2z-deZ" id="vWe-2Y-qXf"/>
                         <outlet property="txtNotes" destination="AVB-J5-Pxz" id="T4k-1F-X7F"/>
+                        <segue destination="sqm-cv-PHT" kind="show" identifier="reviewSegue" id="qMR-v5-zyy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZO-yU-3OF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4629.6000000000004" y="-1397.4512743628186"/>
+        </scene>
+        <!--Review-->
+        <scene sceneID="MEq-37-dvN">
+            <objects>
+                <viewController storyboardIdentifier="ReviewViewController" id="sqm-cv-PHT" customClass="ReviewViewController" customModule="SPG_Client" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w8K-ls-pk9"/>
+                        <viewControllerLayoutGuide type="bottom" id="aDx-wd-s9f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tV1-7D-xOo">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KK7-TW-QX1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahr-ax-I2T">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="661"/>
+                                        <subviews>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdU-q0-IO8">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mXF-XL-rqd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stylist_logo" translatesAutoresizingMaskIntoConstraints="NO" id="hbp-d7-OFb">
+                                                                <rect key="frame" x="23" y="16" width="67" height="67"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="hbp-d7-OFb" secondAttribute="height" multiplier="1:1" id="7gJ-jf-2TR"/>
+                                                                    <constraint firstAttribute="width" constant="67" id="n3P-b9-xvP"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heather Parker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oT-zb-jbm">
+                                                                <rect key="frame" x="100" y="28" width="216" height="16"/>
+                                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
+                                                                <color key="textColor" red="0.36862745099999999" green="0.25882352939999997" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1d-vP-MJM">
+                                                                <rect key="frame" x="100" y="47" width="213" height="25"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="1327 Ocean Avenue Suite A, Santa Monica, CA 90401">
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.36470588240000001" green="0.039215686270000001" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <font key="NSFont" size="11" name="GothamBook"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ps-x5-fZo">
+                                                                <rect key="frame" x="319" y="30" width="36" height="36"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="36" id="DpD-lV-LDw"/>
+                                                                    <constraint firstAttribute="height" constant="36" id="Zmw-Zn-Hd9"/>
+                                                                </constraints>
+                                                                <state key="normal" image="chat"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="8Ps-x5-fZo" firstAttribute="leading" secondItem="5oT-zb-jbm" secondAttribute="trailing" constant="3" id="CtS-xk-dgU"/>
+                                                            <constraint firstAttribute="height" constant="96" id="I39-mH-A2c"/>
+                                                            <constraint firstItem="8Ps-x5-fZo" firstAttribute="centerY" secondItem="mXF-XL-rqd" secondAttribute="centerY" id="Lza-CM-hVQ"/>
+                                                            <constraint firstItem="k1d-vP-MJM" firstAttribute="leading" secondItem="5oT-zb-jbm" secondAttribute="leading" id="MUC-bi-RRc"/>
+                                                            <constraint firstItem="hbp-d7-OFb" firstAttribute="top" secondItem="mXF-XL-rqd" secondAttribute="top" constant="16" id="N5V-qi-mea"/>
+                                                            <constraint firstItem="8Ps-x5-fZo" firstAttribute="leading" secondItem="k1d-vP-MJM" secondAttribute="trailing" constant="6" id="UjE-UX-Nmk"/>
+                                                            <constraint firstItem="k1d-vP-MJM" firstAttribute="top" secondItem="5oT-zb-jbm" secondAttribute="bottom" constant="3" id="cHa-7M-lea"/>
+                                                            <constraint firstItem="hbp-d7-OFb" firstAttribute="leading" secondItem="mXF-XL-rqd" secondAttribute="leading" constant="23" id="cOT-KU-43N"/>
+                                                            <constraint firstItem="5oT-zb-jbm" firstAttribute="leading" secondItem="hbp-d7-OFb" secondAttribute="trailing" constant="10" id="cPa-QR-LHM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="8Ps-x5-fZo" secondAttribute="trailing" constant="40" id="ckr-Eh-S9P">
+                                                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                                            </constraint>
+                                                            <constraint firstItem="5oT-zb-jbm" firstAttribute="top" secondItem="mXF-XL-rqd" secondAttribute="top" constant="28" id="yDY-tE-TJk"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calander" translatesAutoresizingMaskIntoConstraints="NO" id="Qwi-fF-ASQ">
+                                                        <rect key="frame" x="22" y="126" width="17" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="17" id="DeK-yi-EsZ"/>
+                                                            <constraint firstAttribute="height" constant="17" id="pvE-Ma-SVj"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday at 5:00 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg7-IW-CrC">
+                                                        <rect key="frame" x="22" y="154" width="331" height="19"/>
+                                                        <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="21"/>
+                                                        <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 28, 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOP-iS-Te5">
+                                                        <rect key="frame" x="22" y="181" width="331" height="14"/>
+                                                        <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Qwi-fF-ASQ" firstAttribute="leading" secondItem="FdU-q0-IO8" secondAttribute="leading" constant="22" id="4UZ-iY-VXT"/>
+                                                    <constraint firstItem="eg7-IW-CrC" firstAttribute="top" secondItem="Qwi-fF-ASQ" secondAttribute="bottom" constant="11" id="5p0-XY-nDB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eg7-IW-CrC" secondAttribute="trailing" constant="22" id="7Gs-Rg-dCa"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mXF-XL-rqd" secondAttribute="trailing" id="GaG-aL-Ncb"/>
+                                                    <constraint firstItem="mXF-XL-rqd" firstAttribute="leading" secondItem="FdU-q0-IO8" secondAttribute="leading" id="JTQ-Eo-2eh"/>
+                                                    <constraint firstItem="Qwi-fF-ASQ" firstAttribute="top" secondItem="mXF-XL-rqd" secondAttribute="bottom" constant="30" id="XEh-5D-Un3"/>
+                                                    <constraint firstItem="SOP-iS-Te5" firstAttribute="leading" secondItem="FdU-q0-IO8" secondAttribute="leading" constant="22" id="Zeh-6K-8D7"/>
+                                                    <constraint firstItem="mXF-XL-rqd" firstAttribute="top" secondItem="FdU-q0-IO8" secondAttribute="top" id="cOO-Ro-A5E"/>
+                                                    <constraint firstItem="SOP-iS-Te5" firstAttribute="top" secondItem="eg7-IW-CrC" secondAttribute="bottom" constant="8" id="peA-dV-O3G"/>
+                                                    <constraint firstAttribute="bottom" secondItem="SOP-iS-Te5" secondAttribute="bottom" id="pyT-5b-kgp"/>
+                                                    <constraint firstItem="eg7-IW-CrC" firstAttribute="leading" secondItem="FdU-q0-IO8" secondAttribute="leading" constant="22" id="wvf-p6-tOL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SOP-iS-Te5" secondAttribute="trailing" constant="22" id="z3H-vl-hfJ"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SERVICES REQUESTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZe-S1-SEg">
+                                                <rect key="frame" x="20" y="235" width="119" height="9"/>
+                                                <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
+                                                <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gsu-mc-bi2">
+                                                <rect key="frame" x="18" y="252" width="339" height="1"/>
+                                                <color key="backgroundColor" red="0.87450980389999999" green="0.87843137250000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="kuG-zy-d3C"/>
+                                                </constraints>
+                                            </view>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n83-H1-dDi">
+                                                <rect key="frame" x="0.0" y="261" width="375" height="20"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Agp-cG-jCq"/>
+                                                </constraints>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ShK-7D-rlr" customClass="AppointmentServiceCell" customModule="SPG_Client" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ShK-7D-rlr" id="brT-Ia-53b">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Baliyag" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zg5-7h-tld">
+                                                                    <rect key="frame" x="20" y="8" width="286" height="14"/>
+                                                                    <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="14"/>
+                                                                    <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="24 min" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULf-EE-9Lz">
+                                                                    <rect key="frame" x="311" y="9" width="49" height="13"/>
+                                                                    <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="14"/>
+                                                                    <color key="textColor" red="0.39607843139999999" green="0.3803921569" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="Zg5-7h-tld" secondAttribute="bottom" constant="8" id="A1c-0E-TFo"/>
+                                                                <constraint firstItem="Zg5-7h-tld" firstAttribute="top" secondItem="brT-Ia-53b" secondAttribute="top" constant="8" id="DVr-Z6-j80"/>
+                                                                <constraint firstItem="ULf-EE-9Lz" firstAttribute="centerY" secondItem="Zg5-7h-tld" secondAttribute="centerY" id="I4A-Rz-tv8"/>
+                                                                <constraint firstItem="Zg5-7h-tld" firstAttribute="leading" secondItem="brT-Ia-53b" secondAttribute="leading" constant="20" id="PZK-aC-ipk"/>
+                                                                <constraint firstItem="ULf-EE-9Lz" firstAttribute="leading" secondItem="Zg5-7h-tld" secondAttribute="trailing" constant="5" id="gOg-Pc-Aql"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ULf-EE-9Lz" secondAttribute="trailing" constant="15" id="yQu-Jz-HRW"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="lblServiceName" destination="Zg5-7h-tld" id="652-lE-oRU"/>
+                                                            <outlet property="lblTime" destination="ULf-EE-9Lz" id="ze2-YT-b6o"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="sqm-cv-PHT" id="z0H-VJ-JT0"/>
+                                                    <outlet property="delegate" destination="sqm-cv-PHT" id="RXz-St-YnS"/>
+                                                </connections>
+                                            </tableView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESIRED LOOK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLr-t4-7Tj">
+                                                <rect key="frame" x="20" y="313" width="79" height="9"/>
+                                                <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
+                                                <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-up-Nom">
+                                                <rect key="frame" x="18" y="330" width="339" height="1"/>
+                                                <color key="backgroundColor" red="0.87450980389999999" green="0.87843137250000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="3gd-sD-sLn"/>
+                                                </constraints>
+                                            </view>
+                                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4fb-io-nQh">
+                                                <rect key="frame" x="0.0" y="341" width="375" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="tX6-RV-PKL"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bD3-Ju-g7p">
+                                                    <size key="itemSize" width="105" height="105"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NotAvailableCell" id="uDO-9D-WUs" customClass="DesiredLookCell" customModule="SPG_Client" customModuleProvider="target">
+                                                        <rect key="frame" x="12" y="12" width="105" height="105"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uCm-LS-hTH">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                                    <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDx-O3-ooA">
+                                                                    <rect key="frame" x="12" y="47" width="81" height="11"/>
+                                                                    <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
+                                                                    <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </view>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="cDx-O3-ooA" firstAttribute="centerY" secondItem="uDO-9D-WUs" secondAttribute="centerY" id="1a1-RU-2xQ"/>
+                                                            <constraint firstItem="uCm-LS-hTH" firstAttribute="top" secondItem="uDO-9D-WUs" secondAttribute="top" id="Agq-HM-jXK"/>
+                                                            <constraint firstAttribute="bottom" secondItem="uCm-LS-hTH" secondAttribute="bottom" id="LR1-81-t3w"/>
+                                                            <constraint firstItem="cDx-O3-ooA" firstAttribute="centerX" secondItem="uDO-9D-WUs" secondAttribute="centerX" id="NtP-dU-zGQ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="uCm-LS-hTH" secondAttribute="trailing" id="Wrz-kR-R36"/>
+                                                            <constraint firstItem="uCm-LS-hTH" firstAttribute="leading" secondItem="uDO-9D-WUs" secondAttribute="leading" id="yF1-K7-4NQ"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="desiredLookImage" destination="uCm-LS-hTH" id="Bpn-Wr-a6J"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="nnl-LP-7Bf" customClass="DesiredLookCell" customModule="SPG_Client" customModuleProvider="target">
+                                                        <rect key="frame" x="127" y="12" width="105" height="105"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VxC-Va-Kuc">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                                    <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </view>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="VxC-Va-Kuc" firstAttribute="leading" secondItem="nnl-LP-7Bf" secondAttribute="leading" id="c2u-lp-iCV"/>
+                                                            <constraint firstAttribute="bottom" secondItem="VxC-Va-Kuc" secondAttribute="bottom" id="cH8-NH-u3M"/>
+                                                            <constraint firstItem="VxC-Va-Kuc" firstAttribute="top" secondItem="nnl-LP-7Bf" secondAttribute="top" id="jdF-uQ-bjg"/>
+                                                            <constraint firstAttribute="trailing" secondItem="VxC-Va-Kuc" secondAttribute="trailing" id="xcA-Ms-TwJ"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="desiredLookImage" destination="VxC-Va-Kuc" id="Ag5-qo-OQM"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="sqm-cv-PHT" id="6aD-SD-mxo"/>
+                                                    <outlet property="delegate" destination="sqm-cv-PHT" id="lkn-9e-m8a"/>
+                                                </connections>
+                                            </collectionView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccz-tJ-EER">
+                                                <rect key="frame" x="20" y="501" width="36" height="9"/>
+                                                <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
+                                                <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ME-VC-cVO">
+                                                <rect key="frame" x="18" y="518" width="339" height="1"/>
+                                                <color key="backgroundColor" red="0.87450980389999999" green="0.87843137250000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="AXe-I8-22a"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjN-7L-pf1">
+                                                <rect key="frame" x="0.0" y="525" width="375" height="22"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ui6-wH-PSl">
+                                                        <rect key="frame" x="20" y="0.0" width="335" height="22"/>
+                                                        <string key="text">Please amplify the hue to vary from
+a soft wash to bright and bold.</string>
+                                                        <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
+                                                        <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Ui6-wH-PSl" firstAttribute="leading" secondItem="PjN-7L-pf1" secondAttribute="leading" constant="20" id="DD8-r2-FQa"/>
+                                                    <constraint firstItem="Ui6-wH-PSl" firstAttribute="top" secondItem="PjN-7L-pf1" secondAttribute="top" id="H7R-2g-VyO"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ui6-wH-PSl" secondAttribute="bottom" id="Opf-qG-oPX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ui6-wH-PSl" secondAttribute="trailing" constant="20" id="fki-UH-HWI"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry4-t5-lNp">
+                                                <rect key="frame" x="18" y="589" width="339" height="50"/>
+                                                <color key="backgroundColor" red="0.36470588235294116" green="0.039215686274509803" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="fsm-tc-sok"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="16"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="SEND REQUEST"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnSendRequest_Click:" destination="sqm-cv-PHT" eventType="touchUpInside" id="quS-GX-AlP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="FdU-q0-IO8" firstAttribute="top" secondItem="ahr-ax-I2T" secondAttribute="top" id="4Xs-iy-qPh"/>
+                                            <constraint firstItem="PjN-7L-pf1" firstAttribute="leading" secondItem="ahr-ax-I2T" secondAttribute="leading" id="65F-9F-CVE"/>
+                                            <constraint firstItem="PLr-t4-7Tj" firstAttribute="top" secondItem="n83-H1-dDi" secondAttribute="bottom" constant="32" id="CGl-bz-b6h"/>
+                                            <constraint firstItem="mTH-up-Nom" firstAttribute="top" secondItem="PLr-t4-7Tj" secondAttribute="bottom" constant="8" id="Dre-Fb-EUR"/>
+                                            <constraint firstItem="pZe-S1-SEg" firstAttribute="leading" secondItem="ahr-ax-I2T" secondAttribute="leading" constant="20" id="Jpc-J8-hVW"/>
+                                            <constraint firstItem="n83-H1-dDi" firstAttribute="top" secondItem="Gsu-mc-bi2" secondAttribute="bottom" constant="8" id="L88-sm-Igo"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ry4-t5-lNp" secondAttribute="bottom" constant="22" id="LV2-Wd-WJ7"/>
+                                            <constraint firstItem="PLr-t4-7Tj" firstAttribute="leading" secondItem="ahr-ax-I2T" secondAttribute="leading" constant="20" id="M70-0E-cWR"/>
+                                            <constraint firstItem="7ME-VC-cVO" firstAttribute="top" secondItem="ccz-tJ-EER" secondAttribute="bottom" constant="8" id="O1g-3q-ufv"/>
+                                            <constraint firstItem="ccz-tJ-EER" firstAttribute="top" secondItem="4fb-io-nQh" secondAttribute="bottom" constant="32" id="OFD-yW-mXs"/>
+                                            <constraint firstItem="Gsu-mc-bi2" firstAttribute="top" secondItem="pZe-S1-SEg" secondAttribute="bottom" constant="8" id="R12-Hy-M4y"/>
+                                            <constraint firstItem="Ry4-t5-lNp" firstAttribute="trailing" secondItem="7ME-VC-cVO" secondAttribute="trailing" id="Skw-v3-FTn"/>
+                                            <constraint firstItem="PjN-7L-pf1" firstAttribute="top" secondItem="7ME-VC-cVO" secondAttribute="bottom" constant="6" id="Suc-Jv-kl0"/>
+                                            <constraint firstItem="mTH-up-Nom" firstAttribute="leading" secondItem="ahr-ax-I2T" secondAttribute="leading" constant="18" id="U7h-CY-z05"/>
+                                            <constraint firstItem="Ry4-t5-lNp" firstAttribute="top" secondItem="Ui6-wH-PSl" secondAttribute="bottom" constant="42" id="UuI-3F-YQZ"/>
+                                            <constraint firstItem="pZe-S1-SEg" firstAttribute="top" secondItem="FdU-q0-IO8" secondAttribute="bottom" constant="40" id="WQG-KZ-ohs"/>
+                                            <constraint firstItem="n83-H1-dDi" firstAttribute="leading" secondItem="ahr-ax-I2T" secondAttribute="leading" id="WaA-4O-lAO"/>
+                                            <constraint firstItem="7ME-VC-cVO" firstAttribute="leading" secondItem="Gsu-mc-bi2" secondAttribute="leading" id="XTo-f4-cE8"/>
+                                            <constraint firstAttribute="trailing" secondItem="PjN-7L-pf1" secondAttribute="trailing" id="YAh-V6-lHh"/>
+                                            <constraint firstAttribute="trailing" secondItem="4fb-io-nQh" secondAttribute="trailing" id="gEj-b9-rZk"/>
+                                            <constraint firstItem="4fb-io-nQh" firstAttribute="leading" secondItem="ahr-ax-I2T" secondAttribute="leading" id="h47-07-0j8"/>
+                                            <constraint firstAttribute="trailing" secondItem="FdU-q0-IO8" secondAttribute="trailing" id="js2-RF-qBY"/>
+                                            <constraint firstItem="4fb-io-nQh" firstAttribute="top" secondItem="mTH-up-Nom" secondAttribute="bottom" constant="10" id="pL4-PR-eP3"/>
+                                            <constraint firstItem="Ry4-t5-lNp" firstAttribute="leading" secondItem="7ME-VC-cVO" secondAttribute="leading" id="qUa-2C-vQl"/>
+                                            <constraint firstItem="7ME-VC-cVO" firstAttribute="trailing" secondItem="Gsu-mc-bi2" secondAttribute="trailing" id="tUc-qS-1HE"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gsu-mc-bi2" secondAttribute="trailing" constant="18" id="wvS-FE-lOb"/>
+                                            <constraint firstAttribute="trailing" secondItem="mTH-up-Nom" secondAttribute="trailing" constant="18" id="xbO-L4-7Wu"/>
+                                            <constraint firstItem="Gsu-mc-bi2" firstAttribute="leading" secondItem="ahr-ax-I2T" secondAttribute="leading" constant="18" id="xzh-8M-muI"/>
+                                            <constraint firstItem="FdU-q0-IO8" firstAttribute="leading" secondItem="ahr-ax-I2T" secondAttribute="leading" id="y3Y-zS-HBj"/>
+                                            <constraint firstItem="ccz-tJ-EER" firstAttribute="leading" secondItem="ahr-ax-I2T" secondAttribute="leading" constant="20" id="yGg-Mz-T4Q"/>
+                                            <constraint firstAttribute="trailing" secondItem="n83-H1-dDi" secondAttribute="trailing" id="zKc-7z-Ony"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ahr-ax-I2T" secondAttribute="trailing" id="5mf-0m-PHS"/>
+                                    <constraint firstItem="ahr-ax-I2T" firstAttribute="top" secondItem="KK7-TW-QX1" secondAttribute="top" id="UmY-Su-wy0"/>
+                                    <constraint firstItem="ahr-ax-I2T" firstAttribute="leading" secondItem="KK7-TW-QX1" secondAttribute="leading" id="fWW-jk-5MN"/>
+                                    <constraint firstAttribute="bottom" secondItem="ahr-ax-I2T" secondAttribute="bottom" id="rid-ZV-uBR"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KK7-TW-QX1" firstAttribute="leading" secondItem="tV1-7D-xOo" secondAttribute="leading" id="8gq-yr-5bZ"/>
+                            <constraint firstItem="aDx-wd-s9f" firstAttribute="top" secondItem="KK7-TW-QX1" secondAttribute="bottom" id="8uS-HZ-qjc"/>
+                            <constraint firstItem="ahr-ax-I2T" firstAttribute="width" secondItem="tV1-7D-xOo" secondAttribute="width" id="JdB-9F-cuG"/>
+                            <constraint firstAttribute="trailing" secondItem="KK7-TW-QX1" secondAttribute="trailing" id="QEl-o4-uIt"/>
+                            <constraint firstItem="KK7-TW-QX1" firstAttribute="top" secondItem="w8K-ls-pk9" secondAttribute="bottom" id="RIP-gP-1Sk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Review" id="IOR-WB-b2a"/>
+                    <connections>
+                        <outlet property="lblAddress" destination="k1d-vP-MJM" id="a0s-iG-3Vo"/>
+                        <outlet property="lblDate" destination="SOP-iS-Te5" id="UWI-9X-9au"/>
+                        <outlet property="lblDayTime" destination="eg7-IW-CrC" id="7LW-Db-zh4"/>
+                        <outlet property="lblNote" destination="Ui6-wH-PSl" id="Gp7-Ce-Lrx"/>
+                        <outlet property="lblSaloonName" destination="5oT-zb-jbm" id="HCX-W2-M1j"/>
+                        <outlet property="myCollectionView" destination="4fb-io-nQh" id="KSg-Fd-a5X"/>
+                        <outlet property="myTableView" destination="n83-H1-dDi" id="mfu-7f-fVc"/>
+                        <outlet property="profilePic" destination="hbp-d7-OFb" id="IbJ-0D-Xn8"/>
+                        <outlet property="scrollView" destination="KK7-TW-QX1" id="oRH-eS-oh6"/>
+                        <outlet property="tableViewHeight" destination="Agp-cG-jCq" id="dAn-J1-tej"/>
+                        <outlet property="viewDesierLookCollection" destination="4fb-io-nQh" id="hBa-0B-qyB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ciW-NF-dmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5452" y="-1397"/>
         </scene>
     </scenes>
     <resources>
@@ -4050,11 +4526,6 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
         <image name="icon_booking_01" width="78" height="18"/>
         <image name="icon_chat_header" width="25" height="22"/>
         <image name="icon_close" width="21" height="20"/>
-        <image name="icon_dis_go" width="70" height="24"/>
-        <image name="icon_dis_paint" width="73" height="24"/>
-        <image name="icon_dis_paint_active" width="73" height="24"/>
-        <image name="icon_dis_spray" width="70" height="24"/>
-        <image name="icon_dis_spray_active" width="70" height="24"/>
         <image name="icon_forward" width="10" height="16"/>
         <image name="icon_lookbook_02" width="86" height="19"/>
         <image name="icon_nav_discover" width="24" height="23"/>
@@ -4067,6 +4538,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
         <image name="messageBubble" width="16" height="14"/>
         <image name="profileBanner" width="375" height="222"/>
         <image name="selfieBG" width="375" height="579"/>
+        <image name="splash" width="750" height="1334"/>
         <image name="starEmpty" width="11" height="10"/>
         <image name="starFilled" width="11" height="10"/>
         <image name="stylist_logo" width="67" height="67"/>
