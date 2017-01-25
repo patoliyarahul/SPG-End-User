@@ -182,13 +182,13 @@ extension BookingViewController: BookingDetailsDelegate {
             UIView.animate(withDuration: 0.5, delay: 1.5, options: .curveEaseInOut, animations: {
                 self.blackTransperantView.alpha = 0
             }, completion: { (bool : Bool) in
-                if selectedIndexPath.section == 0 {
-                    arrUpcommingBooking.remove(at: selectedIndexPath.row)
+                if self.selectedIndexPath.section == 0 {
+                    self.arrUpcommingBooking.remove(at: self.selectedIndexPath.row)
                 } else {
-                    arrPastBooking.remove(at: selectedIndexPath.row)
+                    self.arrPastBooking.remove(at: self.selectedIndexPath.row)
                 }
                 
-                myTableView.deleteRows(at: [selectedIndexPath], with: .automatic)
+                self.myTableView.deleteRows(at: [self.selectedIndexPath], with: .automatic)
             })
         }
     }
