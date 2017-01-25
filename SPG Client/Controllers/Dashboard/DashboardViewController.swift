@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardViewController : UIViewController, ProfileDelegate {
+class DashboardViewController : UIViewController {
     
     //MARK: - IBOutlet
     
@@ -33,13 +33,6 @@ class DashboardViewController : UIViewController, ProfileDelegate {
             let dv = nv.viewControllers[0] as! ProfileViewController
             dv.delegate = self
         }
-    }
-    
-    //MARK: - Profile Delegate
-    
-    func shouldLogout() {
-        userDefault.set(false, forKey: Constant.userIsLogedIn)
-        _ = self.tabBarController?.navigationController?.popToRootViewController(animated: true)
     }
     
     func configureTableView() {
@@ -88,6 +81,16 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+}
+
+//MARK: - Profile Delegate 
+
+extension DashboardViewController : ProfileDelegate {
+    
+    func shouldLogout() {
+        userDefault.set(false, forKey: Constant.userIsLogedIn)
+        _ = self.tabBarController?.navigationController?.popToRootViewController(animated: true)
     }
 }
 

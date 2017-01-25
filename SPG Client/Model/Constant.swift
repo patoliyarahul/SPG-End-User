@@ -9,6 +9,7 @@
 import UIKit
 
 let userDefault = UserDefaults.standard
+let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 class Constant  {
     
@@ -17,14 +18,11 @@ class Constant  {
     
     static let logOutNotificationName = Notification.Name("logOutNotificationName")
     
-    static let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     static let URL_PREFIX   =   "http://54.67.19.220/SPG"
     //    static let URL_PREFIX   = "http://netdroidtech.com/spgftp/SPG"
     
     static let userIsLogedIn            =   "userIsLogedIn"
     static let isFirstTime              =   "isFirstTime"
-    
 }
 
 struct Api {
@@ -40,10 +38,23 @@ struct Api {
     
     static let getListOfStylist         =   "recommended_featured_end_user_stylist_list.php"
     
-    //
+    //Book Appointment
+    
+    static let uploadSelfiePic          =   "upload_photo_selfie.php"
+    static let bookingTimeSlot          =   "get_end_user_book_appointment_stylist_time_slot.php"
+    static let bookAppointment          =   "user_book_appointment.php"
     
     //Dicsover Services
     static let getDiscoverImages        =   "get_discover_end_user_gallery_image_by_business_id.php"
+    static let saveLookBookImage        =   "save_end_user_lookbook_image.php"
+    
+    
+    //LookBook
+    
+    static let getAllLookBook           =   "get_user_all_lookbook.php"
+    static let getLookBookByID          =   "get_end_user_lookbook_all_images_by_id.php"
+    static let deleteLookbookById       =   "delete_end_user_look_book_by_id.php"
+    static let addLookBook              =   "add_new_end_user_lookbook.php"
     
     static let updateStylistInfo        =   "update_stylist_user_personal_detail.php"
     static let updateBusinessInfo       =   "update_stylist_user_business_detail.php"
@@ -91,20 +102,34 @@ struct StylistSegue {
     static let reviewSegue              =   "reviewSegue"
 }
 
+struct LookBookSegue {
+    static let viewLookBookSegue        =   "viewLookBookSegue"
+    static let lookBookImageSegue       =   "lookBookImageSegue"
+    static let saveImageSegue           =   "saveImageSegue"
+    static let selectLookBookSegue      =   "selectLookBookSegue"
+}
+
+struct DiscoverSegue {
+    static let imageDetailSegue         =   "imageDetailSegue"
+    static let selectLookBookSegue      =   "selectLookBookSegue"
+}
+
 struct Segue {
     static let serviceDetails           =   "serviceDetail"
 }
 
-struct EditProfileSegue {
-    
+struct MyProfileSegue {
+    static let privacyPolicySegue       =   "privacyPolicySegue"
+    static let contactSupportSegue      =   "contactSupportSegue"
 }
 
 struct DateFormate {
-    static let dateFormate_1 = "EEEE, MMMM dd, yyyy"
-    static let dateFormate_2 = "EEEE, MM/dd/yyyy"
-    static let dateFormate_3 = "EEEE"
-
-
+    static let dateFormate_1    =   "EEEE, MMMM dd, yyyy"
+    static let dateFormate_2    =   "EEEE, MM/dd/yyyy"
+    static let dateFormate_3    =   "EEEE"
+    static let dateFormate_4    =   "yyyy-MM-dd"
+    static let dateFormate_5    =   "MMMM dd, yyyy"
+    static let dateFormate_6    =   "HH:mm:ss"
 }
 
 struct ImageDirectory {
@@ -165,6 +190,17 @@ struct StylistListParams {
     static let services         =   "services"
 }
 
+struct EndUserParams {
+    static let endUserID        =   "end_user_id"
+    static let firstName        =   "first_name"
+    static let lastName         =   "last_name"
+    static let email            =   "email"
+    static let password         =   "password"
+    static let phone            =   "phone"
+    static let profilePic       =   "profile_pic"
+    static let fbToken          =   "fb_token"
+}
+
 struct PersonalInfoParams {
     static let firstName    =   "first_name"
     static let lastName     =   "last_name"
@@ -180,6 +216,7 @@ struct PersonalInfoParams {
 struct Request {
     static let pass_data = "pass_data"
 }
+
 struct BusinessInfoParams {
     static let businessName =   "business_name"
     
@@ -207,7 +244,6 @@ struct ServicesParams {
 }
 
 struct AddServiceParams {
-    
     static let userId       =   "stylist_user_id"
     static let serviceName  =   "service_name"
     static let lengthId     =   "length_id"
@@ -215,6 +251,19 @@ struct AddServiceParams {
     static let serviceDesc  =   "service_description"
     static let catId        =   "category_id"
     static let enabled      =   "enable"
+}
+
+struct LookBookParams {
+    static let lookBookId       =   "lookbook_id"
+    static let lookBookName     =   "lookbook_name"
+    static let lookBookTotalImg =   "total_image"
+    static let lookBookImage    =   "image_name"
+    
+    static let lookBookImageId      =   "lookbook_image_id"
+    static let lookBookDetailImage  =   "lookbook_image_name"
+    static let lookBookNotes        =   "lookbook_image_notes"
+    
+    static let lookBookImagesName   =   "images_name"
 }
 
 struct ClientsParams {
@@ -226,6 +275,8 @@ struct ClientsParams {
     static let profilePic   =   "profile_pic"
     static let endUserType  =   "end_user_type"
 }
+
+
 
 struct BusinessCategoryPrams {
     static let businessCatId    =   "business_category_id"
@@ -248,6 +299,8 @@ struct GalleryParams {
     static let galleryDescription   =   "gallery_description"
     static let photoData            =   "photo"
     static let categoryName         =   "category_name"
+    static let categoryId           =   "category_id"
+    static let stylistId            =   "stylist_user_id"
 }
 
 struct AppointmentParams {

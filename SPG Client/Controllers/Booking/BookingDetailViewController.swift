@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol BookingDetailsDelegate {
+    func didCancelAppointment()
+    func recheduledAppointment(dict: Dictionary<String, String>)
+}
+
 class BookingDetailViewController : UIViewController {
     
     //MARK: - IBOutlet
@@ -35,7 +40,6 @@ class BookingDetailViewController : UIViewController {
     @IBOutlet weak var lblNote: UILabel!
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var desiredLookHeight: NSLayoutConstraint!
     
     @IBOutlet weak var viewDesierLookCollection: UICollectionView!
     //MARK: - Variables
@@ -54,6 +58,7 @@ class BookingDetailViewController : UIViewController {
     
     var selectedImageUrl = ""
     
+    var delegate : BookingDetailsDelegate?
     
     //MARK: - Life Cycle
     
@@ -63,8 +68,6 @@ class BookingDetailViewController : UIViewController {
         
         callService()
         configureTableView()
-        
-        //        self.tabBarController?.tabBar.isHidden = true
     }
     
     //MARK: - Helper Methods
@@ -73,7 +76,6 @@ class BookingDetailViewController : UIViewController {
         myTableView.tableFooterView = UIView()
         myTableView.rowHeight = UITableViewAutomaticDimension
         myTableView.estimatedRowHeight = 30
-        //        myTableView.rowHeight = 44
     }
     
     func callService() {
@@ -117,7 +119,6 @@ class BookingDetailViewController : UIViewController {
         myCollectionView.reloadData()
         
         if desiredLookArray.count == 0 || desiredLookArray[0].characters.count == 0{
-            desiredLookHeight.constant = 0
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
             })
@@ -175,7 +176,10 @@ class BookingDetailViewController : UIViewController {
     
     @IBAction func btnSendRequestClicked(_ sender: Any) {
         
-        let innerJson = [Request.pass_data: [AppointmentParams.appointmentId: strAppointmentId,AppointmentDetailParams.appointmentDate: "", AppointmentDetailParams.appointmentTime: ""] as Dictionary<String, String>] as Dictionary<String, Any>
+        let date = Date().stringDate(format: DateFormate.dateFormate_4, date: datePicker.date)
+        let time = Date().stringDate(format: DateFormate.dateFormate_6, date: datePicker.date)
+        
+        let innerJson = [Request.pass_data: [AppointmentParams.appointmentId: strAppointmentId,AppointmentDetailParams.appointmentDate: date, AppointmentDetailParams.appointmentTime: time] as Dictionary<String, String>] as Dictionary<String, Any>
         innerJson.printJson()
         Utils.callServicePost(innerJson.json, action: Api.reschedule_appointment, urlParamString: "", delegate: self)
     }
@@ -232,15 +236,12 @@ extension BookingDetailViewController: UICollectionViewDelegate, UICollectionVie
         if desiredLookArray.count > 0 {
             return desiredLookArray.count
         }
-        
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if desiredLookArray.count > 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DesiredLookCell
-            
             let url = ImageDirectory.desiredLookDir + "\(desiredLookArray[indexPath.row])"
             Utils.downloadImage(url, imageView: cell.desiredLookImage)
             return cell
@@ -251,7 +252,6 @@ extension BookingDetailViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if desiredLookArray.count > 0 {
             selectedImageUrl = ImageDirectory.desiredLookDir + "\(desiredLookArray[indexPath.row])"
             self.performSegue(withIdentifier: "imageSegue", sender: self)
@@ -268,13 +268,16 @@ extension BookingDetailViewController : RequestManagerDelegate {
             if resultDict[MainResponseParams.success] as! NSNumber == NSNumber(value: 1) {
                 
                 if action == Api.appointment_detail {
-                    detailsDict = (resultDict["data"] as? [String : AnyObject])!
+                    detailsDict = (resultDict[MainResponseParams.data] as? [String : AnyObject])!
                     scrollView.isHidden = false
                     setText()
-                }else if action == Api.reschedule_appointment {
-                    
-                }else if action == Api.cancel_appointment {
-                    
+                } else if action == Api.reschedule_appointment {
+//                    let dictArray = resultDict[MainResponseParams.data]
+//                    delegate?.recheduledAppointment(dict: dictArray as! Dictionary<String, String>)
+                    _ = self.navigationController?.popViewController(animated: true)
+                } else if action == Api.cancel_appointment {
+                    delegate?.didCancelAppointment()
+                    _ = self.navigationController?.popViewController(animated: true)
                 }
                 
             } else {

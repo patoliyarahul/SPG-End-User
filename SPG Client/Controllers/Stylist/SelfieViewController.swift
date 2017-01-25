@@ -49,6 +49,13 @@ class SelfieViewController: UIViewController {
     }
     
     @IBAction func btnSkip_Click(_ sender: Any) {
+        
+        if btnSkip.title == "Done" {
+            appDelegate.selfieImage = imgSelfieView.image!
+        } else {
+            appDelegate.selfieImage = #imageLiteral(resourceName: "userpic")
+        }
+        
         self.performSegue(withIdentifier: StylistSegue.additionalSegue, sender: self)
     }
     //MARK: - MemoryWarning

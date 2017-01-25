@@ -240,6 +240,17 @@ func getAttributedTextWithSpacing(text: String) -> NSMutableAttributedString {
     return attributedAddress
 }
 
+func checkWeatherDictIsInArray(sourceDictArray: [Dictionary<String, String>], dict: Dictionary<String, String>, key: String) -> (Bool, Int) {
+    var index = 0
+    for tempDict in sourceDictArray {
+        if tempDict[key] == dict[key] {
+            return (true, index)
+        }
+        index += 1
+    }
+    return (false, index)
+}
+
 struct Time {
     
     let start: TimeInterval

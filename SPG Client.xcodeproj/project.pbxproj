@@ -28,6 +28,10 @@
 		55CD12A11E1536EC00ABA7DB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A01E1536EC00ABA7DB /* DashboardViewController.swift */; };
 		55CD12A41E1536FC00ABA7DB /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A31E1536FC00ABA7DB /* BookingViewController.swift */; };
 		55CD12A61E1545D100ABA7DB /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */; };
+		622B6D4A1E2B8366005CABB1 /* DiscoverImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622B6D491E2B8366005CABB1 /* DiscoverImageVC.swift */; };
+		622B6D4C1E2B9DB8005CABB1 /* SaveImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622B6D4B1E2B9DB8005CABB1 /* SaveImageVC.swift */; };
+		622B6D4E1E2BAFB1005CABB1 /* SelectLookBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622B6D4D1E2BAFB1005CABB1 /* SelectLookBookVC.swift */; };
+		622B6D501E2BB187005CABB1 /* SelectLookBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622B6D4F1E2BB187005CABB1 /* SelectLookBookCell.swift */; };
 		792899AF1E24BAC700D3A8FD /* TimeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */; };
 		792899B11E24F2C600D3A8FD /* SelfieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B01E24F2C500D3A8FD /* SelfieViewController.swift */; };
 		792899B31E25018A00D3A8FD /* AdditionalInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792899B21E25018A00D3A8FD /* AdditionalInfoVC.swift */; };
@@ -60,21 +64,21 @@
 		79A91E8F1E1FE37200AA293E /* Gotham-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79A91E831E1FE37200AA293E /* Gotham-Light.ttf */; };
 		79A91E911E1FE37200AA293E /* Gotham-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79A91E851E1FE37200AA293E /* Gotham-Medium.ttf */; };
 		79A91E931E1FE37200AA293E /* Gotham-Ultra.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79A91E871E1FE37200AA293E /* Gotham-Ultra.ttf */; };
+		894089921E377B6D0034D2DA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894089911E377B6D0034D2DA /* ProfileViewController.swift */; };
+		894089941E37A97D0034D2DA /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894089931E37A97D0034D2DA /* ContactViewController.swift */; };
+		8971A9A61E28D609006A56E2 /* MyLookBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971A9A51E28D609006A56E2 /* MyLookBookVC.swift */; };
+		8971A9A81E28E471006A56E2 /* MyLookBookCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971A9A71E28E471006A56E2 /* MyLookBookCollectionCell.swift */; };
+		8971A9AA1E28F3CE006A56E2 /* LookBookDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971A9A91E28F3CE006A56E2 /* LookBookDetailsVC.swift */; };
+		8971A9AC1E29024E006A56E2 /* LookBookImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971A9AB1E29024E006A56E2 /* LookBookImageVC.swift */; };
+		89C0E9381E38FBDC00B87456 /* LookBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C0E9371E38FBDC00B87456 /* LookBookCell.swift */; };
 		D13672F81DDEC25A00147126 /* locationListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13672F71DDEC25A00147126 /* locationListingTableViewCell.swift */; };
 		D142CB471DD5A68A00D0E985 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D142CB461DD5A68A00D0E985 /* GoogleService-Info.plist */; };
 		D14310741DDED5A7001F542C /* LocalStylistsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14310731DDED5A7001F542C /* LocalStylistsMapViewController.swift */; };
 		D14310761DDF5CC3001F542C /* CustomMKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14310751DDF5CC3001F542C /* CustomMKPointAnnotation.swift */; };
 		D14310781DDF79C2001F542C /* discoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14310771DDF79C2001F542C /* discoverCollectionViewCell.swift */; };
-		D147CFB51DE11F5B00964AFC /* PictureDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D147CFB41DE11F5B00964AFC /* PictureDisplayViewController.swift */; };
-		D164FD891DD2D6C70043CF03 /* MyLookBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164FD881DD2D6C70043CF03 /* MyLookBooksViewController.swift */; };
-		D164FD911DD2E46F0043CF03 /* LookbookDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164FD901DD2E46F0043CF03 /* LookbookDisplayViewController.swift */; };
 		D17D0CA21DD3FACE00E6CD67 /* bookingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D0CA11DD3FACE00E6CD67 /* bookingsTableViewCell.swift */; };
 		D17D7E901DE963E400250298 /* lookbookDisplayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D7E8F1DE963E400250298 /* lookbookDisplayCollectionViewCell.swift */; };
-		D17D7E921DE966FE00250298 /* LookbookPictureDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D7E911DE966FE00250298 /* LookbookPictureDisplayViewController.swift */; };
-		D190C0A01DD5274C00A01FC5 /* myLookBooksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D190C09F1DD5274C00A01FC5 /* myLookBooksCollectionViewCell.swift */; };
-		D190C0A21DD5399F00A01FC5 /* DiscoverScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D190C0A11DD5399F00A01FC5 /* DiscoverScreenViewController.swift */; };
 		D19FF8181DE3D2AC00733BEB /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19FF8171DE3D2AC00733BEB /* JTAppleCalendar.framework */; };
-		D1BFBAE61DF931C7003CC5E7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BFBAE51DF931C7003CC5E7 /* ProfileViewController.swift */; };
 		D1CD22401DE3E2C200D65E2F /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD223F1DE3E2C200D65E2F /* AnimationClass.swift */; };
 		D1CD22531DE4E85700D65E2F /* recentWorkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD22521DE4E85700D65E2F /* recentWorkCollectionViewCell.swift */; };
 		D1CD22551DE4F00100D65E2F /* servicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD22541DE4F00100D65E2F /* servicesTableViewCell.swift */; };
@@ -116,6 +120,10 @@
 		55CD12A01E1536EC00ABA7DB /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		55CD12A31E1536FC00ABA7DB /* BookingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
+		622B6D491E2B8366005CABB1 /* DiscoverImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverImageVC.swift; sourceTree = "<group>"; };
+		622B6D4B1E2B9DB8005CABB1 /* SaveImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageVC.swift; sourceTree = "<group>"; };
+		622B6D4D1E2BAFB1005CABB1 /* SelectLookBookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLookBookVC.swift; sourceTree = "<group>"; };
+		622B6D4F1E2BB187005CABB1 /* SelectLookBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLookBookCell.swift; sourceTree = "<group>"; };
 		792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectionCell.swift; sourceTree = "<group>"; };
 		792899B01E24F2C500D3A8FD /* SelfieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieViewController.swift; sourceTree = "<group>"; };
 		792899B21E25018A00D3A8FD /* AdditionalInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalInfoVC.swift; sourceTree = "<group>"; };
@@ -151,6 +159,13 @@
 		79A91E831E1FE37200AA293E /* Gotham-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.ttf"; sourceTree = "<group>"; };
 		79A91E851E1FE37200AA293E /* Gotham-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.ttf"; sourceTree = "<group>"; };
 		79A91E871E1FE37200AA293E /* Gotham-Ultra.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Ultra.ttf"; sourceTree = "<group>"; };
+		894089911E377B6D0034D2DA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "SPG Client/Controllers/ProfileView/ProfileViewController.swift"; sourceTree = SOURCE_ROOT; };
+		894089931E37A97D0034D2DA /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactViewController.swift; path = "SPG Client/Controllers/ProfileView/ContactViewController.swift"; sourceTree = SOURCE_ROOT; };
+		8971A9A51E28D609006A56E2 /* MyLookBookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLookBookVC.swift; sourceTree = "<group>"; };
+		8971A9A71E28E471006A56E2 /* MyLookBookCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyLookBookCollectionCell.swift; path = Views/MyLookBookCollectionCell.swift; sourceTree = "<group>"; };
+		8971A9A91E28F3CE006A56E2 /* LookBookDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookBookDetailsVC.swift; sourceTree = "<group>"; };
+		8971A9AB1E29024E006A56E2 /* LookBookImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookBookImageVC.swift; sourceTree = "<group>"; };
+		89C0E9371E38FBDC00B87456 /* LookBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LookBookCell.swift; path = Views/LookBookCell.swift; sourceTree = "<group>"; };
 		BDD9AF6061B7C93C09BBD4DC /* Pods-SPG Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPG Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-SPG Client/Pods-SPG Client.release.xcconfig"; sourceTree = "<group>"; };
 		BE9C933634DC909F377E689D /* Pods_SPG_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SPG_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13672F71DDEC25A00147126 /* locationListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationListingTableViewCell.swift; sourceTree = "<group>"; };
@@ -158,16 +173,9 @@
 		D14310731DDED5A7001F542C /* LocalStylistsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStylistsMapViewController.swift; sourceTree = "<group>"; };
 		D14310751DDF5CC3001F542C /* CustomMKPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMKPointAnnotation.swift; sourceTree = "<group>"; };
 		D14310771DDF79C2001F542C /* discoverCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = discoverCollectionViewCell.swift; sourceTree = "<group>"; };
-		D147CFB41DE11F5B00964AFC /* PictureDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDisplayViewController.swift; sourceTree = "<group>"; };
-		D164FD881DD2D6C70043CF03 /* MyLookBooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLookBooksViewController.swift; sourceTree = "<group>"; };
-		D164FD901DD2E46F0043CF03 /* LookbookDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbookDisplayViewController.swift; sourceTree = "<group>"; };
 		D17D0CA11DD3FACE00E6CD67 /* bookingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookingsTableViewCell.swift; sourceTree = "<group>"; };
 		D17D7E8F1DE963E400250298 /* lookbookDisplayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lookbookDisplayCollectionViewCell.swift; sourceTree = "<group>"; };
-		D17D7E911DE966FE00250298 /* LookbookPictureDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbookPictureDisplayViewController.swift; sourceTree = "<group>"; };
-		D190C09F1DD5274C00A01FC5 /* myLookBooksCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myLookBooksCollectionViewCell.swift; sourceTree = "<group>"; };
-		D190C0A11DD5399F00A01FC5 /* DiscoverScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverScreenViewController.swift; sourceTree = "<group>"; };
 		D19FF8171DE3D2AC00733BEB /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = "../../../Library/Developer/Xcode/DerivedData/SPG_Client-hadoyncygcppebfwejtagozmcrdp/Build/Products/Debug-iphoneos/JTAppleCalendar/JTAppleCalendar.framework"; sourceTree = "<group>"; };
-		D1BFBAE51DF931C7003CC5E7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D1CD223F1DE3E2C200D65E2F /* AnimationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
 		D1CD22521DE4E85700D65E2F /* recentWorkCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recentWorkCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1CD22541DE4F00100D65E2F /* servicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = servicesTableViewCell.swift; sourceTree = "<group>"; };
@@ -431,6 +439,9 @@
 			isa = PBXGroup;
 			children = (
 				799FBD141E261913002B1AA9 /* DiscoverViewController.swift */,
+				622B6D491E2B8366005CABB1 /* DiscoverImageVC.swift */,
+				622B6D4B1E2B9DB8005CABB1 /* SaveImageVC.swift */,
+				622B6D4D1E2BAFB1005CABB1 /* SelectLookBookVC.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -451,20 +462,16 @@
 		79FBB9EE1DA3D29600045725 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				894089901E377B040034D2DA /* ProfileView */,
+				8971A9A41E28D5D7006A56E2 /* LookBook */,
 				799FBD131E26158F002B1AA9 /* Discover */,
 				553DA2D01E13CB3E001A674D /* Login Flow */,
 				55CD129F1E1536EC00ABA7DB /* Dashboard */,
 				55CD12A21E1536FC00ABA7DB /* Booking */,
 				79687A531E1E9C02004B840E /* Stylist */,
 				D1CD223F1DE3E2C200D65E2F /* AnimationClass.swift */,
-				D164FD881DD2D6C70043CF03 /* MyLookBooksViewController.swift */,
 				D14310731DDED5A7001F542C /* LocalStylistsMapViewController.swift */,
-				D164FD901DD2E46F0043CF03 /* LookbookDisplayViewController.swift */,
-				D190C0A11DD5399F00A01FC5 /* DiscoverScreenViewController.swift */,
 				D14310751DDF5CC3001F542C /* CustomMKPointAnnotation.swift */,
-				D147CFB41DE11F5B00964AFC /* PictureDisplayViewController.swift */,
-				D17D7E911DE966FE00250298 /* LookbookPictureDisplayViewController.swift */,
-				D1BFBAE51DF931C7003CC5E7 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -478,6 +485,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		894089901E377B040034D2DA /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				894089911E377B6D0034D2DA /* ProfileViewController.swift */,
+				894089931E37A97D0034D2DA /* ContactViewController.swift */,
+			);
+			name = ProfileView;
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		8971A9A41E28D5D7006A56E2 /* LookBook */ = {
+			isa = PBXGroup;
+			children = (
+				8971A9A51E28D609006A56E2 /* MyLookBookVC.swift */,
+				8971A9A91E28F3CE006A56E2 /* LookBookDetailsVC.swift */,
+				8971A9AB1E29024E006A56E2 /* LookBookImageVC.swift */,
+			);
+			path = LookBook;
+			sourceTree = "<group>";
+		};
 		D19FF8121DE3C36F00733BEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +516,9 @@
 				797914071E1E67A400093FFD /* StylistTableViewCell.swift */,
 				799882E41E1F675B00BE1906 /* ServiceSelectionCell.swift */,
 				792899AE1E24BAC600D3A8FD /* TimeSelectionCell.swift */,
+				8971A9A71E28E471006A56E2 /* MyLookBookCollectionCell.swift */,
+				622B6D4F1E2BB187005CABB1 /* SelectLookBookCell.swift */,
+				89C0E9371E38FBDC00B87456 /* LookBookCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -500,7 +530,6 @@
 				D1DEF0061DD41F7800FD15B1 /* homeTableViewCell.swift */,
 				D13672F71DDEC25A00147126 /* locationListingTableViewCell.swift */,
 				D14310771DDF79C2001F542C /* discoverCollectionViewCell.swift */,
-				D190C09F1DD5274C00A01FC5 /* myLookBooksCollectionViewCell.swift */,
 				D1CD22521DE4E85700D65E2F /* recentWorkCollectionViewCell.swift */,
 				D1CD22541DE4F00100D65E2F /* servicesTableViewCell.swift */,
 				D1CD22581DE53C5C00D65E2F /* galleryCollectionViewCell.swift */,
@@ -657,33 +686,37 @@
 				5557E6921E114006008606A5 /* Constant.swift in Sources */,
 				7979C50C1E20BC8900C708D7 /* WhiteSectionHeaderView.swift in Sources */,
 				792899B71E2513CA00D3A8FD /* ReviewViewController.swift in Sources */,
+				8971A9AC1E29024E006A56E2 /* LookBookImageVC.swift in Sources */,
 				79687A571E1E9C02004B840E /* StylistsViewController.swift in Sources */,
-				D17D7E921DE966FE00250298 /* LookbookPictureDisplayViewController.swift in Sources */,
-				D164FD891DD2D6C70043CF03 /* MyLookBooksViewController.swift in Sources */,
 				5557E6711E1136B3008606A5 /* Reachability.swift in Sources */,
 				553DA2DA1E13CC03001A674D /* HomeViewController.swift in Sources */,
+				622B6D501E2BB187005CABB1 /* SelectLookBookCell.swift in Sources */,
 				5557E6721E1136B3008606A5 /* RequestManager.m in Sources */,
 				55CD12A11E1536EC00ABA7DB /* DashboardViewController.swift in Sources */,
+				622B6D4E1E2BAFB1005CABB1 /* SelectLookBookVC.swift in Sources */,
+				622B6D4A1E2B8366005CABB1 /* DiscoverImageVC.swift in Sources */,
 				553DA2D71E13CB6C001A674D /* SignUpViewController.swift in Sources */,
 				79687A591E1ED364004B840E /* StylistProfileVC.swift in Sources */,
-				D1BFBAE61DF931C7003CC5E7 /* ProfileViewController.swift in Sources */,
 				5528AAC31E16870000536BCA /* DesiredLookCell.swift in Sources */,
 				5557E6741E1136B3008606A5 /* UITextField+Shake.m in Sources */,
 				792899AF1E24BAC700D3A8FD /* TimeSelectionCell.swift in Sources */,
 				D1CD22591DE53C5C00D65E2F /* galleryCollectionViewCell.swift in Sources */,
 				799882E51E1F675B00BE1906 /* ServiceSelectionCell.swift in Sources */,
+				8971A9A81E28E471006A56E2 /* MyLookBookCollectionCell.swift in Sources */,
 				553DA2EA1E13DF4D001A674D /* DashboardImageBoardView.swift in Sources */,
+				8971A9AA1E28F3CE006A56E2 /* LookBookDetailsVC.swift in Sources */,
+				8971A9A61E28D609006A56E2 /* MyLookBookVC.swift in Sources */,
 				797914081E1E67A400093FFD /* StylistTableViewCell.swift in Sources */,
 				5557E6931E114006008606A5 /* Utils.swift in Sources */,
 				5557E6701E1136B3008606A5 /* MBProgressHUD.m in Sources */,
+				622B6D4C1E2B9DB8005CABB1 /* SaveImageVC.swift in Sources */,
+				89C0E9381E38FBDC00B87456 /* LookBookCell.swift in Sources */,
 				7979C5061E20BC8900C708D7 /* CellView.swift in Sources */,
 				D1DEF0071DD41F7800FD15B1 /* homeTableViewCell.swift in Sources */,
 				D1CD22531DE4E85700D65E2F /* recentWorkCollectionViewCell.swift in Sources */,
 				D17D7E901DE963E400250298 /* lookbookDisplayCollectionViewCell.swift in Sources */,
 				7979C5091E20BC8900C708D7 /* CodeWhiteSectionHeaderView.swift in Sources */,
-				D190C0A01DD5274C00A01FC5 /* myLookBooksCollectionViewCell.swift in Sources */,
 				55CD12A61E1545D100ABA7DB /* BookingDetailViewController.swift in Sources */,
-				D164FD911DD2E46F0043CF03 /* LookbookDisplayViewController.swift in Sources */,
 				7946B33A1DA3BCEE004C5333 /* AppDelegate.swift in Sources */,
 				792899B31E25018A00D3A8FD /* AdditionalInfoVC.swift in Sources */,
 				553DA2D51E13CB6B001A674D /* ForgotPasswordViewController.swift in Sources */,
@@ -693,9 +726,10 @@
 				7979C50A1E20BC8900C708D7 /* PinkSectionHeaderView.swift in Sources */,
 				792899B51E250C5A00D3A8FD /* SelectDateVC.swift in Sources */,
 				5528AAC21E16870000536BCA /* AppointmentServiceCell.swift in Sources */,
+				894089921E377B6D0034D2DA /* ProfileViewController.swift in Sources */,
+				894089941E37A97D0034D2DA /* ContactViewController.swift in Sources */,
 				7979C5051E20BC8900C708D7 /* CodeCellView.swift in Sources */,
 				792899B11E24F2C600D3A8FD /* SelfieViewController.swift in Sources */,
-				D190C0A21DD5399F00A01FC5 /* DiscoverScreenViewController.swift in Sources */,
 				D1CD22401DE3E2C200D65E2F /* AnimationClass.swift in Sources */,
 				799882E71E1FAA6900BE1906 /* GalleryViewController.swift in Sources */,
 				D14310761DDF5CC3001F542C /* CustomMKPointAnnotation.swift in Sources */,
@@ -704,7 +738,6 @@
 				799FBD151E261913002B1AA9 /* DiscoverViewController.swift in Sources */,
 				7979C5081E20BC8900C708D7 /* CodePinkSectionHeaderView.swift in Sources */,
 				5557E6731E1136B3008606A5 /* TextFieldValidator.m in Sources */,
-				D147CFB51DE11F5B00964AFC /* PictureDisplayViewController.swift in Sources */,
 				553DA2E81E13DC31001A674D /* DashboardTableViewCell.swift in Sources */,
 				D13672F81DDEC25A00147126 /* locationListingTableViewCell.swift in Sources */,
 				D1CD22551DE4F00100D65E2F /* servicesTableViewCell.swift in Sources */,

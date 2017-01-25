@@ -20,7 +20,6 @@ class ServicesListVC: UIViewController {
     //MARK: - Variables
     
     var serviceArray            =   [Dictionary<String, String>]()
-    var selectedServiceArray    =   [Dictionary<String, String>]()
     
     var profession          =   ""
     var stylistName         =   ""
@@ -99,7 +98,7 @@ extension ServicesListVC: UITableViewDataSource, UITableViewDelegate {
             
             var image = UIImage(named: "btnSelect")
             
-            if checkWeatherDictIsInArray(dict: dict).0 {
+            if checkWeatherDictIsInArray(sourceDictArray: appDelegate.serviceListArray, dict: dict, key: ServicesParams.serviceId).0 {
                 image = UIImage(named: "btnSelect_active")
             }
             
@@ -119,27 +118,15 @@ extension ServicesListVC: UITableViewDataSource, UITableViewDelegate {
         
         let dict = serviceArray[(indexPath?.row)!]
         
-        let result = checkWeatherDictIsInArray(dict: dict)
+        let result = checkWeatherDictIsInArray(sourceDictArray: appDelegate.serviceListArray, dict: dict, key: ServicesParams.serviceId)
         
         if result.0 {
-            selectedServiceArray.remove(at: result.1)
+            appDelegate.serviceListArray.remove(at: result.1)
         } else {
-            selectedServiceArray.append(dict)
+            appDelegate.serviceListArray.append(dict)
         }
         
         myTableView.reloadRows(at: [indexPath!], with: .automatic)
     }
     
-    func checkWeatherDictIsInArray(dict: Dictionary<String, String>) -> (Bool, Int) {
-        
-        var index = 0
-        
-        for tempDict in selectedServiceArray {
-            if tempDict[ServicesParams.serviceId] == dict[ServicesParams.serviceId] {
-                return (true, index)
-            }
-            index += 1
-        }
-        return (false, index)
-    }
 }

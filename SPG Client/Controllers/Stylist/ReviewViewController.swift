@@ -32,9 +32,6 @@ class ReviewViewController : UIViewController {
     //MARK: - Variables
     
     var strAppointmentId = String()
-    var detailsDict         =   Dictionary<String, Any>()
-    var serviceArray        =   [Dictionary<String, String>]()
-    var desiredLookArray    =   [String]()
     
     let datepickerHeight        = 295
     let appointmntViewHeight    = 180
@@ -50,10 +47,9 @@ class ReviewViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.isHidden = true
-        
         
         configureTableView()
+        setText()
     }
     
     //MARK: - Helper Methods
@@ -74,41 +70,70 @@ class ReviewViewController : UIViewController {
     
     
     func setText() {
-        
-        let gdate = Date().dateFromString(format: DateFormate.dateFormate_2, dateString: detailsDict["title_appointment_date"]! as! String)
+    
+        let gdate = Date().dateFromString(format: DateFormate.dateFormate_4, dateString: appDelegate.appointmentDate)
         let fDate = Date().stringDate(format: DateFormate.dateFormate_3, date: gdate)
         
-        lblSaloonName.text = detailsDict["business_name"]! as? String
+        lblSaloonName.text = appDelegate.stylistName
         
-        let finalAddress = "\(detailsDict["business_street_address"]! as! String) \(detailsDict["business_suit"]! as! String), \(detailsDict["business_city"]! as! String)"
+        lblAddress.attributedText = getAttributedTextWithSpacing(text: appDelegate.stylistAddress)
         
-        let finalAddress1 = "\(detailsDict["business_state"]! as! String) \(detailsDict["business_zipcode"]! as! String)"
+        lblDayTime.text = String(format: "\(fDate) at %@", appDelegate.appointmentTime)
+        lblDate.text = Date().stringDate(format: DateFormate.dateFormate_5, date: gdate)
         
-        lblAddress.attributedText = getAttributedTextWithSpacing(text: finalAddress + "," + finalAddress1)
-        
-        lblDayTime.text = String(format: "\(fDate) at %@", detailsDict["appointment_time"]! as! String)
-        lblDate.text = detailsDict["appointment_date"]! as? String
-        
-        lblNote.text = detailsDict["user_notes"]! as? String
-        
-        if "\(detailsDict["user_notes"]! as? String)".characters.count == 0 {
+        if appDelegate.appointmentNotes.characters.count == 0 {
             lblNote.text = "No Notes Available"
+        } else {
+            lblNote.attributedText = getAttributedTextWithSpacing(text: appDelegate.appointmentNotes)
         }
         
-        serviceArray = detailsDict[AppointmentDetailParams.serviceRequested] as! [Dictionary<String, String>]
         myTableView.reloadData()
-        tableViewHeight.constant = CGFloat(serviceCellHeight * serviceArray.count)
-        
-        let desiredLookString   =   "\(detailsDict[AppointmentDetailParams.desiredLook]!)"
-        desiredLookArray        =   desiredLookString.components(separatedBy: ",")
-        
+        tableViewHeight.constant = CGFloat(serviceCellHeight * appDelegate.serviceListArray.count)
+    
         myCollectionView.reloadData()
-
     }
     
     //MARK: - UIButton Action Methods
     
     @IBAction func btnSendRequest_Click(_ sender: Any) {
+        callServiceForBookAppointment()
+    }
+    
+    //MARK: - Service Call Methods
+    
+    func callServiceForBookAppointment() {
+        
+        var desireLookStr = ""
+        
+        for dict in appDelegate.desiredLookArray {
+            if desireLookStr == "" {
+                desireLookStr += dict[LookBookParams.lookBookDetailImage]!
+            } else {
+                desireLookStr += "," + dict[LookBookParams.lookBookDetailImage]!
+            }
+        }
+        
+        let totalLength = secondsToHoursMinutesSeconds(seconds: appDelegate.totalLength * 60)
+        
+        let innerJson = ["pass_data" : [StylistListParams.stylistId : appDelegate.stylistId,
+                                        EndUserParams.endUserID : userDefault.string(forKey: EndUserParams.endUserID)!,
+                                        "service_id_list" : appDelegate.serviceListId,
+                                        "total_price" : "\(appDelegate.totalPrice)",
+                                        AppointmentDetailParams.userNote : appDelegate.appointmentNotes,
+                                        AppointmentDetailParams.appointmentDate : appDelegate.appointmentDate,
+                                        AppointmentDetailParams.appointmentTime : appDelegate.appointmentTime,
+                                        AppointmentDetailParams.selfiePic : "",
+                                        AppointmentDetailParams.desiredLook : desireLookStr,
+                                        ManualAppointmentParams.totalLength: "\(totalLength.0):\(totalLength.1):\(totalLength.2)"] as Dictionary<String, String>] as Dictionary<String, Any>
+        innerJson.printJson()
+        Utils.callServicePost(innerJson.json, action: Api.bookAppointment, urlParamString: "", delegate: self)
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    func callServiceForUploadSelfie() {
         
     }
     
@@ -116,10 +141,7 @@ class ReviewViewController : UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "imageSegue" {
-            //            let dv = segue.destination as! ImageBrowserVC
-            //            dv.imageUrl = selectedImageUrl
-        }
+        
     }
 }
 
@@ -131,13 +153,13 @@ extension ReviewViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return serviceArray.count
+        return appDelegate.serviceListArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AppointmentServiceCell
         
-        let dict = serviceArray[indexPath.row]
+        let dict = appDelegate.serviceListArray[indexPath.row]
         
         cell.lblServiceName.text    =   "\(dict[ServicesParams.serviceName]!)"
         cell.lblTime.text           =   "$"+"\(dict[ServicesParams.price]!)"
@@ -154,8 +176,8 @@ extension ReviewViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if desiredLookArray.count > 0 {
-            return desiredLookArray.count
+        if appDelegate.desiredLookArray.count > 0 {
+            return appDelegate.desiredLookArray.count
         }
         
         return 1
@@ -163,11 +185,14 @@ extension ReviewViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if desiredLookArray.count > 0 {
+        if appDelegate.desiredLookArray.count > 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DesiredLookCell
             
-            let url = ImageDirectory.desiredLookDir + "\(desiredLookArray[indexPath.row])"
+            let dict = appDelegate.desiredLookArray[indexPath.row]
+            
+            let url = ImageDirectory.lookBookDir + "\(dict["lookbook_image_name"]!)"
             Utils.downloadImage(url, imageView: cell.desiredLookImage)
+            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotAvailableCell", for: indexPath)
@@ -177,9 +202,9 @@ extension ReviewViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if desiredLookArray.count > 0 {
-            selectedImageUrl = ImageDirectory.desiredLookDir + "\(desiredLookArray[indexPath.row])"
-            self.performSegue(withIdentifier: "imageSegue", sender: self)
+        if appDelegate.desiredLookArray.count > 0 {
+            selectedImageUrl = ImageDirectory.desiredLookDir + "\(appDelegate.desiredLookArray[indexPath.row])"
+//            self.performSegue(withIdentifier: "imageSegue", sender: self)
         }
     }
 }
@@ -191,17 +216,10 @@ extension ReviewViewController : RequestManagerDelegate {
         
         if let resultDict:[String: AnyObject] = result as? [String : AnyObject] {
             if resultDict[MainResponseParams.success] as! NSNumber == NSNumber(value: 1) {
-                
-                if action == Api.appointment_detail {
-                    detailsDict = (resultDict["data"] as? [String : AnyObject])!
-                    scrollView.isHidden = false
-                    setText()
-                }else if action == Api.reschedule_appointment {
-                    
-                }else if action == Api.cancel_appointment {
-                    
+                if action == Api.bookAppointment {
+                    self.navigationController?.dismiss(animated: true, completion: nil)
+                    print("appointment booked successfully \(resultDict)")
                 }
-                
             } else {
                 let dict = resultDict[MainResponseParams.message] as! Dictionary<String, String>
                 Utils.showAlert("\(dict[MainResponseParams.msgTitle]!)", message: "\(dict[MainResponseParams.msgDesc]!)", controller: self)

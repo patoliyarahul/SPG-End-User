@@ -28,6 +28,7 @@ class AnimationClass {
 
     }
 
+    
     class func fadeOutEffect() -> (UIView, @escaping (Bool) -> Void) -> () {
 
         return {

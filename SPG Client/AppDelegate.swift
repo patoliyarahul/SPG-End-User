@@ -17,6 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     var window: UIWindow?
     
+    //Variables for book appointment
+    
+    var serviceListArray    =   [Dictionary<String, String>]()
+    var desiredLookArray    =   [Dictionary<String, String>]()
+    
+    var serviceListId       =   ""
+    
+    var appointmentDate     =   ""  // SelectDateVC
+    var appointmentTime     =   ""  // SelectDateVC
+    var stylistId           =   ""  // StylistProfileVC
+    var stylistName         =   ""  // StylistProfileVC
+    var stylistLogo         =   ""  // StylistProfileVC
+    var stylistAddress      =   ""  // StylistProfileVC
+    var appointmentNotes    =   ""
+    var selfieImage         =   UIImage()
+    
+    var totalLength         =   0
+    var totalPrice          =   0.0
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -42,9 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         IQKeyboardManager.sharedManager().enable = true
         _ = ReachabilityManager.sharedInstance.isReachability
         
-        UINavigationBar.appearance().titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "Gotham Book", size: 19)!
-        ]
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "Gotham Book", size: 19)!]
+        
+        if Platform.isSimulator {
+            userDefault.set("12345678912345689", forKey:Device.device_id)
+        }
         
         return true
     }
@@ -109,6 +129,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    //For simulator
+    
+    struct Platform {
+        static let isSimulator: Bool = {
+            var isSim = false
+            #if arch(i386) || arch(x86_64)
+                isSim = true
+            #endif
+            return isSim
+        }()
     }
 }
 

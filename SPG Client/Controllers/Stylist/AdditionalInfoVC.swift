@@ -17,20 +17,28 @@ class AdditionalInfoVC: UIViewController {
     
     //MARK: - Variables
     
-    var desiredLookArray    =   [Dictionary<String, String>]()
-    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        appDelegate.desiredLookArray = [Dictionary<String, String>]()
+        
+        setTextAndImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        myCollectionView.reloadData()
     }
     
     //MARK: - Helper Methods
     
     func setTextAndImage() {
-        
+        if appDelegate.selfieImage != #imageLiteral(resourceName: "userpic") {
+            imgSelfie.image = appDelegate.selfieImage
+        }
     }
     
     //MARK: - UIButton Action Methods
@@ -39,6 +47,14 @@ class AdditionalInfoVC: UIViewController {
         self.performSegue(withIdentifier: StylistSegue.reviewSegue, sender: self)
     }
     
+    @IBAction func btnSelectImage_Click(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nav = storyboard.instantiateViewController(withIdentifier: "MyLookBookVC") as! UINavigationController
+        let lookbookVC = nav.viewControllers[0] as! MyLookBookVC
+        lookbookVC.isChoosImage = true
+        lookbookVC.delegate = self
+        self.present(nav, animated: true, completion: nil)
+    }
     
     //MARK: - MemoryWarning
     override func didReceiveMemoryWarning() {
@@ -52,7 +68,7 @@ class AdditionalInfoVC: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == StylistSegue.reviewSegue {
-            
+            appDelegate.appointmentNotes = txtNotes.text!
         }
     }
 }
@@ -65,23 +81,22 @@ extension AdditionalInfoVC: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if desiredLookArray.count > 0 {
-            return desiredLookArray.count
+        if appDelegate.desiredLookArray.count > 0 {
+            return appDelegate.desiredLookArray.count
         }
-        
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if desiredLookArray.count > 1 {
+        if appDelegate.desiredLookArray.count > 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DesiredLookCell
             
-            if desiredLookArray.count > 0 {
+            if appDelegate.desiredLookArray.count > 0 {
                 
-                let dict = desiredLookArray[indexPath.row]
+                let dict = appDelegate.desiredLookArray[indexPath.row]
                 
-                let url = ImageDirectory.gallaryDir + "\(dict["gallery_image_name"]!)"
+                let url = ImageDirectory.lookBookDir + "\(dict["lookbook_image_name"]!)"
                 Utils.downloadImage(url, imageView: cell.desiredLookImage)
             }
             
@@ -91,5 +106,13 @@ extension AdditionalInfoVC: UICollectionViewDelegate, UICollectionViewDataSource
             
             return cell
         }
+    }
+}
+
+//MARK - MyLookBookVCDelegate 
+
+extension AdditionalInfoVC : MyLookBookDelegate {
+    func didUpdateDesiredLook() {
+        myCollectionView.reloadData()
     }
 }

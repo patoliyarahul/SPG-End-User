@@ -27,11 +27,9 @@ class StylistProfileVC: UIViewController {
     @IBOutlet weak var chooseDateView: UIView!
     
     //MARK: - Variables
-    var detailsDict         = Dictionary<String, Any>()
-    var serviceArray        = [Dictionary<String, String>]()
-    var desiredLookArray    = [Dictionary<String, String>]()
-    
-    var selectedServiceArray    =   [Dictionary<String, String>]()
+    var detailsDict         =   Dictionary<String, Any>()
+    var serviceArray        =   [Dictionary<String, String>]()
+    var desiredLookArray    =   [Dictionary<String, String>]()
     
     var logoUrl             =   ""
     var bannerUrl           =   ""
@@ -43,8 +41,20 @@ class StylistProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = false
+        
+        appDelegate.serviceListArray   =   [Dictionary<String, String>]()
+        
         configureTableView(myTableView)
         setText()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        showHideChoosDateButton()
+        
+        myTableView.reloadData()
     }
     
     //MARK: - Helper Methods
@@ -79,6 +89,11 @@ class StylistProfileVC: UIViewController {
         } else {
             myTableViewHeight.constant = CGFloat(74)
         }
+        
+        appDelegate.stylistLogo    = logoUrl;
+        appDelegate.stylistName    = lblStylistName.text!
+        appDelegate.stylistAddress = lblAddress.text!
+        appDelegate.stylistId      = "\(detailsDict[StylistListParams.stylistId]!)"
         
         myTableView.reloadData()
         myCollectionView.reloadData()
@@ -126,11 +141,10 @@ class StylistProfileVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == StylistSegue.showAllServicesSegue {
             let dv = segue.destination as! ServicesListVC
-            dv.serviceArray = serviceArray
+            dv.serviceArray         =   serviceArray
             dv.stylistName          =   lblStylistName.text!
             dv.profession           =   lblProfession.text!
             dv.logoUrl              =   logoUrl
-            dv.selectedServiceArray = selectedServiceArray
         } else if segue.identifier == StylistSegue.showAllGalleryImageSegue {
             let dv = segue.destination as! GalleryViewController
             dv.galleryImgaeArray    =   desiredLookArray
@@ -178,7 +192,7 @@ extension StylistProfileVC: UITableViewDataSource, UITableViewDelegate {
             
             var image = UIImage(named: "btnSelect")
             
-            if checkWeatherDictIsInArray(dict: dict).0 {
+            if checkWeatherDictIsInArray(sourceDictArray: appDelegate.serviceListArray, dict: dict, key: ServicesParams.serviceId).0 {
                 image = UIImage(named: "btnSelect_active")
             }
             
@@ -198,15 +212,21 @@ extension StylistProfileVC: UITableViewDataSource, UITableViewDelegate {
         
         let dict = serviceArray[(indexPath?.row)!]
         
-        let result = checkWeatherDictIsInArray(dict: dict)
+        let result = checkWeatherDictIsInArray(sourceDictArray: appDelegate.serviceListArray, dict: dict, key: ServicesParams.serviceId)
         
         if result.0 {
-            selectedServiceArray.remove(at: result.1)
+            appDelegate.serviceListArray.remove(at: result.1)
         } else {
-            selectedServiceArray.append(dict)
+            appDelegate.serviceListArray.append(dict)
         }
         
-        if chooseDateViewHeight.constant == 0 && selectedServiceArray.count > 0 {
+        showHideChoosDateButton()
+        
+        myTableView.reloadRows(at: [indexPath!], with: .automatic)
+    }
+    
+    func showHideChoosDateButton() {
+        if chooseDateViewHeight.constant == 0 && appDelegate.serviceListArray.count > 0 {
             chooseDateViewHeight.constant = CGFloat(chooseDateViewHeightValue)
             
             UIView.animate(withDuration: 0.3, animations: {
@@ -217,27 +237,12 @@ extension StylistProfileVC: UITableViewDataSource, UITableViewDelegate {
                 self.myScrollView.scrollRectToVisible(rect, animated: true)
             })
             
-        } else if chooseDateViewHeight.constant == CGFloat(chooseDateViewHeightValue) && selectedServiceArray.count == 0 {
+        } else if chooseDateViewHeight.constant == CGFloat(chooseDateViewHeightValue) && appDelegate.serviceListArray.count == 0 {
             chooseDateViewHeight.constant = 0
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
             })
         }
-        
-        myTableView.reloadRows(at: [indexPath!], with: .automatic)
-    }
-    
-    func checkWeatherDictIsInArray(dict: Dictionary<String, String>) -> (Bool, Int) {
-        
-        var index = 0
-        
-        for tempDict in selectedServiceArray {
-            if tempDict[ServicesParams.serviceId] == dict[ServicesParams.serviceId] {
-                return (true, index)
-            }
-            index += 1
-        }
-        return (false, index)
     }
 }
 

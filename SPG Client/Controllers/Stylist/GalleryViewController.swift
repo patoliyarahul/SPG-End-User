@@ -26,12 +26,18 @@ class GalleryViewController: UIViewController {
     var stylistName         =   ""
     var logoUrl             =   ""
     
+    var selectedIndex = IndexPath(row: 0, section: 0)
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setText()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     //MARK: - Helper Methods
@@ -55,7 +61,10 @@ class GalleryViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == DiscoverSegue.imageDetailSegue {
+            let dv = segue.destination as! DiscoverImageVC
+            dv.dict = galleryImgaeArray[selectedIndex.row] as Dictionary<String, String>
+        }
     }
 }
 
@@ -102,10 +111,9 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if galleryImgaeArray.count > 0 {
-            //            selectedImageUrl = ImageDirectory.desiredLookDir + "\(desiredLookArray[indexPath.row])"
-            //            self.performSegue(withIdentifier: "imageSegue", sender: self)
+            selectedIndex = indexPath
+            self.performSegue(withIdentifier: DiscoverSegue.imageDetailSegue, sender: self)
         }
     }
 }

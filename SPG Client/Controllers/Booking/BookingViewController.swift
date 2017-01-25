@@ -14,20 +14,40 @@ class BookingViewController: UIViewController{
     @IBOutlet var tableView: UITableView!
     @IBOutlet var cancelButton: UIBarButtonItem!
     
+    @IBOutlet weak var myTableView: UITableView!
+    
+    @IBOutlet weak var blackTransperantView: UIView!
     //MARK: - Variables
     
-    var selectedIndexPath = IndexPath(row: 0, section: 0)
-    var arrUpcommingBooking = [AnyObject]()
-    var arrPastBooking = [AnyObject]()
-    let sectionTitles = ["UPCOMING", "PAST"]
+    var selectedIndexPath   =   IndexPath(row: 0, section: 0)
+    var arrUpcommingBooking =   [Dictionary<String, String>]()
+    var arrPastBooking      =   [Dictionary<String, String>]()
+    let sectionTitles       =   ["UPCOMING", "PAST"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.bringSubview(toFront: blackTransperantView)
+        
         let font = UIFont(name: "Gotham Book", size: 13)!
         cancelButton.setTitleTextAttributes([NSFontAttributeName: font], for: UIControlState.normal)
         configureTableView()
         callService()
         tableView.isHidden = true
+    }
+    
+    //MARK: - Helper Methods
+    
+    func configureTableView() {
+        tableView.tableFooterView = UIView()
+    }
+    
+    func callService() {
+        
+        let innerJson = ["pass_data": [EndUserParams.endUserID: "\(userDefault.value(forKey: EndUserParams.endUserID)!)"] as Dictionary<String, String>] as Dictionary<String, Any>
+        
+        innerJson.printJson()
+        Utils.callServicePost(innerJson.json, action: Api.booking_history, urlParamString: "", delegate: self)
     }
     
     //MARK: - UIButton Action Methods
@@ -36,23 +56,29 @@ class BookingViewController: UIViewController{
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func addAppointment(_ sender: UIBarButtonItem) {
-        
-    }
+    //MARK: - UINavigation Methods
     
-    func configureTableView() {
-        tableView.tableFooterView = UIView()
-    }
-    
-    func callService() {
-        
-        let innerJson = ["pass_data": ["end_user_id": "\(userDefault.value(forKey: "end_user_id")!)"] as Dictionary<String, String>] as Dictionary<String, Any>
-        
-        innerJson.printJson()
-        Utils.callServicePost(innerJson.json, action: Api.booking_history, urlParamString: "", delegate: self)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "bookingDetailSegue" {
+            let vc = segue.destination as! BookingDetailViewController
+            
+            var dict = Dictionary<String, String>()
+            if selectedIndexPath.section == 0 {
+                dict = arrUpcommingBooking[selectedIndexPath.row]
+            } else {
+                dict = arrPastBooking[selectedIndexPath.row]
+            }
+            
+            let gdate = Date().dateFromString(format: DateFormate.dateFormate_1, dateString: dict["appointment_date"]!)
+            let fDate = Date().stringDate(format: DateFormate.dateFormate_2, date: gdate)
+            vc.navigationItem.title = fDate
+            vc.strAppointmentId = dict["appointment_id"]!
+            vc.delegate = self
+        }
     }
 }
 
+//MARK: - UITableView Delegate Methods
 extension BookingViewController: UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,9 +118,9 @@ extension BookingViewController: UITableViewDelegate,UITableViewDataSource {
             
             var dictData = Dictionary<String, String>()
             if indexPath.section == 0 {
-                dictData = arrUpcommingBooking[indexPath.row] as! Dictionary<String, String>
+                dictData = arrUpcommingBooking[indexPath.row] 
             } else {
-                dictData = arrPastBooking[indexPath.row] as! Dictionary<String, String>
+                dictData = arrPastBooking[indexPath.row] 
             }
             
             cell.dateLabel.text = dictData["appointment_date"]
@@ -118,26 +144,9 @@ extension BookingViewController: UITableViewDelegate,UITableViewDataSource {
             performSegue(withIdentifier: "bookingDetailSegue", sender: self)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "bookingDetailSegue" {
-            let vc = segue.destination as! BookingDetailViewController
-            
-            var dict = Dictionary<String, String>()
-            if selectedIndexPath.section == 0 {
-                dict = arrUpcommingBooking[selectedIndexPath.row] as! Dictionary<String, String>
-            }else {
-                dict = arrPastBooking[selectedIndexPath.row] as! Dictionary<String, String>
-            }
-            
-            let gdate = Date().dateFromString(format: DateFormate.dateFormate_1, dateString: dict["appointment_date"]!)
-            let fDate = Date().stringDate(format: DateFormate.dateFormate_2, date: gdate)
-            vc.navigationItem.title = fDate
-            vc.strAppointmentId = dict["appointment_id"]!
-        }
-    }
 }
 
+//MARK: - Request Manager Delegate
 extension BookingViewController : RequestManagerDelegate {
     
     func onResult(_ result: Any!, action: String!, isTrue: Bool) {
@@ -147,11 +156,10 @@ extension BookingViewController : RequestManagerDelegate {
         if let resultDict:[String: AnyObject] = result as? [String : AnyObject] {
             if resultDict[MainResponseParams.success] as! NSNumber == NSNumber(value: 1) {
                 
-                arrUpcommingBooking = resultDict["upcoming_data"] as! [AnyObject]
-                arrPastBooking = resultDict["past_data"] as! [AnyObject]
+                arrUpcommingBooking = resultDict["upcoming_data"] as! [Dictionary<String, String>]
+                arrPastBooking      = resultDict["past_data"] as! [Dictionary<String, String>]
                 //                tableView.reloadData()
                 reloadTableViewWithAnimation(myTableView: tableView)
-                
                 
             } else {
                 let dict = resultDict[MainResponseParams.message] as! Dictionary<String, String>
@@ -162,5 +170,36 @@ extension BookingViewController : RequestManagerDelegate {
     
     func onFault(_ error: Error!) {
         Utils.HideHud()
+    }
+}
+
+//MARK: - BookingDetailViewController Delegate 
+extension BookingViewController: BookingDetailsDelegate {
+    func didCancelAppointment() {
+        if selectedIndexPath.section == 0 {
+            arrUpcommingBooking.remove(at: selectedIndexPath.row)
+        } else {
+            arrPastBooking.remove(at: selectedIndexPath.row)
+        }
+        
+        myTableView.deleteRows(at: [selectedIndexPath], with: .automatic)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blackTransperantView.alpha = 1
+        }) { (book : Bool) in
+            UIView.animate(withDuration: 0.5, delay: 1.5, options: .curveEaseInOut, animations: {
+                self.blackTransperantView.alpha = 0
+            }, completion: nil)
+        }
+    }
+    
+    func recheduledAppointment(dict: Dictionary<String, String>) {
+        if selectedIndexPath.section == 0 {
+            arrUpcommingBooking[selectedIndexPath.row] = dict
+        } else {
+            arrPastBooking[selectedIndexPath.row] = dict
+        }
+        
+        myTableView.reloadRows(at: [selectedIndexPath], with: .automatic)
     }
 }
