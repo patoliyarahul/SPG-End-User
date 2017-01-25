@@ -176,20 +176,20 @@ extension BookingViewController : RequestManagerDelegate {
 //MARK: - BookingDetailViewController Delegate 
 extension BookingViewController: BookingDetailsDelegate {
     func didCancelAppointment() {
-        if selectedIndexPath.section == 0 {
-            arrUpcommingBooking.remove(at: selectedIndexPath.row)
-        } else {
-            arrPastBooking.remove(at: selectedIndexPath.row)
-        }
-        
-        myTableView.deleteRows(at: [selectedIndexPath], with: .automatic)
-        
         UIView.animate(withDuration: 0.5, animations: {
             self.blackTransperantView.alpha = 1
-        }) { (book : Bool) in
+        }) { (bool : Bool) in
             UIView.animate(withDuration: 0.5, delay: 1.5, options: .curveEaseInOut, animations: {
                 self.blackTransperantView.alpha = 0
-            }, completion: nil)
+            }, completion: { (bool : Bool) in
+                if selectedIndexPath.section == 0 {
+                    arrUpcommingBooking.remove(at: selectedIndexPath.row)
+                } else {
+                    arrPastBooking.remove(at: selectedIndexPath.row)
+                }
+                
+                myTableView.deleteRows(at: [selectedIndexPath], with: .automatic)
+            })
         }
     }
     
