@@ -103,14 +103,10 @@ class ReviewViewController : UIViewController {
     
     func callServiceForBookAppointment() {
         
-        var desireLookStr = ""
+        var desireLookArr = [String]()
         
         for dict in appDelegate.desiredLookArray {
-            if desireLookStr == "" {
-                desireLookStr += dict[LookBookParams.lookBookDetailImage]!
-            } else {
-                desireLookStr += "," + dict[LookBookParams.lookBookDetailImage]!
-            }
+            desireLookArr.append(dict[LookBookParams.lookBookDetailImage]!)
         }
         
         let totalLength = secondsToHoursMinutesSeconds(seconds: appDelegate.totalLength * 60)
@@ -123,8 +119,8 @@ class ReviewViewController : UIViewController {
                                         AppointmentDetailParams.appointmentDate : appDelegate.appointmentDate,
                                         AppointmentDetailParams.appointmentTime : appDelegate.appointmentTime,
                                         AppointmentDetailParams.selfiePic : "",
-                                        AppointmentDetailParams.desiredLook : desireLookStr,
-                                        ManualAppointmentParams.totalLength: "\(totalLength.0):\(totalLength.1):\(totalLength.2)"] as Dictionary<String, String>] as Dictionary<String, Any>
+                                        AppointmentDetailParams.desiredLook : desireLookArr,
+                                        ManualAppointmentParams.totalLength: "\(totalLength.0):\(totalLength.1):\(totalLength.2)"] as Dictionary<String, Any>] as Dictionary<String, Any>
         innerJson.printJson()
         Utils.callServicePost(innerJson.json, action: Api.bookAppointment, urlParamString: "", delegate: self)
     }

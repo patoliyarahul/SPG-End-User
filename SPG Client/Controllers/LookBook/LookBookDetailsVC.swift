@@ -120,6 +120,8 @@ extension LookBookDetailsVC: UICollectionViewDelegate, UICollectionViewDataSourc
             
             let dict = lookBookArray[indexPath.row]
             
+            cell.desiredLookImage.image = UIImage()
+            
             if (dict[LookBookParams.lookBookDetailImage]?.characters.count)! > 0 {
                 let url = ImageDirectory.lookBookDir + "\(dict[LookBookParams.lookBookDetailImage]!)"
                 Utils.downloadImage(url, imageView: cell.desiredLookImage)

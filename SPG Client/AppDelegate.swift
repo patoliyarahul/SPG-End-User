@@ -64,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         if Platform.isSimulator {
             userDefault.set("12345678912345689", forKey:Device.device_id)
+            userDefault.set("98765432111231232", forKey: Device.udid)
         }
         
         return true
@@ -106,7 +107,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             .trimmingCharacters(in: CharacterSet(charactersIn: "<>"))
             .replacingOccurrences(of: " ", with: "")
         print("Token :",token)
+        
         userDefault.set(token, forKey:Device.device_id)
+        userDefault.set(UIDevice.current.identifierForVendor?.uuidString, forKey: Device.udid)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

@@ -357,12 +357,13 @@ struct ControllerIdentifier {
 }
 
 struct Device {
-    static let device_type = "device_type"
-    static let device_type_ios = "2"
-    static let user_login_type = "user_login_type"
-    static let user_login_type_fb = "1"
+    static let device_type          = "device_type"
+    static let device_type_ios      = "2"
+    static let user_login_type      = "user_login_type"
+    static let user_login_type_fb   = "1"
     static let user_login_type_normal = "2"
-    static let device_id = "device_id"  // Push Notification Token
+    static let device_id            = "device_id"  // Push Notification Token
+    static let udid                 =   "device_uuid"
 }
 
 struct Regx {

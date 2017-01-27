@@ -254,7 +254,7 @@ extension BookingDetailViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if desiredLookArray.count > 0 {
             selectedImageUrl = ImageDirectory.desiredLookDir + "\(desiredLookArray[indexPath.row])"
-            self.performSegue(withIdentifier: "imageSegue", sender: self)
+//            self.performSegue(withIdentifier: "imageSegue", sender: self)
         }
     }
 }
