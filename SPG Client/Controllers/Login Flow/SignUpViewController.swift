@@ -22,6 +22,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var txtPassword: TextFieldValidator!
     @IBOutlet weak var txtConformPassword: TextFieldValidator!
     
+    @IBOutlet weak var txtFirstName: TextFieldValidator!
+    @IBOutlet weak var txtLastName: TextFieldValidator!
+    @IBOutlet weak var txtPhoneNo: TextFieldValidator!
+    
     //MARK: - Variables
     var delegate: SignupDelegate?
     
@@ -45,13 +49,18 @@ class SignUpViewController: UIViewController {
         txtPassword.updateLengthValidationMsg(MESSAGES.pass_empty)
         txtConformPassword.updateLengthValidationMsg(MESSAGES.conform_pass_empty)
         
+        txtFirstName.updateLengthValidationMsg(MESSAGES.first_name_empty)
+        txtLastName.updateLengthValidationMsg(MESSAGES.last_name_empty)
+        txtPhoneNo.updateLengthValidationMsg(MESSAGES.mobile_number_empty)
+        
         txtEmail.addRegx(Regx.email, withMsg: MESSAGES.email_valid)
         txtConformPassword.addConfirmValidation(to: txtPassword, withMsg: MESSAGES.conform_pass_no_match)
+        txtPhoneNo.addRegx(Regx.phone, withMsg: MESSAGES.phone_valid)
     }
     
     func callService() {
         
-        let innerJson = [Request.pass_data: [PersonalInfoParams.email: "\(txtEmail.text!)", PersonalInfoParams.password: "\(txtPassword.text!)",Device.device_id : userDefault.value(forKey: Device.device_id) as! String , Device.device_type : Device.device_type_ios, "user_signup_type": Device.user_login_type_normal] as Dictionary<String, String>] as Dictionary<String, Any>
+        let innerJson = [Request.pass_data: [PersonalInfoParams.email: "\(txtEmail.text!)", PersonalInfoParams.password: "\(txtPassword.text!)",Device.device_id : userDefault.value(forKey: Device.device_id) as! String , Device.device_type : Device.device_type_ios, "user_signup_type": Device.user_login_type_normal, PersonalInfoParams.firstName: "\(txtFirstName.text!)", PersonalInfoParams.lastName: "\(txtLastName.text!)", PersonalInfoParams.phone: "\(txtPhoneNo.text!)"] as Dictionary<String, String>] as Dictionary<String, Any>
         
         innerJson.printJson()
         Utils.callServicePost(innerJson.json, action: Api.signUp, urlParamString: "", delegate: self)
@@ -68,7 +77,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func btnSignUp_Click(_ sender: AnyObject) {
-        if txtEmail.validate() && txtPassword.validate() && txtConformPassword.validate() {
+        if txtEmail.validate() && txtPassword.validate() && txtConformPassword.validate() && txtFirstName.validate() && txtLastName.validate() && txtPhoneNo.validate() {
             callService()
         }
     }

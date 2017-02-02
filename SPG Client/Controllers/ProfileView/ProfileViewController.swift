@@ -19,6 +19,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var notificationSwitch: UISwitch!
     
+    @IBOutlet weak var lblFirstName: UILabel!
+    @IBOutlet weak var lblLastName: UILabel!
+    @IBOutlet weak var lblPhoneNo: UILabel!
+    @IBOutlet weak var lblEmail: UILabel!
+    @IBOutlet weak var lblPassword: UILabel!
+    
+    
     //MARK: - Variables
     
     var delegate: ProfileDelegate?
@@ -30,6 +37,21 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        lblFirstName.text = userDefault.value(forKey: EndUserParams.firstName) as? String
+        lblLastName.text = userDefault.value(forKey: EndUserParams.lastName) as? String
+        lblEmail.text = userDefault.value(forKey: EndUserParams.email) as? String
+        lblPhoneNo.text = userDefault.value(forKey: EndUserParams.phone) as? String
+        
+        let c:Int = ((userDefault.value(forKey: EndUserParams.password) as? String)?.characters.count)!
+        
+        var final: String = ""
+        for _ in 1...c {
+            final = final+"*"
+        }
+        lblPassword.text = final
+//        lblPassword.text = userDefault.value(forKey: EndUserParams.password) as? String
+
         // Do any additional setup after loading the view.
     }
     

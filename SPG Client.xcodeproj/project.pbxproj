@@ -25,6 +25,7 @@
 		5557E6861E113806008606A5 /* Gotham-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5557E67A1E113806008606A5 /* Gotham-Book.ttf */; };
 		5557E6921E114006008606A5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557E6901E114006008606A5 /* Constant.swift */; };
 		5557E6931E114006008606A5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557E6911E114006008606A5 /* Utils.swift */; };
+		557FF33A1E404B1800A6480D /* LocalStylistsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557FF3391E404B1800A6480D /* LocalStylistsMapViewController.swift */; };
 		55CD12A11E1536EC00ABA7DB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A01E1536EC00ABA7DB /* DashboardViewController.swift */; };
 		55CD12A41E1536FC00ABA7DB /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A31E1536FC00ABA7DB /* BookingViewController.swift */; };
 		55CD12A61E1545D100ABA7DB /* BookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */; };
@@ -73,7 +74,6 @@
 		89C0E9381E38FBDC00B87456 /* LookBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C0E9371E38FBDC00B87456 /* LookBookCell.swift */; };
 		D13672F81DDEC25A00147126 /* locationListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13672F71DDEC25A00147126 /* locationListingTableViewCell.swift */; };
 		D142CB471DD5A68A00D0E985 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D142CB461DD5A68A00D0E985 /* GoogleService-Info.plist */; };
-		D14310741DDED5A7001F542C /* LocalStylistsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14310731DDED5A7001F542C /* LocalStylistsMapViewController.swift */; };
 		D14310761DDF5CC3001F542C /* CustomMKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14310751DDF5CC3001F542C /* CustomMKPointAnnotation.swift */; };
 		D14310781DDF79C2001F542C /* discoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14310771DDF79C2001F542C /* discoverCollectionViewCell.swift */; };
 		D17D0CA21DD3FACE00E6CD67 /* bookingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D0CA11DD3FACE00E6CD67 /* bookingsTableViewCell.swift */; };
@@ -117,6 +117,7 @@
 		5557E68F1E113DAF008606A5 /* SPG Client-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPG Client-Bridging-Header.h"; sourceTree = "<group>"; };
 		5557E6901E114006008606A5 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		5557E6911E114006008606A5 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		557FF3391E404B1800A6480D /* LocalStylistsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStylistsMapViewController.swift; sourceTree = "<group>"; };
 		55CD12A01E1536EC00ABA7DB /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		55CD12A31E1536FC00ABA7DB /* BookingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		55CD12A51E1545D100ABA7DB /* BookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingDetailViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +171,6 @@
 		BE9C933634DC909F377E689D /* Pods_SPG_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SPG_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13672F71DDEC25A00147126 /* locationListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationListingTableViewCell.swift; sourceTree = "<group>"; };
 		D142CB461DD5A68A00D0E985 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D14310731DDED5A7001F542C /* LocalStylistsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStylistsMapViewController.swift; sourceTree = "<group>"; };
 		D14310751DDF5CC3001F542C /* CustomMKPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMKPointAnnotation.swift; sourceTree = "<group>"; };
 		D14310771DDF79C2001F542C /* discoverCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = discoverCollectionViewCell.swift; sourceTree = "<group>"; };
 		D17D0CA11DD3FACE00E6CD67 /* bookingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -279,6 +279,14 @@
 				5557E6911E114006008606A5 /* Utils.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		557FF3381E404B1800A6480D /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				557FF3391E404B1800A6480D /* LocalStylistsMapViewController.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 		55CD129F1E1536EC00ABA7DB /* Dashboard */ = {
@@ -470,7 +478,7 @@
 				55CD12A21E1536FC00ABA7DB /* Booking */,
 				79687A531E1E9C02004B840E /* Stylist */,
 				D1CD223F1DE3E2C200D65E2F /* AnimationClass.swift */,
-				D14310731DDED5A7001F542C /* LocalStylistsMapViewController.swift */,
+				557FF3381E404B1800A6480D /* Local */,
 				D14310751DDF5CC3001F542C /* CustomMKPointAnnotation.swift */,
 			);
 			path = Controllers;
@@ -685,6 +693,7 @@
 			files = (
 				5557E6921E114006008606A5 /* Constant.swift in Sources */,
 				7979C50C1E20BC8900C708D7 /* WhiteSectionHeaderView.swift in Sources */,
+				557FF33A1E404B1800A6480D /* LocalStylistsMapViewController.swift in Sources */,
 				792899B71E2513CA00D3A8FD /* ReviewViewController.swift in Sources */,
 				8971A9AC1E29024E006A56E2 /* LookBookImageVC.swift in Sources */,
 				79687A571E1E9C02004B840E /* StylistsViewController.swift in Sources */,
@@ -744,7 +753,6 @@
 				55CD12A41E1536FC00ABA7DB /* BookingViewController.swift in Sources */,
 				7979C5031E20BC8900C708D7 /* Animation.swift in Sources */,
 				7979C50E1E20BC8900C708D7 /* Extensions.swift in Sources */,
-				D14310741DDED5A7001F542C /* LocalStylistsMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

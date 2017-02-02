@@ -125,7 +125,7 @@ class BookingDetailViewController : UIViewController {
         }
     }
     
-    //MARK: - UIButton Action Methods
+    //MARK: - UIButton Ac	tion Methods
     
     
     @IBAction func btnRescheduleClicked(_ sender: Any) {

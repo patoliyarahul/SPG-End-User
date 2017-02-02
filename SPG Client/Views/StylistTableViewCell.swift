@@ -14,6 +14,7 @@ class StylistTableViewCell: UITableViewCell {
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblService: UILabel!
     @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var lblDistance: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

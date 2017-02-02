@@ -84,6 +84,11 @@ struct Api {
     static let addManualAppointment     =   "add_stylist_user_manual_appointment.php"
     static let getStylistProfile        =   "get_end_user_stylist_profile.php"
     
+    
+    // Local
+    
+    static let getLocalStylistList      =   "local_end_user_stylist_list.php"
+    
 }
 
 struct InitialSegue {
@@ -188,6 +193,7 @@ struct StylistListParams {
     static let lastName         =   "last_name"
     static let recentWork       =   "recent_work"
     static let services         =   "services"
+    static let distance         =   "distance"
 }
 
 struct EndUserParams {
@@ -213,6 +219,19 @@ struct PersonalInfoParams {
     static let stylistId    =   "stylist_user_id"
 }
 
+struct Map {
+    static let latitude     =   "end_user_latitude"
+    static let longitude    =   "end_user_longitude"
+    static let radius       =   "radius"
+    static let offset       =   "offset"
+}
+
+struct Location {
+    let tilte : String
+    let latitude : Double
+    let longitude : Double
+}
+
 struct Request {
     static let pass_data = "pass_data"
 }
@@ -230,6 +249,11 @@ struct BusinessInfoParams {
     static let businessLong     =   "business_longitude"
     static let webAddress       =   "web_address"
     static let businessCatID    =   "business_category_id"
+    static let profession       =   "profession"
+    static let distance         =   "distance"
+    static let logoImage        =   "logo_image"
+
+
 }
 
 struct ServicesParams {
@@ -369,13 +393,16 @@ struct Device {
 struct Regx {
     static let email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
     static let pass = "[A-Za-z0-9.!@#$^_]{6,20}"
+    static let phone = "[0-9]{10}"
+
 }
 
 struct MESSAGES {
     //Login & Signup Messages
     static let email_empty      =   "Please enter email address."
     static let email_valid      =   "Please enter valid email address."
-    
+    static let phone_valid      =   "Please enter valid phone number."
+
     static let pass_empty       =   "Please enter password."
     static let conform_pass_empty       =   "Please enter confirm password."
     
@@ -389,6 +416,11 @@ struct MESSAGES {
     static let personalInfoUpdated  =   "Personal Info Updated Successfully."
     static let businessInfoUpdated  =   "Business Info Updated Successfully."
     static let serviceUpdated       =   "Service Details Updated Successfully."
+    
+    
+    static let first_name_empty     = "Please enter first name."
+    static let last_name_empty      = "Please enter last name."
+    static let mobile_number_empty  = "Please enter phone number."
 }
 
 extension Dictionary {

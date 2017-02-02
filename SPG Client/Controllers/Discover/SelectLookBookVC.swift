@@ -120,8 +120,7 @@ extension SelectLookBookVC: UITableViewDelegate, UITableViewDataSource {
             }
             
             delegate?.didSelectLookBook(lookBookId: selectedLookBookId)
-            
-            previousSelectedIndex = indexPath
+                        previousSelectedIndex = indexPath
         }
     }
 }
