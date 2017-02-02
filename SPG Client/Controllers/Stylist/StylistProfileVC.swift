@@ -41,8 +41,6 @@ class StylistProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = false
-        
         appDelegate.serviceListArray   =   [Dictionary<String, String>]()
         
         configureTableView(myTableView)
@@ -51,6 +49,8 @@ class StylistProfileVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = false
         
         showHideChoosDateButton()
         

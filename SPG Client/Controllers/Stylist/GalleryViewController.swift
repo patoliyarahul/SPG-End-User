@@ -63,7 +63,10 @@ class GalleryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == DiscoverSegue.imageDetailSegue {
             let dv = segue.destination as! DiscoverImageVC
-            dv.dict = galleryImgaeArray[selectedIndex.row] as Dictionary<String, String>
+            
+            var dict = galleryImgaeArray[selectedIndex.row] as Dictionary<String, String>
+            dict[StylistListParams.stylistId] = appDelegate.stylistId
+            dv.dict = dict
         }
     }
 }

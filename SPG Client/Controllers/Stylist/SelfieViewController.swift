@@ -25,6 +25,8 @@ class SelfieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        self.view.layoutIfNeeded()
+        
         imgSelfieView.layer.cornerRadius = imgSelfieView.frame.size.width / 2
     }
     
@@ -76,7 +78,7 @@ class SelfieViewController: UIViewController {
 
 extension SelfieViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             
             takeSelfieView.alpha = 0
             selectedImage = pickedImage

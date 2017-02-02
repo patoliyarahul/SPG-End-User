@@ -42,6 +42,7 @@ class ReviewViewController : UIViewController {
     
     var selectedImageUrl = ""
     
+    var selfieImageName     =   ""
     
     //MARK: - Life Cycle
     
@@ -96,10 +97,21 @@ class ReviewViewController : UIViewController {
     //MARK: - UIButton Action Methods
     
     @IBAction func btnSendRequest_Click(_ sender: Any) {
-        callServiceForBookAppointment()
+        
+        if appDelegate.selfieImage != #imageLiteral(resourceName: "userpic") {
+            callServiceToUploadSelfiePic()
+        } else {
+            callServiceForBookAppointment()
+        }
     }
     
     //MARK: - Service Call Methods
+    
+    func callServiceToUploadSelfiePic() {
+        let innerJson = [EndUserParams.endUserID : userDefault.string(forKey: EndUserParams.endUserID)!] as NSMutableDictionary
+        let data = UIImageJPEGRepresentation(appDelegate.selfieImage, 1.0)
+        Utils.callPhotoUpload(dict: innerJson, action: Api.uploadSelfiePic, data: data!, delegate: self, photoKey: "photo")
+    }
     
     func callServiceForBookAppointment() {
         
@@ -118,7 +130,7 @@ class ReviewViewController : UIViewController {
                                         AppointmentDetailParams.userNote : appDelegate.appointmentNotes,
                                         AppointmentDetailParams.appointmentDate : appDelegate.appointmentDate,
                                         AppointmentDetailParams.appointmentTime : appDelegate.appointmentTime,
-                                        AppointmentDetailParams.selfiePic : "",
+                                        AppointmentDetailParams.selfiePic : selfieImageName,
                                         AppointmentDetailParams.desiredLook : desireLookArr,
                                         ManualAppointmentParams.totalLength: "\(totalLength.0):\(totalLength.1):\(totalLength.2)"] as Dictionary<String, Any>] as Dictionary<String, Any>
         innerJson.printJson()
@@ -215,6 +227,9 @@ extension ReviewViewController : RequestManagerDelegate {
                 if action == Api.bookAppointment {
                     self.navigationController?.dismiss(animated: true, completion: nil)
                     print("appointment booked successfully \(resultDict)")
+                } else if action == Api.uploadSelfiePic {
+                    selfieImageName = "\(resultDict["selfie_pic"]!)"
+                    callServiceForBookAppointment()
                 }
             } else {
                 let dict = resultDict[MainResponseParams.message] as! Dictionary<String, String>

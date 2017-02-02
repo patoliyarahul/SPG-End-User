@@ -89,7 +89,7 @@ extension AdditionalInfoVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if appDelegate.desiredLookArray.count > 1 {
+        if appDelegate.desiredLookArray.count > 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DesiredLookCell
             
             if appDelegate.desiredLookArray.count > 0 {

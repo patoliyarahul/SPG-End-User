@@ -181,7 +181,6 @@
         receivedData = [NSMutableData data];
     }else{
     }
-    
 }
 
 - (void)connection:(NSURLConnection *)theConnection didReceiveResponse:(NSURLResponse *)response{
