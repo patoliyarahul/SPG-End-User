@@ -90,7 +90,6 @@ extension SignUpViewController: RequestManagerDelegate {
         if let resultDict:[String: AnyObject] = result as? [String : AnyObject] {
             if resultDict[MainResponseParams.success] as! NSNumber == NSNumber(value: 1) {
                 print("login successfully")
-                userDefault.set(true, forKey: Constant.userIsLogedIn)
                 Utils.storeResponseToUserDefault(resultDict[MainResponseParams.data]!)
                 delegate?.didSignup()
                 self.dismiss(animated: true, completion: nil)

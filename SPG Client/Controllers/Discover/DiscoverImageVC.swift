@@ -96,7 +96,7 @@ extension DiscoverImageVC : RequestManagerDelegate {
         if let resultDict:[String: AnyObject] = result as? [String : AnyObject] {
             if resultDict[MainResponseParams.success] as! NSNumber == NSNumber(value: 1) {
                 if action == Api.getStylistProfile {
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let storyboard = UIStoryboard(name: "Stylists", bundle: nil)
                     let stylistDetailVC = storyboard.instantiateViewController(withIdentifier: "StylistProfileVC") as! StylistProfileVC
                     stylistDetailVC.detailsDict = resultDict[MainResponseParams.data] as! Dictionary<String, Any>
                     

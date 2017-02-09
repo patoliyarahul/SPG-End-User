@@ -48,7 +48,7 @@ class AdditionalInfoVC: UIViewController {
     }
     
     @IBAction func btnSelectImage_Click(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Lookbook", bundle: nil)
         let nav = storyboard.instantiateViewController(withIdentifier: "MyLookBookVC") as! UINavigationController
         let lookbookVC = nav.viewControllers[0] as! MyLookBookVC
         lookbookVC.isChoosImage = true

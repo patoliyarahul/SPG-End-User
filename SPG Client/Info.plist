@@ -48,6 +48,8 @@
 	<string>{human-readable reason for photo access}</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>TextaNarrow-Medium.ttf</string>
+		<string>Lato-Light.ttf</string>
 		<string>Gotham-Black.ttf</string>
 		<string>Gotham-BlackItalic.ttf</string>
 		<string>Gotham-Bold.ttf</string>

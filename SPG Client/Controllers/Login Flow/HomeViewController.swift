@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
     
@@ -19,6 +20,10 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var splashView: UIView!
     
+    //MARK: - Variables
+    
+    var isLoggedIn = false
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -27,14 +32,17 @@ class HomeViewController: UIViewController {
         btnLogin.layer.borderColor = UIColor.white.cgColor
         btnSignUP.layer.borderColor = UIColor.white.cgColor
         
-        splashView.alpha = 0;
-//        self.view.bringSubview(toFront: splashView)
+        splashView.alpha = 1;
+        self.view.bringSubview(toFront: splashView)
+        
+        if userDefault.bool(forKey: Constant.userIsLogedIn) {
+            isLoggedIn = true
+            didLogedIn()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if userDefault.bool(forKey: Constant.userIsLogedIn) {
-            self.performSegue(withIdentifier: InitialSegue.homeToDashboardSegue, sender: self)
-        } else {
+        if !userDefault.bool(forKey: Constant.userIsLogedIn) {
             self.imageView.alpha = 1.0
             self.logoImageView.alpha = 0.0
             self.btnLogin.alpha = 0.0
@@ -57,6 +65,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         splashView.alpha = 0
+        isLoggedIn = false
         
         if segue.identifier == InitialSegue.loginSegue {
             let nv = segue.destination as! UINavigationController
@@ -74,13 +83,39 @@ class HomeViewController: UIViewController {
 //MARK: - Login SignupDeligate
 extension HomeViewController: LoginDelegate {
     func didLogedIn() {
-        self.performSegue(withIdentifier: InitialSegue.homeToDashboardSegue, sender: self)
+        FIRAuth.auth()?.signIn(withEmail: userDefault.string(forKey: ClientsParams.email)!, password: "123456") { (user, error) in
+            if let err = error { // 3
+                print(err.localizedDescription)
+                if err.localizedDescription == "There is no user record corresponding to this identifier. The user may have been deleted." {
+                    self.signUpToFirebase()
+                } else {
+                    return
+                }
+            } else {
+                userDefault.set(true, forKey: Constant.userIsLogedIn)
+                let segueName = self.isLoggedIn ? InitialSegue.homeToDeshboardWithoutAnimation : InitialSegue.homeToDashboardSegue
+                self.performSegue(withIdentifier: segueName, sender: self)
+            }
+        }
+    }
+    
+    func signUpToFirebase() {
+        FIRAuth.auth()?.createUser(withEmail: userDefault.string(forKey: ClientsParams.email)!, password: "123456") { (user, error) in
+            if let err = error { // 3
+                print(err.localizedDescription)
+                return
+            }
+            userDefault.set(true, forKey: Constant.userIsLogedIn)
+            
+            let segueName = self.isLoggedIn ? InitialSegue.homeToDeshboardWithoutAnimation : InitialSegue.homeToDashboardSegue
+            self.performSegue(withIdentifier: segueName, sender: self)
+        }
     }
 }
 
 extension HomeViewController: SignupDelegate {
     
     func didSignup() {
-        self.performSegue(withIdentifier: InitialSegue.homeToDashboardSegue, sender: self)
+        signUpToFirebase()
     }
 }

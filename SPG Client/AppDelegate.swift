@@ -11,6 +11,7 @@ import CoreData
 import FBSDKCoreKit
 import IQKeyboardManagerSwift
 import UserNotifications
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
@@ -42,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // ----------------- * Push notification Start*-----------------
         registerForPushNotifications(application: application)
         
+        FIRApp.configure()
         
         //        //        var types: UIUserNotificationType = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound
         //
@@ -67,7 +69,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             userDefault.set("98765432111231232", forKey: Device.udid)
         }
         
+        printFonts()
+        
         return true
+    }
+    
+    func printFonts() {
+        let fontFamilyNames = UIFont.familyNames
+        for familyName in fontFamilyNames {
+            print("------------------------------")
+            print("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNames(forFamilyName: familyName)
+            print("Font Names = [\(names)]")
+        }
     }
     
     func registerForPushNotifications(application: UIApplication) {

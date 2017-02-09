@@ -22,6 +22,11 @@ target 'SPG Client' do
   pod 'Alamofire', '~> 4.0'
   pod 'AlamofireImage'
   
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'JSQMessagesViewController'
+  
 #  pod "SSImageBrowser"
 
 end

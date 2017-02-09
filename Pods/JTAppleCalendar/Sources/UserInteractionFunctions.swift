@@ -52,15 +52,20 @@ extension JTAppleCalendarView {
     ///     - CellState: The state of the found cell
     public func cellStatus(at point: CGPoint) -> CellState? {
         if let indexPath = calendarView.indexPathForItem(at: point) {
-            return cellStateFromIndexPath(indexPath)
+            let cell = calendarView.cellForItem(at: indexPath) as? JTAppleDayCell
+            return cellStateFromIndexPath(indexPath, cell: cell)
         }
         return nil
     }
     
     /// Deselect all selected dates
     public func deselectAllDates(triggerSelectionDelegate: Bool = true) {
-        selectDates(selectedDates,
-                    triggerSelectionDelegate: triggerSelectionDelegate)
+        if allowsMultipleSelection {
+            selectDates(selectedDates, triggerSelectionDelegate: triggerSelectionDelegate)
+        } else {
+            guard let path = pathsFromDates(selectedDates).first else { return }
+            collectionView(calendarView, didDeselectItemAt: path)
+        }
     }
     
     /// Generates a range of dates from from a startDate to an
@@ -69,8 +74,7 @@ extension JTAppleCalendarView {
     /// Parameter endDate: End date to generate dates to
     /// returns:
     ///     - An array of the successfully generated dates
-    public func generateDateRange(from startDate: Date,
-                                  to endDate: Date) -> [Date] {
+    public func generateDateRange(from startDate: Date, to endDate: Date) -> [Date] {
         if startDate > endDate {
             return []
         }
@@ -278,7 +282,8 @@ extension JTAppleCalendarView {
             // If triggereing is enabled, then let their delegate
             // handle the reloading of view, else we will reload the data
             if triggerSelectionDelegate {
-                self.internalCollectionView(self.calendarView, didSelectItemAtIndexPath: indexPath)
+                self.collectionView(self.calendarView, didSelectItemAt: indexPath)
+//                self.internalCollectionView(self.calendarView, didSelectItemAtIndexPath: indexPath)
             } else {
                 // Although we do not want the delegate triggered, we
                 // still want counterpart cells to be selected
@@ -307,8 +312,8 @@ extension JTAppleCalendarView {
                     // If delegate triggering is enabled, let the
                     // delegate function handle the cell
                     if triggerSelectionDelegate {
-                        self.internalCollectionView(self.calendarView,
-                            didDeselectItemAtIndexPath: oldIndexPath)
+                        self.collectionView(self.calendarView, didDeselectItemAt: oldIndexPath)
+//                        self.internalCollectionView(self.calendarView, didDeselectItemAtIndexPath: oldIndexPath)
                     } else {
                         // Although we do not want the delegate triggered,
                         // we still want counterpart cells to be deselected
@@ -498,7 +503,7 @@ extension JTAppleCalendarView {
             // Rect takes preference
             if let validRect = rect {
                 scrollInProgress = true
-                scrollTo(rect: validRect, isAnimationEnabled: isAnimationEnabled, completionHandler: completionHandler)
+                scrollTo(rect: validRect, triggerScrollToDateDelegate: triggerScrollToDateDelegate, isAnimationEnabled: isAnimationEnabled, completionHandler: completionHandler)
             } else {
                 guard let validIndexPath = indexPath else {
                     return

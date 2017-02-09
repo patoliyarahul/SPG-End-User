@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>911014024216-v633av8f3vrcer3c6cn8h9aqrl33203a.apps.googleusercontent.com</string>
+	<string>414851459463-7avj3fm4um5ek6qvnjf07kfg10nmi7v6.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.911014024216-v633av8f3vrcer3c6cn8h9aqrl33203a</string>
+	<string>com.googleusercontent.apps.414851459463-7avj3fm4um5ek6qvnjf07kfg10nmi7v6</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCVqM3MQeWlQU-0qMZmou5Wr9aFKNNJ9KI</string>
+	<string>AIzaSyAgpolsn5KnsejiLEc2lClOtAaOX-hduis</string>
 	<key>GCM_SENDER_ID</key>
-	<string>911014024216</string>
+	<string>414851459463</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.AE.SPG</string>
+	<string>com.spg.enduser</string>
 	<key>PROJECT_ID</key>
-	<string>spg-client-6fafb</string>
+	<string>spg-stylist</string>
 	<key>STORAGE_BUCKET</key>
-	<string>spg-client-6fafb.appspot.com</string>
+	<string>spg-stylist.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,6 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:911014024216:ios:f7e4a51918c1be5f</string>
+	<string>1:414851459463:ios:d04f5be553f71694</string>
+	<key>DATABASE_URL</key>
+	<string>https://spg-stylist.firebaseio.com</string>
 </dict>
 </plist>

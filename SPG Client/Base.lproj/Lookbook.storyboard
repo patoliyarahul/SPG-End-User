@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Book.ttf">
+            <string>GothamBook</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--My Lookbooks-->
+        <scene sceneID="S6G-hV-Wsj">
+            <objects>
+                <viewController id="9Bd-4f-2Qi" customClass="MyLookBookVC" customModule="SPG_Client" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iip-wv-16D"/>
+                        <viewControllerLayoutGuide type="bottom" id="uBR-Xl-7L6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="afC-MS-vjI">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAR-4U-Vja">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="lookBookLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ZAJ-yd-1S0">
+                                        <rect key="frame" x="101.5" y="95.5" width="117" height="98"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmV-H6-SE9">
+                                        <rect key="frame" x="82.5" y="211.5" width="156" height="44"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">You have not created
+a Lookbook</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="0.88627" green="0.86667000000000005" blue="0.89803999999999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ZAJ-yd-1S0" firstAttribute="centerX" secondItem="XAR-4U-Vja" secondAttribute="centerX" id="9OA-ha-dML"/>
+                                    <constraint firstItem="RmV-H6-SE9" firstAttribute="centerX" secondItem="ZAJ-yd-1S0" secondAttribute="centerX" id="Pts-Op-zCY"/>
+                                    <constraint firstItem="RmV-H6-SE9" firstAttribute="top" secondItem="ZAJ-yd-1S0" secondAttribute="bottom" constant="18" id="mis-LP-oZ5"/>
+                                    <constraint firstItem="ZAJ-yd-1S0" firstAttribute="centerY" secondItem="XAR-4U-Vja" secondAttribute="centerY" constant="-107" id="th6-Xz-C5I"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Find Lookbook" translatesAutoresizingMaskIntoConstraints="NO" id="ly5-SA-eKE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VnQ-s6-Zac">
+                                <rect key="frame" x="0.0" y="44" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="10" id="ToA-gJ-zkB">
+                                    <size key="itemSize" width="165" height="201"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="a2r-aH-Q55" customClass="MyLookBookCollectionCell" customModule="SPG_Client" customModuleProvider="target">
+                                        <rect key="frame" x="78" y="0.0" width="165" height="201"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="165" height="201"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="752" image="lookbook_default_thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="ZXQ-9V-MQD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
+                                                    <color key="backgroundColor" red="0.96470588239999999" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ZXQ-9V-MQD" secondAttribute="height" multiplier="1:1" id="2fZ-cQ-bbP"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="748" text="My New Lookbook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uk-yR-vcJ">
+                                                    <rect key="frame" x="0.0" y="175" width="165" height="12"/>
+                                                    <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="14"/>
+                                                    <color key="textColor" red="0.36078431372549019" green="0.3411764705882353" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="My New Lookbook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9g-D8-3bd">
+                                                    <rect key="frame" x="0.0" y="192" width="165" height="9"/>
+                                                    <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
+                                                    <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="D9g-D8-3bd" secondAttribute="trailing" id="4du-ir-dS2"/>
+                                            <constraint firstItem="D9g-D8-3bd" firstAttribute="top" secondItem="3uk-yR-vcJ" secondAttribute="bottom" constant="5" id="UUj-ts-PC9"/>
+                                            <constraint firstItem="3uk-yR-vcJ" firstAttribute="leading" secondItem="a2r-aH-Q55" secondAttribute="leading" id="cg5-0G-K9U"/>
+                                            <constraint firstAttribute="trailing" secondItem="3uk-yR-vcJ" secondAttribute="trailing" id="jj9-Tu-RZ2"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZXQ-9V-MQD" secondAttribute="trailing" id="kBL-J6-K1a"/>
+                                            <constraint firstItem="ZXQ-9V-MQD" firstAttribute="leading" secondItem="a2r-aH-Q55" secondAttribute="leading" id="mVX-BI-pAF"/>
+                                            <constraint firstAttribute="bottom" secondItem="D9g-D8-3bd" secondAttribute="bottom" id="mjQ-Dq-y8n"/>
+                                            <constraint firstItem="ZXQ-9V-MQD" firstAttribute="top" secondItem="a2r-aH-Q55" secondAttribute="top" id="oNL-sp-nrw"/>
+                                            <constraint firstItem="D9g-D8-3bd" firstAttribute="leading" secondItem="a2r-aH-Q55" secondAttribute="leading" id="qY5-fd-bG6"/>
+                                            <constraint firstItem="3uk-yR-vcJ" firstAttribute="top" secondItem="ZXQ-9V-MQD" secondAttribute="bottom" constant="10" id="zRg-21-8Lb"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="lookBookImage" destination="ZXQ-9V-MQD" id="xNe-6h-9oN"/>
+                                            <outlet property="lookBookName" destination="3uk-yR-vcJ" id="XfW-bT-SQs"/>
+                                            <outlet property="noOfImages" destination="D9g-D8-3bd" id="ais-kH-ghe"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Bd-4f-2Qi" id="7LZ-UY-kHK"/>
+                                    <outlet property="delegate" destination="9Bd-4f-2Qi" id="70T-zJ-Kj9"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XAR-4U-Vja" firstAttribute="top" secondItem="Iip-wv-16D" secondAttribute="bottom" id="3Tv-fz-bwj"/>
+                            <constraint firstAttribute="trailing" secondItem="ly5-SA-eKE" secondAttribute="trailing" id="7uE-RR-LAV"/>
+                            <constraint firstItem="VnQ-s6-Zac" firstAttribute="leading" secondItem="afC-MS-vjI" secondAttribute="leading" id="Ga2-Yj-kss"/>
+                            <constraint firstItem="uBR-Xl-7L6" firstAttribute="top" secondItem="VnQ-s6-Zac" secondAttribute="bottom" id="Ugh-S8-T6Y"/>
+                            <constraint firstItem="XAR-4U-Vja" firstAttribute="leading" secondItem="afC-MS-vjI" secondAttribute="leading" id="WH1-wz-qDb"/>
+                            <constraint firstItem="ly5-SA-eKE" firstAttribute="top" secondItem="Iip-wv-16D" secondAttribute="bottom" id="WlO-db-ewF"/>
+                            <constraint firstItem="ly5-SA-eKE" firstAttribute="leading" secondItem="afC-MS-vjI" secondAttribute="leading" id="aWj-xJ-MGy"/>
+                            <constraint firstItem="VnQ-s6-Zac" firstAttribute="top" secondItem="ly5-SA-eKE" secondAttribute="bottom" id="eec-t1-aCf"/>
+                            <constraint firstAttribute="trailing" secondItem="VnQ-s6-Zac" secondAttribute="trailing" id="ei7-4e-03l"/>
+                            <constraint firstItem="uBR-Xl-7L6" firstAttribute="top" secondItem="XAR-4U-Vja" secondAttribute="bottom" id="ke1-f4-B4A"/>
+                            <constraint firstAttribute="trailing" secondItem="XAR-4U-Vja" secondAttribute="trailing" id="pbF-SU-dtL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Lookbooks" id="3zl-ME-E57">
+                        <barButtonItem key="backBarButtonItem" title=" " id="txn-SV-0XI"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="k6c-Pf-ZWe">
+                            <connections>
+                                <action selector="btnCancel_Click:" destination="9Bd-4f-2Qi" id="dFe-Kl-k54"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HI9-zP-AyW">
+                            <connections>
+                                <action selector="btnAdd_Click:" destination="9Bd-4f-2Qi" id="Q5y-H8-Xma"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="myCollectionView" destination="VnQ-s6-Zac" id="UqZ-5O-Ghw"/>
+                        <outlet property="noLookBookView" destination="XAR-4U-Vja" id="WFU-ab-Y1f"/>
+                        <segue destination="Boo-zS-gVy" kind="show" identifier="viewLookBookSegue" id="U6G-Pl-pQj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hrQ-du-AaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="-647.22638680659679"/>
+        </scene>
+        <!--Lookbook Title-->
+        <scene sceneID="rfZ-0h-wZu">
+            <objects>
+                <viewController id="Boo-zS-gVy" customClass="LookBookDetailsVC" customModule="SPG_Client" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jrm-dm-CbE"/>
+                        <viewControllerLayoutGuide type="bottom" id="dS1-Sa-fN4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oAt-y5-RNi">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feZ-NA-Jb5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="lookBookLarge" translatesAutoresizingMaskIntoConstraints="NO" id="efV-aK-srm">
+                                        <rect key="frame" x="101.5" y="95.5" width="117" height="98"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8A-74-NyH">
+                                        <rect key="frame" x="121.5" y="211.5" width="78" height="20"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="No Images">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.88627" green="0.86667000000000005" blue="0.89803999999999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="efV-aK-srm" firstAttribute="centerY" secondItem="feZ-NA-Jb5" secondAttribute="centerY" constant="-107" id="lvW-nN-aQa"/>
+                                    <constraint firstItem="efV-aK-srm" firstAttribute="centerX" secondItem="feZ-NA-Jb5" secondAttribute="centerX" id="ncR-GH-MAQ"/>
+                                    <constraint firstItem="p8A-74-NyH" firstAttribute="centerX" secondItem="efV-aK-srm" secondAttribute="centerX" id="x0w-TZ-3CG"/>
+                                    <constraint firstItem="p8A-74-NyH" firstAttribute="top" secondItem="efV-aK-srm" secondAttribute="bottom" constant="18" id="z1i-x8-Obl"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eGD-F7-oWu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AwK-dU-eY7">
+                                    <size key="itemSize" width="172" height="172"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="MJY-ia-koY" customClass="LookBookCell" customModule="SPG_Client" customModuleProvider="target">
+                                        <rect key="frame" x="74" y="0.0" width="172" height="172"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MQH-8G-X5p">
+                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                                                    <color key="backgroundColor" red="0.96470588239999999" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-YR-HNi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30485255281690143" colorSpace="calibratedRGB"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="MQH-8G-X5p" secondAttribute="bottom" id="Ef0-dp-5a4"/>
+                                            <constraint firstAttribute="trailing" secondItem="MQH-8G-X5p" secondAttribute="trailing" id="R4h-VE-8So"/>
+                                            <constraint firstItem="MQH-8G-X5p" firstAttribute="leading" secondItem="MJY-ia-koY" secondAttribute="leading" id="b7Q-Ea-NE9"/>
+                                            <constraint firstAttribute="bottom" secondItem="qTX-YR-HNi" secondAttribute="bottom" id="cm8-dE-cRZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="qTX-YR-HNi" secondAttribute="trailing" id="eLw-Bw-UwT"/>
+                                            <constraint firstItem="MQH-8G-X5p" firstAttribute="top" secondItem="MJY-ia-koY" secondAttribute="top" id="tzB-bU-2qp"/>
+                                            <constraint firstItem="qTX-YR-HNi" firstAttribute="top" secondItem="MJY-ia-koY" secondAttribute="top" id="yMH-EC-yxf"/>
+                                            <constraint firstItem="qTX-YR-HNi" firstAttribute="leading" secondItem="MJY-ia-koY" secondAttribute="leading" id="z6D-jD-OSr"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="desiredLookImage" destination="MQH-8G-X5p" id="JhN-wb-Rwm"/>
+                                            <outlet property="selectionView" destination="qTX-YR-HNi" id="Pzf-p4-Cgb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Boo-zS-gVy" id="FAe-ZF-IqZ"/>
+                                    <outlet property="delegate" destination="Boo-zS-gVy" id="Ae8-Bn-rbW"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="feZ-NA-Jb5" firstAttribute="top" secondItem="Jrm-dm-CbE" secondAttribute="bottom" id="0vq-Ri-L2h"/>
+                            <constraint firstAttribute="trailing" secondItem="eGD-F7-oWu" secondAttribute="trailing" id="EcL-68-CKN"/>
+                            <constraint firstItem="dS1-Sa-fN4" firstAttribute="top" secondItem="eGD-F7-oWu" secondAttribute="bottom" id="Tfl-qR-Kbn"/>
+                            <constraint firstAttribute="trailing" secondItem="feZ-NA-Jb5" secondAttribute="trailing" id="chZ-rN-ozE"/>
+                            <constraint firstItem="eGD-F7-oWu" firstAttribute="top" secondItem="Jrm-dm-CbE" secondAttribute="bottom" id="cr4-RZ-SFz"/>
+                            <constraint firstItem="feZ-NA-Jb5" firstAttribute="leading" secondItem="oAt-y5-RNi" secondAttribute="leading" id="kCi-gx-Qpg"/>
+                            <constraint firstItem="dS1-Sa-fN4" firstAttribute="top" secondItem="feZ-NA-Jb5" secondAttribute="bottom" id="nCm-du-r6v"/>
+                            <constraint firstItem="eGD-F7-oWu" firstAttribute="leading" secondItem="oAt-y5-RNi" secondAttribute="leading" id="vaE-ev-adj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Lookbook Title" id="KJC-Pr-Aop">
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="Qtz-v2-Dja">
+                            <connections>
+                                <action selector="btnDelete_Click:" destination="Boo-zS-gVy" id="8RM-rg-gd5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="myCollectionView" destination="eGD-F7-oWu" id="hjk-Pn-mgv"/>
+                        <outlet property="noImagesView" destination="feZ-NA-Jb5" id="KyA-iA-SJc"/>
+                        <segue destination="ylS-hx-e3S" kind="show" identifier="lookBookImageSegue" id="3eL-VY-Rs8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ujt-9P-kYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1236" y="-647.22638680659679"/>
+        </scene>
+        <!--Look Book ImageVC-->
+        <scene sceneID="ngV-6y-fYH">
+            <objects>
+                <viewController id="ylS-hx-e3S" customClass="LookBookImageVC" customModule="SPG_Client" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rLk-Qk-PNi"/>
+                        <viewControllerLayoutGuide type="bottom" id="za6-Gd-t6l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DS9-AQ-9hL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eOX-i4-vRI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_overlay" translatesAutoresizingMaskIntoConstraints="NO" id="w7R-6k-D9E">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eO-Oo-AB5">
+                                <rect key="frame" x="148" y="495.5" width="152" height="46"/>
+                                <state key="normal" image="btn_delete_image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnDeleteSave_Click:" destination="ylS-hx-e3S" eventType="touchUpInside" id="ukV-It-UCh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGF-2I-VT7">
+                                <rect key="frame" x="20" y="507.5" width="110" height="22"/>
+                                <state key="normal" image="btn_stylist_info">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnStylistInfo_Click:" destination="ylS-hx-e3S" eventType="touchUpInside" id="z2U-hJ-DhN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4k-BO-Hwk">
+                                <rect key="frame" x="20" y="30" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="LzA-cE-rlK"/>
+                                    <constraint firstAttribute="width" secondItem="G4k-BO-Hwk" secondAttribute="height" multiplier="1:1" id="vKH-mL-X9D"/>
+                                </constraints>
+                                <state key="normal" image="icon_close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnClose_Click:" destination="ylS-hx-e3S" eventType="touchUpInside" id="GBu-yV-c0P"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTC-KA-HVw">
+                                <rect key="frame" x="270" y="30" width="30" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pTC-KA-HVw" secondAttribute="height" multiplier="20:21" id="Rdh-5O-mPS"/>
+                                </constraints>
+                                <state key="normal" image="icon_share"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w7R-6k-D9E" firstAttribute="leading" secondItem="DS9-AQ-9hL" secondAttribute="leading" id="7T6-S6-QFR"/>
+                            <constraint firstItem="za6-Gd-t6l" firstAttribute="top" secondItem="w7R-6k-D9E" secondAttribute="bottom" id="AHW-RZ-OJO"/>
+                            <constraint firstItem="eOX-i4-vRI" firstAttribute="leading" secondItem="DS9-AQ-9hL" secondAttribute="leading" id="DA9-Ua-KTi"/>
+                            <constraint firstItem="pTC-KA-HVw" firstAttribute="centerY" secondItem="G4k-BO-Hwk" secondAttribute="centerY" id="DBN-hs-QfS"/>
+                            <constraint firstItem="AGF-2I-VT7" firstAttribute="leading" secondItem="DS9-AQ-9hL" secondAttribute="leading" constant="20" id="GA8-Rq-Me8"/>
+                            <constraint firstItem="za6-Gd-t6l" firstAttribute="top" secondItem="eOX-i4-vRI" secondAttribute="bottom" id="KOL-aB-0xZ"/>
+                            <constraint firstItem="G4k-BO-Hwk" firstAttribute="leading" secondItem="DS9-AQ-9hL" secondAttribute="leading" constant="20" id="QbD-es-x3B"/>
+                            <constraint firstAttribute="trailing" secondItem="eOX-i4-vRI" secondAttribute="trailing" id="U4o-rT-21j"/>
+                            <constraint firstAttribute="trailing" secondItem="7eO-Oo-AB5" secondAttribute="trailing" constant="20" id="VBZ-MQ-bOu"/>
+                            <constraint firstItem="pTC-KA-HVw" firstAttribute="width" secondItem="G4k-BO-Hwk" secondAttribute="width" id="Zvt-hL-1hh"/>
+                            <constraint firstItem="G4k-BO-Hwk" firstAttribute="top" secondItem="rLk-Qk-PNi" secondAttribute="bottom" constant="10" id="dWP-an-e1J"/>
+                            <constraint firstAttribute="trailing" secondItem="pTC-KA-HVw" secondAttribute="trailing" constant="20" id="ijf-T2-5bm"/>
+                            <constraint firstItem="w7R-6k-D9E" firstAttribute="top" secondItem="DS9-AQ-9hL" secondAttribute="top" id="jNR-tX-F7r"/>
+                            <constraint firstAttribute="trailing" secondItem="w7R-6k-D9E" secondAttribute="trailing" id="lma-q5-ThG"/>
+                            <constraint firstItem="za6-Gd-t6l" firstAttribute="top" secondItem="7eO-Oo-AB5" secondAttribute="bottom" constant="26.5" id="pLg-NM-NTE"/>
+                            <constraint firstItem="eOX-i4-vRI" firstAttribute="top" secondItem="DS9-AQ-9hL" secondAttribute="top" id="q6i-KS-UjO"/>
+                            <constraint firstItem="AGF-2I-VT7" firstAttribute="centerY" secondItem="7eO-Oo-AB5" secondAttribute="centerY" id="uSm-fq-70e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KJU-Ro-iVY">
+                        <barButtonItem key="backBarButtonItem" title=" " id="urH-wJ-4zq"/>
+                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="imgLookBook" destination="eOX-i4-vRI" id="8pe-Zg-dBS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YaH-dP-B15" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2041" y="-647"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B0g-p6-PMk">
+            <objects>
+                <navigationController storyboardIdentifier="MyLookBookVC" automaticallyAdjustsScrollViewInsets="NO" id="acR-RZ-4ZE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="1g5-md-PZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="21"/>
+                            <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Bd-4f-2Qi" kind="relationship" relationship="rootViewController" id="8I6-1Q-lpv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LvI-3r-tt6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-343" y="-647"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_delete_image" width="152" height="46"/>
+        <image name="btn_stylist_info" width="110" height="17"/>
+        <image name="icon_close" width="21" height="20"/>
+        <image name="icon_share" width="22" height="22"/>
+        <image name="image_overlay" width="375" height="667"/>
+        <image name="lookBookLarge" width="117" height="98"/>
+        <image name="lookbook_default_thumbnail" width="166" height="165"/>
+    </resources>
+</document>

@@ -61,7 +61,6 @@ class LookBookImageVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -78,7 +77,7 @@ extension LookBookImageVC : RequestManagerDelegate {
             if resultDict[MainResponseParams.success] as! NSNumber == NSNumber(value: 1) {
                 if action == Api.getStylistProfile {
                     if let dict = resultDict[MainResponseParams.data] as? Dictionary<String, Any> {
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let storyboard = UIStoryboard(name: "Stylists", bundle: nil)
                         let stylistDetailVC = storyboard.instantiateViewController(withIdentifier: "StylistProfileVC") as! StylistProfileVC
                         stylistDetailVC.detailsDict = dict
                         self.navigationController?.pushViewController(stylistDetailVC, animated: true)

@@ -95,6 +95,7 @@ struct InitialSegue {
     static let homeToDashboardSegue     =   "homeSegue"
     static let loginSegue               =   "loginSegue"
     static let signupSegue              =   "signupSegue"
+    static let homeToDeshboardWithoutAnimation =    "homeWithoutAnimationSegue"
 }
 
 struct StylistSegue {
@@ -126,6 +127,10 @@ struct Segue {
 struct MyProfileSegue {
     static let privacyPolicySegue       =   "privacyPolicySegue"
     static let contactSupportSegue      =   "contactSupportSegue"
+}
+
+struct ChatSeuge {
+    static let showChatSegue            =   "showChatSegue"
 }
 
 struct DateFormate {

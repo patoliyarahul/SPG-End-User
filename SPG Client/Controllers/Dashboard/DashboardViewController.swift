@@ -25,6 +25,13 @@ class DashboardViewController : UIViewController {
         configureTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = false
+//        self.tabBarController?.tabBar.isTranslucent = false;
+    }
+    
     //MARK: - UINavigation Methods
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
