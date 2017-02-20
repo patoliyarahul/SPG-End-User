@@ -43,6 +43,9 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if !userDefault.bool(forKey: Constant.userIsLogedIn) {
+            
+            splashView.alpha = 0;
+            
             self.imageView.alpha = 1.0
             self.logoImageView.alpha = 0.0
             self.btnLogin.alpha = 0.0
@@ -93,6 +96,9 @@ extension HomeViewController: LoginDelegate {
                 }
             } else {
                 userDefault.set(true, forKey: Constant.userIsLogedIn)
+                
+                Chat_Utils.updateFUserPersonalDetails()
+                
                 let segueName = self.isLoggedIn ? InitialSegue.homeToDeshboardWithoutAnimation : InitialSegue.homeToDashboardSegue
                 self.performSegue(withIdentifier: segueName, sender: self)
             }
@@ -106,6 +112,8 @@ extension HomeViewController: LoginDelegate {
                 return
             }
             userDefault.set(true, forKey: Constant.userIsLogedIn)
+            
+            Chat_Utils.updateFUserPersonalDetails()
             
             let segueName = self.isLoggedIn ? InitialSegue.homeToDeshboardWithoutAnimation : InitialSegue.homeToDashboardSegue
             self.performSegue(withIdentifier: segueName, sender: self)

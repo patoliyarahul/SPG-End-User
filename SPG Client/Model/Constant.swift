@@ -257,8 +257,6 @@ struct BusinessInfoParams {
     static let profession       =   "profession"
     static let distance         =   "distance"
     static let logoImage        =   "logo_image"
-
-
 }
 
 struct ServicesParams {
@@ -305,7 +303,94 @@ struct ClientsParams {
     static let endUserType  =   "end_user_type"
 }
 
+struct FUserParams {
+    static let FUSER_PATH							= "User"				//	Path name
+    static let FUSER_OBJECTID						= "objectId"			//	String
+    
+    static let FUSER_EMAIL							= "email"				//	String
+    static let FUSER_FIRSTNAME						= "firstname"			//	String
+    static let FUSER_LASTNAME						= "lastname"			//	String
+    static let FUSER_FULLNAME						= "fullname"			//	String
+    static let FUSER_TYPE                           = "userType"				//	String
+    static let FUSER_LOGINMETHOD					= "loginMethod"			//	String
+    static let FUSER_ONESIGNALID					= "oneSignalId"			//	String
+    
+    static let FUSER_PICTURE						= "picture"				//	String
+    static let FUSER_THUMBNAIL						= "thumbnail"			//	String
+    
+    static let FUSER_CREATEDAT						= "createdAt"			//	Interval
+    static let FUSER_UPDATEDAT						= "updatedAt"			//	Interval
+}
 
+struct FMessageParams {
+    static let FMESSAGE_PATH						= "Message"				//	Path name
+    static let FMESSAGE_OBJECTID					= "objectId"			//	String
+    
+    static let FMESSAGE_GROUPID                     = "groupId"				//	String
+    static let FMESSAGE_SENDERID					= "senderId"			//	String
+    static let FMESSAGE_SENDERNAME					= "senderName"			//	String
+    static let FMESSAGE_SENDERINITIALS				= "senderInitials"		//	String
+    
+    static let FMESSAGE_TYPE						= "type"				//	String
+    static let FMESSAGE_TEXT						= "text"				//	String
+    
+    static let FMESSAGE_PICTURE                     = "picture"				//	String
+    static let FMESSAGE_PICTURE_WIDTH				= "picture_width"		//	Number
+    static let FMESSAGE_PICTURE_HEIGHT				= "picture_height"		//	Number
+    static let FMESSAGE_PICTURE_MD5                 = "picture_md5"			//	String
+    
+    static let FMESSAGE_VIDEO						= "video"				//	String
+    static let FMESSAGE_VIDEO_DURATION				= "video_duration"		//	Number
+    static let FMESSAGE_VIDEO_MD5					= "video_md5"			//	String
+    
+    static let FMESSAGE_AUDIO						= "audio"				//	String
+    static let FMESSAGE_AUDIO_DURATION				= "audio_duration"		//	Number
+    static let FMESSAGE_AUDIO_MD5					= "audio_md5"			//	String
+    
+    static let FMESSAGE_LATITUDE					= "latitude"			//	Number
+    static let FMESSAGE_LONGITUDE					= "longitude"			//	Number
+    
+    static let FMESSAGE_STATUS						= "status"				//	String
+    static let FMESSAGE_ISDELETED					= "isDeleted"			//	Boolean
+    
+    static let FMESSAGE_CREATEDAT					= "createdAt"			//	Interval
+    static let FMESSAGE_UPDATEDAT					= "updatedAt"			//	Interval
+}
+
+struct FRecentParams {
+    static let FRECENT_PATH                         =   "Recent"				//	Path name
+    static let FRECENT_OBJECTID                     =   "objectId"				//	String
+    
+    static let FRECENT_USERID						=   "userId"				//	String
+    static let FRECENT_GROUPID						=   "groupId"				//	String
+    
+    static let FRECENT_INITIALS                     =   "initials"				//	String
+    static let FRECENT_PICTURE						=   "picture"				//	String
+    static let FRECENT_DESCRIPTION					=   "description"			//	String
+    static let FRECENT_MEMBERS						=   "members"				//	Array
+    static let FRECENT_PASSWORD                     =   "password"				//	String
+    static let FRECENT_TYPE                         =   "type"					//	String
+    
+    static let FRECENT_COUNTER						=   "counter"				//	Number
+    static let FRECENT_LASTMESSAGE					=   "lastMessage"			//	String
+    static let FRECENT_LASTMESSAGEDATE				=   "lastMessageDate"		//	Interval
+    
+    static let FRECENT_ISARCHIVED					=   "isArchived"			//	Boolean
+    static let FRECENT_ISDELETED					=   "isDeleted"			//	Boolean
+    
+    static let FRECENT_CREATEDAT					=   "createdAt"			//	Interval
+    static let FRECENT_UPDATEDAT					=   "updatedAt"			//	Interval
+}
+
+struct FStatusParams {
+    static let FUSERSTATUS_PATH                     =   "UserStatus"			//	Path name
+    static let FUSERSTATUS_OBJECTID                 =   "objectId"			//	String
+    
+    static let FUSERSTATUS_NAME                     =   "name"				//	String
+    
+    static let FUSERSTATUS_CREATEDAT				=   "createdAt"			//	Interval
+    static let FUSERSTATUS_UPDATEDAT				=   "updatedAt"			//	Interval
+}
 
 struct BusinessCategoryPrams {
     static let businessCatId    =   "business_category_id"
@@ -399,7 +484,7 @@ struct Regx {
     static let email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
     static let pass = "[A-Za-z0-9.!@#$^_]{6,20}"
     static let phone = "[0-9]{10}"
-
+    
 }
 
 struct MESSAGES {
@@ -407,7 +492,7 @@ struct MESSAGES {
     static let email_empty      =   "Please enter email address."
     static let email_valid      =   "Please enter valid email address."
     static let phone_valid      =   "Please enter valid phone number."
-
+    
     static let pass_empty       =   "Please enter password."
     static let conform_pass_empty       =   "Please enter confirm password."
     

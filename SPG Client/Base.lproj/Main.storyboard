@@ -1086,7 +1086,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g9P-w9-BGw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="icon_nav_home" id="i3p-rt-Ty1" userLabel="Home"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="9jY-Yk-wK4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="9jY-Yk-wK4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1231,7 +1231,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3fy-gC-jlX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="VqU-Og-4ZG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="VqU-Og-4ZG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1255,7 +1255,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ihl-w2-xEK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U44-sg-N5w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U44-sg-N5w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1279,7 +1279,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Mga-z0-RfO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FTu-f6-tPK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FTu-f6-tPK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1303,7 +1303,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Qh-80-DOP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Local" image="icon_nav_local" id="pOg-mG-Re3" userLabel="Local"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="fh3-i3-0kY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="fh3-i3-0kY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1411,18 +1411,18 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="pVO-Jf-8OU" customClass="ChatListCell" customModule="SPG_Client" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="nzc-VY-9Td" customClass="ChatListCell" customModule="SPG_Client" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pVO-Jf-8OU" id="p4v-AH-Eed">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nzc-VY-9Td" id="aJU-gi-qhR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userpic" translatesAutoresizingMaskIntoConstraints="NO" id="fjQ-EO-HhL">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userpic" translatesAutoresizingMaskIntoConstraints="NO" id="nda-vn-fVL">
                                                     <rect key="frame" x="14" y="22" width="56" height="56"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="fjQ-EO-HhL" secondAttribute="height" multiplier="1:1" id="8uj-Bc-ndl"/>
-                                                        <constraint firstAttribute="width" constant="56" id="gQT-bq-zLv"/>
+                                                        <constraint firstAttribute="width" secondItem="nda-vn-fVL" secondAttribute="height" multiplier="1:1" id="fgF-op-Tsx"/>
+                                                        <constraint firstAttribute="width" constant="56" id="qIt-XB-FJE"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1430,44 +1430,53 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Firstname Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Waa-rA-kV4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Firstname Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUF-nv-m9c">
                                                     <rect key="frame" x="90" y="25" width="194" height="24"/>
                                                     <fontDescription key="fontDescription" name="TextaNarrow-Medium" family="TextaNarrow-Medium" pointSize="18"/>
                                                     <color key="textColor" red="0.38823529410000002" green="0.40784313729999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Content Goes Here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfb-KR-wIn">
-                                                    <rect key="frame" x="90" y="57" width="268" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Message Content Goes Here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-Dy-YUu">
+                                                    <rect key="frame" x="90" y="57" width="223" height="18"/>
                                                     <fontDescription key="fontDescription" name="TextaNarrow-Light" family="TextaNarrow-Light" pointSize="18"/>
                                                     <color key="textColor" red="0.38823529410000002" green="0.40784313729999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08.08.2015" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sal-ni-xje">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08.08.2015" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-eA-yQX">
                                                     <rect key="frame" x="296" y="30" width="62" height="15"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="12"/>
                                                     <color key="textColor" red="0.38823529410000002" green="0.40784313729999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1 new" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SB-cO-oo6">
+                                                    <rect key="frame" x="325" y="58" width="33" height="15"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="wfb-KR-wIn" secondAttribute="bottom" constant="24" id="51x-eO-fbG"/>
-                                                <constraint firstItem="fjQ-EO-HhL" firstAttribute="leading" secondItem="p4v-AH-Eed" secondAttribute="leading" constant="14" id="7Ga-Cl-Gs6"/>
-                                                <constraint firstItem="wfb-KR-wIn" firstAttribute="leading" secondItem="Waa-rA-kV4" secondAttribute="leading" id="Aye-Hn-wS9"/>
-                                                <constraint firstItem="fjQ-EO-HhL" firstAttribute="centerY" secondItem="p4v-AH-Eed" secondAttribute="centerY" id="Glf-pb-hgF"/>
-                                                <constraint firstItem="sal-ni-xje" firstAttribute="centerY" secondItem="Waa-rA-kV4" secondAttribute="centerY" id="J69-ca-oVA"/>
-                                                <constraint firstAttribute="trailing" secondItem="sal-ni-xje" secondAttribute="trailing" constant="17" id="KZq-Be-epD"/>
-                                                <constraint firstItem="wfb-KR-wIn" firstAttribute="trailing" secondItem="sal-ni-xje" secondAttribute="trailing" id="SNN-43-ddS"/>
-                                                <constraint firstItem="Waa-rA-kV4" firstAttribute="top" secondItem="p4v-AH-Eed" secondAttribute="top" constant="25" id="ScZ-Zq-NHb"/>
-                                                <constraint firstItem="wfb-KR-wIn" firstAttribute="top" secondItem="Waa-rA-kV4" secondAttribute="bottom" constant="8" id="eRg-Pc-f5q"/>
-                                                <constraint firstItem="Waa-rA-kV4" firstAttribute="leading" secondItem="fjQ-EO-HhL" secondAttribute="trailing" constant="20" id="gkZ-DE-y9x"/>
-                                                <constraint firstItem="sal-ni-xje" firstAttribute="leading" secondItem="Waa-rA-kV4" secondAttribute="trailing" constant="12" id="zEc-DB-80E"/>
+                                                <constraint firstItem="8SB-cO-oo6" firstAttribute="trailing" secondItem="Yh0-eA-yQX" secondAttribute="trailing" id="2d9-x9-MiI"/>
+                                                <constraint firstItem="9EI-Dy-YUu" firstAttribute="leading" secondItem="pUF-nv-m9c" secondAttribute="leading" id="3io-xS-s5t"/>
+                                                <constraint firstItem="8SB-cO-oo6" firstAttribute="centerY" secondItem="9EI-Dy-YUu" secondAttribute="centerY" id="7DF-8O-bMY"/>
+                                                <constraint firstItem="Yh0-eA-yQX" firstAttribute="centerY" secondItem="pUF-nv-m9c" secondAttribute="centerY" id="9wc-9Q-7th"/>
+                                                <constraint firstAttribute="trailing" secondItem="Yh0-eA-yQX" secondAttribute="trailing" constant="17" id="CdZ-uh-fvG"/>
+                                                <constraint firstItem="8SB-cO-oo6" firstAttribute="leading" secondItem="9EI-Dy-YUu" secondAttribute="trailing" constant="12" id="KmY-fT-LhG"/>
+                                                <constraint firstItem="pUF-nv-m9c" firstAttribute="leading" secondItem="nda-vn-fVL" secondAttribute="trailing" constant="20" id="Z7t-7L-Do3"/>
+                                                <constraint firstItem="nda-vn-fVL" firstAttribute="leading" secondItem="aJU-gi-qhR" secondAttribute="leading" constant="14" id="Zu4-ma-hsY"/>
+                                                <constraint firstAttribute="bottom" secondItem="9EI-Dy-YUu" secondAttribute="bottom" constant="24" id="a0d-Tb-12b"/>
+                                                <constraint firstItem="Yh0-eA-yQX" firstAttribute="leading" secondItem="pUF-nv-m9c" secondAttribute="trailing" constant="12" id="bYf-17-l7k"/>
+                                                <constraint firstItem="9EI-Dy-YUu" firstAttribute="top" secondItem="pUF-nv-m9c" secondAttribute="bottom" constant="8" id="pYM-ps-fXB"/>
+                                                <constraint firstItem="nda-vn-fVL" firstAttribute="centerY" secondItem="aJU-gi-qhR" secondAttribute="centerY" id="tcB-6g-iJR"/>
+                                                <constraint firstItem="pUF-nv-m9c" firstAttribute="top" secondItem="aJU-gi-qhR" secondAttribute="top" constant="25" id="zJD-po-47X"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="lblDate" destination="sal-ni-xje" id="pMK-bP-XdI"/>
-                                            <outlet property="lblLastMessage" destination="wfb-KR-wIn" id="8cA-n9-lxd"/>
-                                            <outlet property="lblName" destination="Waa-rA-kV4" id="dif-yL-0Hg"/>
-                                            <outlet property="profilePic" destination="fjQ-EO-HhL" id="Zxm-yI-Sy1"/>
+                                            <outlet property="lblCount" destination="8SB-cO-oo6" id="ljJ-BZ-uSi"/>
+                                            <outlet property="lblDate" destination="Yh0-eA-yQX" id="ttE-KY-0FX"/>
+                                            <outlet property="lblLastMessage" destination="9EI-Dy-YUu" id="3Ul-E9-Iw7"/>
+                                            <outlet property="lblName" destination="pUF-nv-m9c" id="YvK-XN-jw1"/>
+                                            <outlet property="profilePic" destination="nda-vn-fVL" id="q7N-cP-1cL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1487,7 +1496,11 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="ti4-ck-Iwz">
                         <barButtonItem key="backBarButtonItem" title=" " id="h6s-xL-Eld"/>
-                        <barButtonItem key="rightBarButtonItem" image="editChat" id="Pr6-kI-R0o"/>
+                        <barButtonItem key="rightBarButtonItem" image="editChat" id="Pr6-kI-R0o">
+                            <connections>
+                                <segue destination="GYK-XL-g7l" kind="presentation" identifier="peopleSegue" id="Vt7-XN-zKR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="XEP-GL-iCD" id="oLU-mr-1M4"/>
@@ -1503,7 +1516,7 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
         <!--Chat View Controller-->
         <scene sceneID="iso-Zz-WJD">
             <objects>
-                <viewController id="1Th-ck-dQf" customClass="ChatViewController" customModule="SPG_Client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="1Th-ck-dQf" customClass="ChatViewController" customModule="SPG_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7qh-Yx-SUc"/>
                         <viewControllerLayoutGuide type="bottom" id="pQZ-zP-lYq"/>
@@ -1516,7 +1529,116 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2w-RK-6Z0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-366" y="-2151"/>
+            <point key="canvasLocation" x="-370" y="-2901"/>
+        </scene>
+        <!--Stylists-->
+        <scene sceneID="axy-hL-1Ju">
+            <objects>
+                <viewController id="F5B-Ja-KRQ" customClass="PeopleListViewController" customModule="SPG_Client" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AVu-OH-2i1"/>
+                        <viewControllerLayoutGuide type="bottom" id="088-8E-yTU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tXj-Vy-2VB">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XRh-pu-7oA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="w2I-ER-5at" customClass="PeopleCell" customModule="SPG_Client" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w2I-ER-5at" id="mvT-QU-Tdv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userpic" translatesAutoresizingMaskIntoConstraints="NO" id="33t-aP-tDF">
+                                                    <rect key="frame" x="14" y="10" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="Qim-ZO-Juv"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Firstname Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2L-0N-r6f">
+                                                    <rect key="frame" x="56" y="16" width="299" height="18"/>
+                                                    <fontDescription key="fontDescription" name="TextaNarrow-Medium" family="TextaNarrow-Medium" pointSize="18"/>
+                                                    <color key="textColor" red="0.38823529410000002" green="0.40784313729999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="33t-aP-tDF" firstAttribute="leading" secondItem="mvT-QU-Tdv" secondAttribute="leading" constant="14" id="02V-MJ-WnH"/>
+                                                <constraint firstItem="33t-aP-tDF" firstAttribute="width" secondItem="33t-aP-tDF" secondAttribute="height" multiplier="1:1" id="2RW-62-8Gc"/>
+                                                <constraint firstAttribute="trailing" secondItem="n2L-0N-r6f" secondAttribute="trailing" constant="20" id="GPd-0d-xSK"/>
+                                                <constraint firstItem="33t-aP-tDF" firstAttribute="top" secondItem="mvT-QU-Tdv" secondAttribute="top" constant="10" id="NgA-We-wwT"/>
+                                                <constraint firstItem="n2L-0N-r6f" firstAttribute="centerY" secondItem="33t-aP-tDF" secondAttribute="centerY" id="Ufw-9S-s6H"/>
+                                                <constraint firstItem="n2L-0N-r6f" firstAttribute="leading" secondItem="33t-aP-tDF" secondAttribute="trailing" constant="14" id="jIm-kD-OR6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblFullName" destination="n2L-0N-r6f" id="S9R-Mp-1W0"/>
+                                            <outlet property="profilePIc" destination="33t-aP-tDF" id="3jq-qM-O2l"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="F5B-Ja-KRQ" id="2sn-fT-gu3"/>
+                                    <outlet property="delegate" destination="F5B-Ja-KRQ" id="pze-af-kHD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="088-8E-yTU" firstAttribute="top" secondItem="XRh-pu-7oA" secondAttribute="bottom" id="KXv-sI-vBv"/>
+                            <constraint firstItem="XRh-pu-7oA" firstAttribute="top" secondItem="AVu-OH-2i1" secondAttribute="bottom" id="g2I-62-kAx"/>
+                            <constraint firstAttribute="trailing" secondItem="XRh-pu-7oA" secondAttribute="trailing" id="wJ2-B8-o5A"/>
+                            <constraint firstItem="XRh-pu-7oA" firstAttribute="leading" secondItem="tXj-Vy-2VB" secondAttribute="leading" id="zn3-Aa-3Oq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Stylists" id="NdA-20-m9b">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="NVv-hm-3eD">
+                            <connections>
+                                <action selector="btnCancel_Click:" destination="F5B-Ja-KRQ" id="kZW-p5-w3D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="myTableView" destination="XRh-pu-7oA" id="Dsh-b4-TJt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUK-Fh-DAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="486" y="-2151"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="aay-La-h4o">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GYK-XL-g7l" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="icon_nav_home" id="13J-rz-gtG" userLabel="Home"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="LJg-hr-Vqc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="21"/>
+                            <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="F5B-Ja-KRQ" kind="relationship" relationship="rootViewController" id="UkB-qY-xsJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GrV-Bs-Mrr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-370" y="-2151"/>
         </scene>
     </scenes>
     <resources>

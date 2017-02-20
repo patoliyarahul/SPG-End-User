@@ -76,19 +76,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="104" contentMode="center" image="starEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="Fe2-Zg-enZ">
-                                                    <rect key="frame" x="344" y="28" width="11" height="10"/>
+                                                    <rect key="frame" x="344" y="28.5" width="11" height="10"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="103" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-3b-KXE">
-                                                    <rect key="frame" x="329" y="28" width="11" height="10"/>
+                                                    <rect key="frame" x="329" y="28.5" width="11" height="10"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="102" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-cz-7Lf">
-                                                    <rect key="frame" x="314" y="28" width="11" height="10"/>
+                                                    <rect key="frame" x="314" y="28.5" width="11" height="10"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="5YN-50-0xj">
-                                                    <rect key="frame" x="299" y="28" width="11" height="10"/>
+                                                    <rect key="frame" x="299" y="28.5" width="11" height="10"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="kp8-kv-EMf">
-                                                    <rect key="frame" x="284" y="28" width="11" height="10"/>
+                                                    <rect key="frame" x="284" y="28.5" width="11" height="10"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -190,7 +190,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UaZ-jY-x6l">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="721"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="715"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrk-hr-QuB">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
@@ -214,25 +214,25 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katie Summer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcc-px-u90">
-                                                        <rect key="frame" x="15" y="122" width="345" height="23.5"/>
+                                                        <rect key="frame" x="15" y="122" width="345" height="18"/>
                                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair &amp; Salon Services" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Que-uQ-gbu">
-                                                        <rect key="frame" x="15" y="145.5" width="345" height="12"/>
+                                                        <rect key="frame" x="15" y="140" width="345" height="9"/>
                                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair &amp; Salon Services" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggB-fw-Xip">
-                                                        <rect key="frame" x="15" y="191.5" width="345" height="12"/>
+                                                        <rect key="frame" x="15" y="183" width="345" height="9"/>
                                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OV6-wq-Me3">
-                                                        <rect key="frame" x="150" y="168.5" width="75" height="10"/>
+                                                        <rect key="frame" x="150" y="160" width="75" height="10"/>
                                                         <subviews>
                                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="Svc-ID-Tcg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="11" height="10"/>
@@ -332,13 +332,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECENT WORK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuG-lH-3Kv">
-                                                <rect key="frame" x="13" y="297" width="80" height="13"/>
+                                                <rect key="frame" x="13" y="297" width="87.5" height="10"/>
                                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="11"/>
                                                 <color key="textColor" red="0.36078431372549019" green="0.3411764705882353" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="whr-NG-1ma">
-                                                <rect key="frame" x="0.0" y="323" width="375" height="128"/>
+                                                <rect key="frame" x="0.0" y="320" width="375" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="LoH-aD-o92"/>
@@ -386,7 +386,7 @@
                                                                     <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jm-4i-SUn">
-                                                                    <rect key="frame" x="17" y="45.5" width="71" height="14"/>
+                                                                    <rect key="frame" x="12" y="47" width="81" height="11"/>
                                                                     <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                                                     <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -413,7 +413,7 @@
                                                 </connections>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzu-qy-4U5">
-                                                <rect key="frame" x="322" y="291" width="42" height="26"/>
+                                                <rect key="frame" x="314" y="291" width="50" height="23"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                 <color key="tintColor" red="0.41568627450980389" green="0.26666666666666666" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="View All"/>
@@ -422,13 +422,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SERVICES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKc-SS-s7o">
-                                                <rect key="frame" x="13" y="491" width="53" height="13"/>
+                                                <rect key="frame" x="13" y="488" width="56.5" height="10"/>
                                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="11"/>
                                                 <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bz-To-GvP">
-                                                <rect key="frame" x="322" y="485" width="42" height="26"/>
+                                                <rect key="frame" x="314" y="482" width="50" height="23"/>
                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="12"/>
                                                 <color key="tintColor" red="0.41568627450000001" green="0.2666666667" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="View All"/>
@@ -437,7 +437,7 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RNx-tl-zol">
-                                                <rect key="frame" x="0.0" y="521" width="375" height="200"/>
+                                                <rect key="frame" x="0.0" y="515" width="375" height="200"/>
                                                 <color key="backgroundColor" red="0.94509803921568625" green="0.95294117647058818" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="t7p-ON-nD6"/>
@@ -516,7 +516,7 @@
                                                 </connections>
                                             </tableView>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHL-x7-30Y">
-                                                <rect key="frame" x="0.0" y="721" width="375" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="715" width="375" height="0.0"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHh-fk-xf9">
                                                         <rect key="frame" x="30" y="-25" width="315" height="50"/>
@@ -734,7 +734,7 @@
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController-E41-rZ-znA" automaticallyAdjustsScrollViewInsets="NO" id="E41-rZ-znA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="F2l-mm-OJ9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="F2l-mm-OJ9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -765,13 +765,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katie Summer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wlv-06-zHV">
-                                <rect key="frame" x="78" y="40" width="281" height="23.5"/>
+                                <rect key="frame" x="78" y="40" width="281" height="18"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AIR AND SALON SERVICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCw-jU-gew">
-                                <rect key="frame" x="78" y="66.5" width="120" height="12"/>
+                                <rect key="frame" x="78" y="61" width="132.5" height="9"/>
                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -793,10 +793,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="wGK-FC-1n6" customClass="ServiceSelectionCell" customModule="SPG_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="74"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wGK-FC-1n6" id="2kJ-xV-9Xg">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Lady's cut &amp; Style" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xr-ns-yhA">
@@ -906,13 +906,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katie Summer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyd-2V-rUo">
-                                <rect key="frame" x="78" y="36" width="281" height="23.5"/>
+                                <rect key="frame" x="78" y="36" width="281" height="18"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="20"/>
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AIR AND SALON SERVICE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmF-L1-eQn">
-                                <rect key="frame" x="78" y="62.5" width="120" height="12"/>
+                                <rect key="frame" x="78" y="57" width="132.5" height="9"/>
                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -930,69 +930,69 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLw-Uz-Fap" userLabel="Calendar View">
-                                <rect key="frame" x="0.0" y="100" width="375" height="379"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="383.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pC-Em-jae" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                        <rect key="frame" x="35" y="127" width="305" height="226"/>
+                                        <rect key="frame" x="35" y="117.5" width="305" height="240"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JULY 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oh0-Js-m06">
-                                        <rect key="frame" x="129.5" y="27" width="116.5" height="28"/>
+                                        <rect key="frame" x="123.5" y="27" width="128.5" height="21.5"/>
                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="24"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-if-1NJ">
-                                        <rect key="frame" x="35" y="85" width="43.5" height="14"/>
+                                        <rect key="frame" x="35" y="78.5" width="43.5" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuR-cu-7Vf">
-                                        <rect key="frame" x="78.5" y="85" width="43.5" height="14"/>
+                                        <rect key="frame" x="78.5" y="78.5" width="43.5" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TUE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOC-9f-bG9">
-                                        <rect key="frame" x="122" y="85" width="43.5" height="14"/>
+                                        <rect key="frame" x="122" y="78.5" width="43.5" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHI-dV-bNb">
-                                        <rect key="frame" x="165.5" y="85" width="44" height="14"/>
+                                        <rect key="frame" x="165.5" y="78.5" width="44" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-Te-DOC">
-                                        <rect key="frame" x="209.5" y="85" width="43.5" height="14"/>
+                                        <rect key="frame" x="209.5" y="78.5" width="43.5" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FRI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHp-vQ-Cdp">
-                                        <rect key="frame" x="253" y="85" width="43.5" height="14"/>
+                                        <rect key="frame" x="253" y="78.5" width="43.5" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igw-w9-W5D">
-                                        <rect key="frame" x="296.5" y="85" width="43.5" height="14"/>
+                                        <rect key="frame" x="296.5" y="78.5" width="43.5" height="11"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKJ-vg-cVb">
-                                        <rect key="frame" x="35" y="70" width="305" height="1"/>
+                                        <rect key="frame" x="35" y="63.5" width="305" height="1"/>
                                         <color key="backgroundColor" red="0.85882352939999995" green="0.87058823529999996" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Ra6-63-SRJ"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvs-Gh-MNI">
-                                        <rect key="frame" x="45" y="31" width="12" height="21"/>
+                                        <rect key="frame" x="45" y="28" width="12" height="21"/>
                                         <color key="tintColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="IQButtonBarArrowLeft.png"/>
                                         <connections>
@@ -1000,7 +1000,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujz-js-bG7">
-                                        <rect key="frame" x="318" y="31" width="12" height="21"/>
+                                        <rect key="frame" x="318" y="28" width="12" height="21"/>
                                         <color key="tintColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="IQButtonBarArrowRight.png"/>
                                         <connections>
@@ -1047,7 +1047,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4W-DR-xg1">
-                                <rect key="frame" x="133" y="500" width="109.5" height="21"/>
+                                <rect key="frame" x="126.5" y="504.5" width="122.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="18"/>
                                 <color key="textColor" red="0.36078431372549019" green="0.3411764705882353" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1232,13 +1232,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD A SELFIE!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP6-yo-eyr">
-                                        <rect key="frame" x="93.5" y="60" width="190" height="33"/>
+                                        <rect key="frame" x="81" y="60" width="213.5" height="25"/>
                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCl-rJ-uTK">
-                                        <rect key="frame" x="10" y="103" width="355" height="39"/>
+                                        <rect key="frame" x="10" y="95" width="355" height="39"/>
                                         <attributedString key="attributedText">
                                             <fragment>
                                                 <string key="content">Include an image of yourself so your stylist
@@ -1260,7 +1260,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naH-Cy-H7S">
-                                        <rect key="frame" x="44" y="168" width="287" height="44"/>
+                                        <rect key="frame" x="44" y="160" width="287" height="44"/>
                                         <color key="backgroundColor" red="0.36470588235294116" green="0.035294117647058823" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="D6L-4r-Kfd"/>
@@ -1389,13 +1389,13 @@
                                                         <rect key="frame" x="26" y="23" width="24" height="20"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Images from Lookbook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lb-4E-B49">
-                                                        <rect key="frame" x="61" y="26.5" width="223.5" height="14.5"/>
+                                                        <rect key="frame" x="61" y="26" width="223.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="16"/>
                                                         <color key="textColor" red="0.36078431372549019" green="0.3411764705882353" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_forward" translatesAutoresizingMaskIntoConstraints="NO" id="iGs-rb-t4N">
-                                                        <rect key="frame" x="345" y="26" width="10" height="16"/>
+                                                        <rect key="frame" x="345" y="25" width="10" height="16"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGu-8T-AL9">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
@@ -1580,10 +1580,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahr-ax-I2T">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="685"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="660"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdU-q0-IO8">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="194.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mXF-XL-rqd">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -1596,13 +1596,13 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heather Parker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oT-zb-jbm">
-                                                                <rect key="frame" x="100" y="28" width="216" height="20"/>
+                                                                <rect key="frame" x="100" y="28" width="216" height="15.5"/>
                                                                 <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="17"/>
                                                                 <color key="textColor" red="0.36862745099999999" green="0.25882352939999997" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1d-vP-MJM">
-                                                                <rect key="frame" x="100" y="51" width="213" height="31.5"/>
+                                                                <rect key="frame" x="100" y="46.5" width="213" height="31.5"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="1327 Ocean Avenue Suite A, Santa Monica, CA 90401">
                                                                         <attributes>
@@ -1648,13 +1648,13 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday at 5:00 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg7-IW-CrC">
-                                                        <rect key="frame" x="22" y="154" width="331" height="24.5"/>
+                                                        <rect key="frame" x="22" y="154" width="331" height="19"/>
                                                         <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="21"/>
                                                         <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 28, 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOP-iS-Te5">
-                                                        <rect key="frame" x="22" y="186.5" width="331" height="17.5"/>
+                                                        <rect key="frame" x="22" y="181" width="331" height="13.5"/>
                                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="15"/>
                                                         <color key="textColor" red="0.36078431372549019" green="0.3411764705882353" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1677,40 +1677,40 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SERVICES REQUESTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZe-S1-SEg">
-                                                <rect key="frame" x="20" y="244" width="110" height="12"/>
+                                                <rect key="frame" x="20" y="234.5" width="118.5" height="9"/>
                                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                                 <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gsu-mc-bi2">
-                                                <rect key="frame" x="18" y="264" width="339" height="1"/>
+                                                <rect key="frame" x="18" y="251.5" width="339" height="1"/>
                                                 <color key="backgroundColor" red="0.87450980389999999" green="0.87843137250000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="kuG-zy-d3C"/>
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n83-H1-dDi">
-                                                <rect key="frame" x="0.0" y="273" width="375" height="20"/>
+                                                <rect key="frame" x="0.0" y="260.5" width="375" height="20"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="Agp-cG-jCq"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ShK-7D-rlr" customClass="AppointmentServiceCell" customModule="SPG_Client" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="320" height="30"/>
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="30"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ShK-7D-rlr" id="brT-Ia-53b">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Baliyag" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zg5-7h-tld">
-                                                                    <rect key="frame" x="20" y="8" width="237.5" height="14"/>
+                                                                    <rect key="frame" x="20" y="8" width="286.5" height="14"/>
                                                                     <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="14"/>
                                                                     <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="24 min" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULf-EE-9Lz">
-                                                                    <rect key="frame" x="262.5" y="7.5" width="42.5" height="16.5"/>
+                                                                    <rect key="frame" x="311.5" y="9.5" width="48.5" height="12.5"/>
                                                                     <fontDescription key="fontDescription" name="GothamMedium" family="Gotham Medium" pointSize="14"/>
                                                                     <color key="textColor" red="0.39607843139999999" green="0.3803921569" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1737,20 +1737,20 @@
                                                 </connections>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESIRED LOOK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLr-t4-7Tj">
-                                                <rect key="frame" x="20" y="325" width="72.5" height="12"/>
+                                                <rect key="frame" x="20" y="312.5" width="79" height="9"/>
                                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                                 <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-up-Nom">
-                                                <rect key="frame" x="18" y="345" width="339" height="1"/>
+                                                <rect key="frame" x="18" y="329.5" width="339" height="1"/>
                                                 <color key="backgroundColor" red="0.87450980389999999" green="0.87843137250000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="3gd-sD-sLn"/>
                                                 </constraints>
                                             </view>
                                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4fb-io-nQh">
-                                                <rect key="frame" x="0.0" y="356" width="375" height="128"/>
+                                                <rect key="frame" x="0.0" y="340.5" width="375" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="tX6-RV-PKL"/>
@@ -1763,7 +1763,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NotAvailableCell" id="uDO-9D-WUs" customClass="DesiredLookCell" customModule="SPG_Client" customModuleProvider="target">
-                                                        <rect key="frame" x="12" y="11.5" width="105" height="105"/>
+                                                        <rect key="frame" x="12" y="12" width="105" height="105"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
@@ -1795,7 +1795,7 @@
                                                         </connections>
                                                     </collectionViewCell>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="nnl-LP-7Bf" customClass="DesiredLookCell" customModule="SPG_Client" customModuleProvider="target">
-                                                        <rect key="frame" x="127" y="11.5" width="105" height="105"/>
+                                                        <rect key="frame" x="127" y="12" width="105" height="105"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
@@ -1825,23 +1825,23 @@
                                                 </connections>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccz-tJ-EER">
-                                                <rect key="frame" x="20" y="516" width="33.5" height="12"/>
+                                                <rect key="frame" x="20" y="500.5" width="36" height="9"/>
                                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                                 <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ME-VC-cVO">
-                                                <rect key="frame" x="18" y="536" width="339" height="1"/>
+                                                <rect key="frame" x="18" y="517.5" width="339" height="1"/>
                                                 <color key="backgroundColor" red="0.87450980389999999" green="0.87843137250000003" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="AXe-I8-22a"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjN-7L-pf1">
-                                                <rect key="frame" x="0.0" y="543" width="375" height="28"/>
+                                                <rect key="frame" x="0.0" y="524.5" width="375" height="21.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ui6-wH-PSl">
-                                                        <rect key="frame" x="20" y="0.0" width="335" height="28"/>
+                                                        <rect key="frame" x="20" y="0.0" width="335" height="21.5"/>
                                                         <string key="text">Please amplify the hue to vary from
 a soft wash to bright and bold.</string>
                                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="12"/>
@@ -1858,7 +1858,7 @@ a soft wash to bright and bold.</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry4-t5-lNp">
-                                                <rect key="frame" x="18" y="613" width="339" height="50"/>
+                                                <rect key="frame" x="18" y="588" width="339" height="50"/>
                                                 <color key="backgroundColor" red="0.36470588235294116" green="0.039215686274509803" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="fsm-tc-sok"/>
@@ -1978,6 +1978,6 @@ a soft wash to bright and bold.</string>
         <image name="userpic" width="55" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gKG-Gm-PVM"/>
+        <segue reference="DDk-Ys-8H5"/>
     </inferredMetricsTieBreakers>
 </document>

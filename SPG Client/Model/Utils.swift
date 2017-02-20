@@ -251,6 +251,7 @@ func checkWeatherDictIsInArray(sourceDictArray: [Dictionary<String, String>], di
     return (false, index)
 }
 
+
 struct Time {
     
     let start: TimeInterval

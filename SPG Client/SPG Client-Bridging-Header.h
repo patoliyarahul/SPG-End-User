@@ -8,3 +8,5 @@
 #import "TextFieldValidator.h"
 #import "UITextField+Shake.h"
 
+#import <CommonCrypto/CommonCrypto.h>
+

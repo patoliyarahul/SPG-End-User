@@ -1,20 +1,17 @@
 //
-//  ChatListCell.swift
+//  PeopleCell.swift
 //  SPG Stylist
 //
-//  Created by Dharmesh Vaghani on 07/02/17.
+//  Created by Dharmesh Vaghani on 20/02/17.
 //  Copyright © 2017 Dharmesh Vaghani. All rights reserved.
 //
 
 import UIKit
 
-class ChatListCell: UITableViewCell {
+class PeopleCell: UITableViewCell {
 
-    @IBOutlet weak var profilePic: UIImageView!
-    @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var lblLastMessage: UILabel!
-    @IBOutlet weak var lblDate: UILabel!
-    @IBOutlet weak var lblCount: UILabel!
+    @IBOutlet weak var profilePIc: UIImageView!
+    @IBOutlet weak var lblFullName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class StylistProfileVC: UIViewController {
 
@@ -114,6 +115,14 @@ class StylistProfileVC: UIViewController {
     
     @IBAction func btnMessage_Click(_ sender: Any) {
         
+        Chat_Utils.startPrivateChat(email: "\(detailsDict["email"]!)", completionHandler: { (dict: Dictionary<String, Any>) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let chatViewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+            
+            chatViewController.recentDict = dict
+            
+            self.show(chatViewController, sender: self)
+        })
     }
     
     @IBAction func btnViewAll_Services(_ sender: Any) {

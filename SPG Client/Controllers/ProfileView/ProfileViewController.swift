@@ -28,15 +28,20 @@ class ProfileViewController: UIViewController {
     
     //MARK: - Variables
     
+    let privacyPolicy   =   "Privacy Policy"
+    let termsOfUse      =   "Terms Of Use"
+    let contactSupport  =   "Contact Support"
+    
     var delegate: ProfileDelegate?
     
-    let aboutMenuItems = ["Privacy Policy", "Terms of Use", "Contact Support"]
+    var aboutMenuItems = [String]()
     
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        aboutMenuItems = [privacyPolicy, termsOfUse, contactSupport]
         
         lblFirstName.text = userDefault.value(forKey: EndUserParams.firstName) as? String
         lblLastName.text = userDefault.value(forKey: EndUserParams.lastName) as? String
@@ -118,9 +123,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.row == 0 {
+        if aboutMenuItems[indexPath.row] == privacyPolicy {
             self.performSegue(withIdentifier: MyProfileSegue.privacyPolicySegue, sender: self)
-        } else if indexPath.row == 1 {
+        } else if aboutMenuItems[indexPath.row] == termsOfUse {
+            
+        } else if aboutMenuItems[indexPath.row] == contactSupport {
             self.performSegue(withIdentifier: MyProfileSegue.contactSupportSegue, sender: self)
         }
     }

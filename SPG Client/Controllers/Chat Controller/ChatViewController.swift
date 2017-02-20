@@ -15,24 +15,21 @@ import Photos
 final class ChatViewController: JSQMessagesViewController {
     
     // MARK: Properties
-    var channelRef: FIRDatabaseReference?
-    var channel: Channel? {
-        didSet {
-            title = channel?.name
-        }
-    }
+    var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child(FMessageParams.FMESSAGE_PATH)
     
     var messages = [JSQMessage]()
+    
+    var recentDict = Dictionary<String, Any>()
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     
-    private lazy var messageRef: FIRDatabaseReference = self.channelRef!.child("messages")
+    private var messageRef: FIRDatabaseReference!
     private var newMessageRefHandle: FIRDatabaseHandle?
     
     //Typing indication Properties
     private lazy var userIsTypingRef: FIRDatabaseReference =
-        self.channelRef!.child("typingIndicator").child(self.senderId) // 1
+        self.channelRef.child("typingIndicator").child(self.senderId) // 1
     private var localTyping = false // 2
     var isTyping: Bool {
         get {
@@ -46,7 +43,7 @@ final class ChatViewController: JSQMessagesViewController {
     }
     
     private lazy var usersTypingQuery: FIRDatabaseQuery =
-        self.channelRef!.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+        self.channelRef.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
     
     //Sending Image properties
     
@@ -57,6 +54,7 @@ final class ChatViewController: JSQMessagesViewController {
     
     private var updatedMessageRefHandle: FIRDatabaseHandle?
     
+    let dateFormatter = DateFormatter()
     
     // MARK: View Lifecycle
     
@@ -65,13 +63,23 @@ final class ChatViewController: JSQMessagesViewController {
         
         self.senderId = FIRAuth.auth()?.currentUser?.uid
         
+        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+        
+        self.senderDisplayName = "\(userDefault.string(forKey: ClientsParams.firstName)!) \(userDefault.string(forKey: ClientsParams.lastName)!)"
+
+        self.title = "\(recentDict[FRecentParams.FRECENT_DESCRIPTION]!)"
+        
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
         collectionView.collectionViewLayout.messageBubbleFont = UIFont(name: "Lato-Light", size: 16)
-        collectionView.collectionViewLayout.springinessEnabled = true
-        collectionView.collectionviewlayout
+        
+        channelRef = FIRDatabase.database().reference().child(FMessageParams.FMESSAGE_PATH).child("\(recentDict[FRecentParams.FRECENT_GROUPID]!)")
+        userIsTypingRef = channelRef.child("typingIndicator").child(self.senderId)
+        usersTypingQuery = channelRef.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
         
         observeMessages()
     }
@@ -85,13 +93,15 @@ final class ChatViewController: JSQMessagesViewController {
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         let itemRef = messageRef.childByAutoId() // 1
-        let messageItem = [ // 2
+        let messageItem = [
             "senderId": senderId!,
             "senderName": senderDisplayName!,
             "text": text!,
-            ]
+            "timeStamp" : Date().timeIntervalSince1970] as [String : Any]
         
         itemRef.setValue(messageItem) // 3
+        
+        Chat_Utils.updateLastMessage(lastMessage: text, groupId: "\(recentDict[FRecentParams.FRECENT_GROUPID]!)")
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound() // 4
         
@@ -112,39 +122,40 @@ final class ChatViewController: JSQMessagesViewController {
     }
     
     //MARK: - Add Message Methods
-    private func addMessage(withId id: String, name: String, text: String) {
-        if let message = JSQMessage(senderId: id, displayName: name, text: text) {
+    private func addMessage(withId id: String, name: String, text: String, date: Date) {
+        
+        if let message = JSQMessage(senderId: id, senderDisplayName: name, date: date, text: text) {
             messages.append(message)
         }
     }
     
-    private func addPhotoMessage(withId id: String, key: String, mediaItem: JSQPhotoMediaItem) {
+    private func addPhotoMessage(withId id: String, key: String, mediaItem: JSQPhotoMediaItem, date: Date) {
         if let message = JSQMessage(senderId: id, displayName: "", media: mediaItem) {
             messages.append(message)
             
             if (mediaItem.image == nil) {
                 photoMessageMap[key] = mediaItem
             }
-            
             collectionView.reloadData()
         }
     }
     
     //MARK: - IS Typing Methods
     private func observeMessages() {
-        messageRef = channelRef!.child("messages")
+        messageRef = channelRef.child("messages")
         let messageQuery = messageRef.queryLimited(toLast:25)
         
         newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
-            let messageData = snapshot.value as! Dictionary<String, String>
+            let messageData = snapshot.value as! Dictionary<String, Any>
             
-            if let id = messageData["senderId"] as String!, let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
-                self.addMessage(withId: id, name: name, text: text)
-
+            if let id = messageData["senderId"] as! String!, let name = messageData["senderName"] as! String!, let text = messageData["text"] as! String!, text.characters.count > 0 {
+                
+                self.addMessage(withId: id, name: name, text: text, date: Date(timeIntervalSince1970: messageData["timeStamp"]! as! TimeInterval))
+                
                 self.finishReceivingMessage()
-            } else if let id = messageData["senderId"] as String!, let photoURL = messageData["photoURL"] as String! { // 1
+            } else if let id = messageData["senderId"] as! String!, let photoURL = messageData["photoURL"] as! String! { // 1
                 if let mediaItem = JSQPhotoMediaItem(maskAsOutgoing: id == self.senderId) {
-                    self.addPhotoMessage(withId: id, key: snapshot.key, mediaItem: mediaItem)
+                    self.addPhotoMessage(withId: id, key: snapshot.key, mediaItem: mediaItem, date: Date(timeIntervalSince1970: messageData["timeStamp"]! as! TimeInterval))
                     if photoURL.hasPrefix("gs://") {
                         self.fetchImageDataAtURL(photoURL, forMediaItem: mediaItem, clearsPhotoMessageMapOnSuccessForKey: nil)
                     }
@@ -164,19 +175,21 @@ final class ChatViewController: JSQMessagesViewController {
         }
         
         updatedMessageRefHandle = messageRef.observe(.childChanged, with: { (snapshot) in
-            let key = snapshot.key
-            let messageData = snapshot.value as! Dictionary<String, String>
-            
-            if let photoURL = messageData["photoURL"] as String! {
-                if let mediaItem = self.photoMessageMap[key] {
-                    self.fetchImageDataAtURL(photoURL, forMediaItem: mediaItem, clearsPhotoMessageMapOnSuccessForKey: key) // 4
+            if snapshot.exists() {
+                let key = snapshot.key
+                if let messageData = snapshot.value as? Dictionary<String, String> {
+                    if let photoURL = messageData["photoURL"] as String! {
+                        if let mediaItem = self.photoMessageMap[key] {
+                            self.fetchImageDataAtURL(photoURL, forMediaItem: mediaItem, clearsPhotoMessageMapOnSuccessForKey: key) // 4
+                        }
+                    }
                 }
             }
         })
     }
     
     private func observeTyping() {
-        let typingIndicatorRef = channelRef!.child("typingIndicator")
+        let typingIndicatorRef = channelRef.child("typingIndicator")
         userIsTypingRef = typingIndicatorRef.child(senderId)
         userIsTypingRef.onDisconnectRemoveValue()
     }
@@ -221,10 +234,6 @@ final class ChatViewController: JSQMessagesViewController {
                     return
                 }
                 
-                // 4
-                //                if (metadata?.contentType == "image/gif") {
-                //                    mediaItem.image = UIImage.gifWithData(data!)
-                //                } else {
                 mediaItem.image = UIImage.init(data: data!)
                 //                }
                 self.collectionView.reloadData()
@@ -266,11 +275,20 @@ final class ChatViewController: JSQMessagesViewController {
         
         cell.textView?.textColor = UIColor(red: 28.0/255, green: 29.0/255, blue: 30.0/255, alpha: 1)
         
-        cell.cellTopLabel.textColor = UIColor(red: 28.0/255, green: 29.0/255, blue: 30.0/255, alpha: 1)
+        let message = messages[indexPath.row]
+        cell.cellBottomLabel.attributedText = NSAttributedString(string: dateFormatter.string(from: message.date))
         
-        cell.cellTopLabel.text = "11:20 am"
+        cell.messageBubbleTopLabel.textInsets = UIEdgeInsetsMake(0.0, 15.0, 0.0, 0.0);
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
+        return 15.0
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellBottomLabelAt indexPath: IndexPath!) -> CGFloat {
+        return 15.0
     }
     
     // MARK: Firebase related methods
