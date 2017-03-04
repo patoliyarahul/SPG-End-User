@@ -89,6 +89,15 @@ struct Api {
     
     static let getLocalStylistList      =   "local_end_user_stylist_list.php"
     
+    static let logOutService            =   "sign_out_user.php"
+    
+    static let deleteAccount            =   "delete_user.php"
+    
+    static let deleteLookBookImage      =   "delete_end_user_look_book_image_by_id.php"
+    
+    static let uploadProfilePic         =   "upload_profile_pic_end_user.php"
+    
+    static let editProfile              =   "edit_user_profile.php"
 }
 
 struct InitialSegue {
@@ -127,6 +136,7 @@ struct Segue {
 struct MyProfileSegue {
     static let privacyPolicySegue       =   "privacyPolicySegue"
     static let contactSupportSegue      =   "contactSupportSegue"
+    static let editProfileSegue         =   "editProfileSegue"
 }
 
 struct ChatSeuge {
@@ -140,6 +150,7 @@ struct DateFormate {
     static let dateFormate_4    =   "yyyy-MM-dd"
     static let dateFormate_5    =   "MMMM dd, yyyy"
     static let dateFormate_6    =   "HH:mm:ss"
+    static let dateFormate_7    =   "HH:mm a"
 }
 
 struct ImageDirectory {
@@ -483,7 +494,7 @@ struct Device {
 struct Regx {
     static let email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
     static let pass = "[A-Za-z0-9.!@#$^_]{6,20}"
-    static let phone = "[0-9]{10}"
+    static let phone = "[0-9]{3}-[0-9]{3}-[0-9]{4}"
     
 }
 

@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SKPhotoBrowser
 
 protocol BookingDetailsDelegate {
     func didCancelAppointment()
-    func recheduledAppointment(dict: Dictionary<String, String>)
+    func recheduledAppointment()
 }
 
 class BookingDetailViewController : UIViewController {
@@ -123,6 +124,42 @@ class BookingDetailViewController : UIViewController {
                 self.view.layoutIfNeeded()
             })
         }
+        
+        setTimeAndDateToPicker()
+    }
+    
+    func setTimeAndDateToPicker() {
+        
+        let date = Date().dateFromString(format: DateFormate.dateFormate_2, dateString: detailsDict["title_appointment_date"]! as! String)
+        let time = Date().dateFromString(format: DateFormate.dateFormate_7, dateString: detailsDict["appointment_time"]! as! String)
+        
+        datePicker.minimumDate = Date()
+        
+        if let pickerDate = combineDateWithTime(date: date, time: time) {
+            datePicker.date = pickerDate
+        }
+    }
+    
+    
+    func combineDateWithTime(date: Date, time: Date) -> Date? {
+        
+        let calendar = Calendar.current
+        
+        let dayUnits  = Set<Calendar.Component>([.day, .month, .year])
+        let timeUnits = Set<Calendar.Component>([.hour, .minute, .second])
+        
+        let dateComponents = calendar.dateComponents(dayUnits, from: date)
+        let timeComponents = calendar.dateComponents(timeUnits, from: time)
+        
+        let mergedComponments = NSDateComponents()
+        mergedComponments.year = dateComponents.year!
+        mergedComponments.month = dateComponents.month!
+        mergedComponments.day = dateComponents.day!
+        mergedComponments.hour = timeComponents.hour!
+        mergedComponments.minute = timeComponents.minute!
+        mergedComponments.second = timeComponents.second!
+        
+        return calendar.date(from: mergedComponments as DateComponents)
     }
     
     //MARK: - UIButton Ac	tion Methods
@@ -253,9 +290,27 @@ extension BookingDetailViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if desiredLookArray.count > 0 {
-            selectedImageUrl = ImageDirectory.desiredLookDir + "\(desiredLookArray[indexPath.row])"
-//            self.performSegue(withIdentifier: "imageSegue", sender: self)
+            
+            let browser = SKPhotoBrowser(photos: getPhotosArrayWithLink())
+            browser.initializePageIndex(indexPath.row)
+            present(browser, animated: true, completion: nil)
         }
+    }
+    
+    func getPhotosArrayWithLink() -> [SKPhoto] {
+        
+        var images = [SKPhoto]()
+        
+        for str in desiredLookArray {
+            
+            let url =  "\(Constant.URL_PREFIX)/" + ImageDirectory.desiredLookDir + str
+            
+            let photo = SKPhoto.photoWithImageURL(url)
+            photo.shouldCachePhotoURLImage = false // you can use image cache by true(NSCache)
+            images.append(photo)
+        }
+        
+        return images
     }
 }
 
@@ -272,8 +327,7 @@ extension BookingDetailViewController : RequestManagerDelegate {
                     scrollView.isHidden = false
                     setText()
                 } else if action == Api.reschedule_appointment {
-//                    let dictArray = resultDict[MainResponseParams.data]
-//                    delegate?.recheduledAppointment(dict: dictArray as! Dictionary<String, String>)
+                    delegate?.recheduledAppointment()
                     _ = self.navigationController?.popViewController(animated: true)
                 } else if action == Api.cancel_appointment {
                     delegate?.didCancelAppointment()

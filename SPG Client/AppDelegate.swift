@@ -45,20 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         FIRApp.configure()
         
-        //        //        var types: UIUserNotificationType = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound
-        //
-        //        //        var settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
-        //
-        //        let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-        //        UIApplication.shared.registerUserNotificationSettings(settings)
-        //
-        ////        DispatchQueue.main.async {
-        ////            let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-        ////            UIApplication.shared.registerUserNotificationSettings(settings)
-        ////        }
-        // ----------------- * Push notification End *-----------------
-        
-        
         IQKeyboardManager.sharedManager().enable = true
         _ = ReachabilityManager.sharedInstance.isReachability
         
@@ -123,7 +109,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         print("Token :",token)
         
         userDefault.set(token, forKey:Device.device_id)
-        userDefault.set(UIDevice.current.identifierForVendor?.uuidString, forKey: Device.udid)
+        
+        
+        var uuid = UIDevice.current.identifierForVendor?.uuidString
+        uuid = uuid?.replacingOccurrences(of: "-", with: "")
+        
+        userDefault.set(uuid, forKey: Device.udid)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -138,10 +129,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

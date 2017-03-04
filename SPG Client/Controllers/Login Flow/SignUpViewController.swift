@@ -45,6 +45,9 @@ class SignUpViewController: UIViewController {
     }
     
     func addVelidationToTextFiled() {
+        
+        txtPhoneNo.delegate = self
+        
         txtEmail.updateLengthValidationMsg(MESSAGES.email_empty)
         txtPassword.updateLengthValidationMsg(MESSAGES.pass_empty)
         txtConformPassword.updateLengthValidationMsg(MESSAGES.conform_pass_empty)
@@ -60,7 +63,15 @@ class SignUpViewController: UIViewController {
     
     func callService() {
         
-        let innerJson = [Request.pass_data: [PersonalInfoParams.email: "\(txtEmail.text!)", PersonalInfoParams.password: "\(txtPassword.text!)",Device.device_id : userDefault.value(forKey: Device.device_id) as! String , Device.device_type : Device.device_type_ios, "user_signup_type": Device.user_login_type_normal, PersonalInfoParams.firstName: "\(txtFirstName.text!)", PersonalInfoParams.lastName: "\(txtLastName.text!)", PersonalInfoParams.phone: "\(txtPhoneNo.text!)"] as Dictionary<String, String>] as Dictionary<String, Any>
+        let innerJson = [Request.pass_data  : [PersonalInfoParams.email: "\(txtEmail.text!)",
+            PersonalInfoParams.password     : "\(txtPassword.text!)",
+            Device.device_id                : userDefault.value(forKey: Device.device_id) as! String,
+            Device.device_type              : Device.device_type_ios,
+            "user_signup_type"              : Device.user_login_type_normal,
+            PersonalInfoParams.firstName    : "\(txtFirstName.text!)",
+            PersonalInfoParams.lastName     : "\(txtLastName.text!)",
+            Device.udid                     : userDefault.string(forKey: Device.udid)!,
+            PersonalInfoParams.phone        : "\(txtPhoneNo.text!)"] as Dictionary<String, String>] as Dictionary<String, Any>
         
         innerJson.printJson()
         Utils.callServicePost(innerJson.json, action: Api.signUp, urlParamString: "", delegate: self)
@@ -83,6 +94,8 @@ class SignUpViewController: UIViewController {
     }
 }
 
+//MARK: - RequestManager Delegate Methods
+
 extension SignUpViewController: RequestManagerDelegate {
     func onResult(_ result: Any!, action: String!, isTrue: Bool) {
         Utils.HideHud()
@@ -103,5 +116,80 @@ extension SignUpViewController: RequestManagerDelegate {
     
     func onFault(_ error: Error!) {
         Utils.HideHud()
+    }
+}
+
+//MARK: - TextField Delegate
+extension SignUpViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == txtPhoneNo {
+            let length = Int(self.getLength(textField.text!))
+            
+            let aSet = NSCharacterSet(charactersIn:"0123456789").inverted
+            let compSepByCharInSet = string.components(separatedBy: aSet)
+            let numberFiltered = compSepByCharInSet.joined(separator: "")
+            
+            if string == numberFiltered {
+                if length == 10 {
+                    if range.length == 0 {
+                        return false
+                    }
+                }
+                else if length == 3 {
+                    let num = self.formatNumber(mobileNumber: textField.text!)
+                    textField.text = "\(num)-"
+                    if range.length > 0 {
+                        textField.text = "\(num.substring(to: num.index(num.startIndex, offsetBy: 3)))"
+                    }
+                } else if length == 6 {
+                    let num = self.formatNumber(mobileNumber: textField.text!)
+                    textField.text = "\(num.substring(to: num.index(num.startIndex, offsetBy: 3)))-\(num.substring(from: num.index(num.startIndex, offsetBy: 3)))-"
+                    if range.length > 0 {
+                        textField.text = "\(num.substring(to: num.index(num.startIndex, offsetBy: 3)))-\(num.substring(from: num.index(num.startIndex, offsetBy: 3)))"
+                    }
+                }
+                return true;
+                
+            } else {
+                return string == numberFiltered
+            }
+        } else {
+            return true
+        }
+    }
+    
+    //MARK: - Helper Methods for textfield phone number formating
+    
+    func formatNumber( mobileNumber: String) -> String {
+        var mobileNumber = mobileNumber
+        mobileNumber = mobileNumber.replacingOccurrences(of: "(", with: "")
+        mobileNumber = mobileNumber.replacingOccurrences(of: ")", with: "")
+        mobileNumber = mobileNumber.replacingOccurrences(of: " ", with: "")
+        mobileNumber = mobileNumber.replacingOccurrences(of: "-", with: "")
+        mobileNumber = mobileNumber.replacingOccurrences(of: "+", with: "")
+        print("\(mobileNumber)")
+        let length = Int(mobileNumber.characters.count)
+        if length > 10 {
+            mobileNumber = mobileNumber.substring(from: mobileNumber.index(mobileNumber.startIndex, offsetBy: length - 10))
+        }
+        return mobileNumber
+    }
+    
+    func getLength(_ mobileNumber: String) -> Int {
+        var mobileNumber = mobileNumber
+        
+        mobileNumber = mobileNumber.replacingOccurrences(of: "(", with: "")
+        mobileNumber = mobileNumber.replacingOccurrences(of: ")", with: "")
+        mobileNumber = mobileNumber.replacingOccurrences(of: " ", with: "")
+        mobileNumber = mobileNumber.replacingOccurrences(of: "-", with: "")
+        mobileNumber = mobileNumber.replacingOccurrences(of: "+", with: "")
+        let length = Int(mobileNumber.characters.count)
+        return length
     }
 }

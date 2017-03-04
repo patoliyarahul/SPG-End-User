@@ -54,7 +54,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func callService() {
-        let innerJson = [Request.pass_data: [PersonalInfoParams.email: "\(txtEmail.text!)", PersonalInfoParams.password: "\(txtPassword.text!)",Device.device_id : userDefault.value(forKey: Device.device_id) as! String , Device.device_type : Device.device_type_ios, Device.user_login_type: Device.user_login_type_normal] as Dictionary<String, String>] as Dictionary<String, Any>
+        let innerJson = [Request.pass_data: [PersonalInfoParams.email: "\(txtEmail.text!)",
+            PersonalInfoParams.password : "\(txtPassword.text!)",
+            Device.device_id            : userDefault.value(forKey: Device.device_id) as! String ,
+            Device.udid                 : userDefault.string(forKey: Device.udid)!,
+            Device.device_type          : Device.device_type_ios, Device.user_login_type: Device.user_login_type_normal] as Dictionary<String, String>] as Dictionary<String, Any>
         
         // 2 for normal and 1 for FB
         innerJson.printJson()

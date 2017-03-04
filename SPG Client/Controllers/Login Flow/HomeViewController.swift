@@ -75,7 +75,7 @@ class HomeViewController: UIViewController {
             let dv = nv.viewControllers[0] as! LoginViewController
             dv.delegte = self
             
-        }else if segue.identifier == InitialSegue.signupSegue {
+        } else if segue.identifier == InitialSegue.signupSegue {
             let nv = segue.destination as! UINavigationController
             let dv = nv.viewControllers[0] as! SignUpViewController
             dv.delegate = self
@@ -86,6 +86,9 @@ class HomeViewController: UIViewController {
 //MARK: - Login SignupDeligate
 extension HomeViewController: LoginDelegate {
     func didLogedIn() {
+        
+        // Login To Firebase for chat functioanlity
+        
         FIRAuth.auth()?.signIn(withEmail: userDefault.string(forKey: ClientsParams.email)!, password: "123456") { (user, error) in
             if let err = error { // 3
                 print(err.localizedDescription)

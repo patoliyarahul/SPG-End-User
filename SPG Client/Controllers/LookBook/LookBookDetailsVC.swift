@@ -96,6 +96,7 @@ class LookBookDetailsVC: UIViewController {
             let dict = lookBookArray[selectedIndex.row]
             
             let dv = segue.destination as! LookBookImageVC
+            dv.delegate = self
             dv.dict = dict
         }
     }
@@ -199,6 +200,23 @@ extension LookBookDetailsVC : RequestManagerDelegate {
     
     func onFault(_ error: Error!) {
         Utils.HideHud()
+    }
+}
+
+//MARK: - LookbookImageDelegate Methods
+
+extension LookBookDetailsVC : LookBookImageDelegate {
+    func didDeleteImage() {
+        lookBookArray.remove(at: selectedIndex.row)
+        
+        if lookBookArray.count > 0 {
+            myCollectionView.deleteItems(at: [selectedIndex])
+        } else {
+            myCollectionView.reloadData()
+            UIView.animate(withDuration: 0.5, animations: {
+                self.noImagesView.alpha = 1
+            })
+        }
     }
 }
 

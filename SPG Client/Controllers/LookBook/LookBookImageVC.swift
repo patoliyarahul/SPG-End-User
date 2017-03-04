@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LookBookImageDelegate {
+    func didDeleteImage()
+}
+
 class LookBookImageVC: UIViewController {
 
     //MARK: - IBOutlet
@@ -16,6 +20,8 @@ class LookBookImageVC: UIViewController {
     //MARK: - Variables
     
     var dict    =   Dictionary<String, String>()
+    
+    var delegate : LookBookImageDelegate?
     
     //MARK: - Life Cycle
     
@@ -37,10 +43,15 @@ class LookBookImageVC: UIViewController {
     //MARK: - Helper Methods
     
     func callServiceForProfileDetail() {
-        
         let innerJson = ["pass_data" : [StylistListParams.stylistId : dict[StylistListParams.stylistId]!] as Dictionary<String, String>] as Dictionary<String, Any>
         innerJson.printJson()
         Utils.callServicePost(innerJson.json, action: Api.getStylistProfile, urlParamString: "", delegate: self)
+    }
+    
+    func callDeleteImageService() {
+        let innerJson = ["pass_data" : [LookBookParams.lookBookImageId : dict[LookBookParams.lookBookImageId]!] as Dictionary<String, String>] as Dictionary<String, Any>
+        innerJson.printJson()
+        Utils.callServicePost(innerJson.json, action: Api.deleteLookBookImage, urlParamString: "", delegate: self)
     }
     
     //MARK: - UIButton Action Methods
@@ -53,7 +64,7 @@ class LookBookImageVC: UIViewController {
     }
     
     @IBAction func btnDeleteSave_Click(_ sender: Any) {
-        
+        callDeleteImageService()
     }
     //MARK: - MemoryWarning
     override func didReceiveMemoryWarning() {
@@ -82,11 +93,13 @@ extension LookBookImageVC : RequestManagerDelegate {
                         stylistDetailVC.detailsDict = dict
                         self.navigationController?.pushViewController(stylistDetailVC, animated: true)
                     }
-                    
-                } else {
-                    let dict = resultDict[MainResponseParams.message] as! Dictionary<String, String>
-                    Utils.showAlert("\(dict[MainResponseParams.msgTitle]!)", message: "\(dict[MainResponseParams.msgDesc]!)", controller: self)
+                } else if action == Api.deleteLookBookImage {
+                    delegate?.didDeleteImage()
+                    _ = self.navigationController?.popViewController(animated: true)
                 }
+            } else {
+                let dict = resultDict[MainResponseParams.message] as! Dictionary<String, String>
+                Utils.showAlert("\(dict[MainResponseParams.msgTitle]!)", message: "\(dict[MainResponseParams.msgDesc]!)", controller: self)
             }
         }
     }

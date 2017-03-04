@@ -27,6 +27,6 @@ target 'SPG Client' do
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController'
   
-#  pod "SSImageBrowser"
+  pod 'SKPhotoBrowser'
 
 end

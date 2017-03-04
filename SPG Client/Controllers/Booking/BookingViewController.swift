@@ -184,22 +184,28 @@ extension BookingViewController: BookingDetailsDelegate {
             }, completion: { (bool : Bool) in
                 if self.selectedIndexPath.section == 0 {
                     self.arrUpcommingBooking.remove(at: self.selectedIndexPath.row)
+                    
+                    if self.arrUpcommingBooking.count > 0 {
+                        self.myTableView.deleteRows(at: [self.selectedIndexPath], with: .automatic)
+                    } else {
+                        self.myTableView.reloadSections([self.selectedIndexPath.section], with: .automatic)
+                    }
+                    
                 } else {
                     self.arrPastBooking.remove(at: self.selectedIndexPath.row)
+                    
+                    if self.arrPastBooking.count > 0 {
+                        self.myTableView.deleteRows(at: [self.selectedIndexPath], with: .automatic)
+                    } else {
+                        self.myTableView.reloadSections([self.selectedIndexPath.section], with: .automatic)
+                    }
                 }
                 
-                self.myTableView.deleteRows(at: [self.selectedIndexPath], with: .automatic)
             })
         }
     }
     
-    func recheduledAppointment(dict: Dictionary<String, String>) {
-        if selectedIndexPath.section == 0 {
-            arrUpcommingBooking[selectedIndexPath.row] = dict
-        } else {
-            arrPastBooking[selectedIndexPath.row] = dict
-        }
-        
-        myTableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+    func recheduledAppointment() {
+        callService()
     }
 }

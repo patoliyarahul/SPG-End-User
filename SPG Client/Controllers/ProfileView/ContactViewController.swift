@@ -13,7 +13,7 @@ class ContactViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet weak var txtName: TextFieldValidator!
     @IBOutlet weak var txtEmail: TextFieldValidator!
-    @IBOutlet weak var txtMessage: UILabel!
+    @IBOutlet weak var txtMessage: UITextView!
     
     //MARK: - Variables
     
@@ -22,10 +22,21 @@ class ContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        addValidationToTextField()
     }
     
     //MARK: - Helper Methods
+    
+    func addValidationToTextField() {
+        txtName.updateLengthValidationMsg(MESSAGES.first_name_empty)
+        txtEmail.updateLengthValidationMsg(MESSAGES.email_empty)
+        
+        txtEmail.addRegx(Regx.email, withMsg: MESSAGES.email_valid)
+    }
+    
+    func callContactSupportService() {
+        
+    }
     
     //MARK: - UIButton Action Methods
     @IBAction func btnSendMessage_Click(_ sender: Any) {

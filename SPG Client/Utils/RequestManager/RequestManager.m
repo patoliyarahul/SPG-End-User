@@ -212,8 +212,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)theConnection {
     NSError *error = nil;
-//    NSString *responseStr = [[NSString alloc] initWithData:receivedData encoding:NSASCIIStringEncoding];
-//    NSLog(@"responseStr %@", responseStr);
+    NSString *responseStr = [[NSString alloc] initWithData:receivedData encoding:NSASCIIStringEncoding];
+    NSLog(@"responseStr %@", responseStr);
     id dict = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingAllowFragments error:&error];
     
     NSLog(@"Result %@ \n Error : %@", dict, error.description);

@@ -88,6 +88,7 @@
 		8971A9A81E28E471006A56E2 /* MyLookBookCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971A9A71E28E471006A56E2 /* MyLookBookCollectionCell.swift */; };
 		8971A9AA1E28F3CE006A56E2 /* LookBookDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971A9A91E28F3CE006A56E2 /* LookBookDetailsVC.swift */; };
 		8971A9AC1E29024E006A56E2 /* LookBookImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971A9AB1E29024E006A56E2 /* LookBookImageVC.swift */; };
+		89AE64471E69A50D00790A01 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AE64461E69A50D00790A01 /* EditProfileViewController.swift */; };
 		89C0E9381E38FBDC00B87456 /* LookBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C0E9371E38FBDC00B87456 /* LookBookCell.swift */; };
 		89FECFBC1E4EE5D7005BDA78 /* Chat+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FECFBB1E4EE5D7005BDA78 /* Chat+Utils.swift */; };
 		D13672F81DDEC25A00147126 /* locationListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13672F71DDEC25A00147126 /* locationListingTableViewCell.swift */; };
@@ -199,6 +200,7 @@
 		8971A9A71E28E471006A56E2 /* MyLookBookCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyLookBookCollectionCell.swift; path = Views/MyLookBookCollectionCell.swift; sourceTree = "<group>"; };
 		8971A9A91E28F3CE006A56E2 /* LookBookDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookBookDetailsVC.swift; sourceTree = "<group>"; };
 		8971A9AB1E29024E006A56E2 /* LookBookImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookBookImageVC.swift; sourceTree = "<group>"; };
+		89AE64461E69A50D00790A01 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = "SPG Client/Controllers/ProfileView/EditProfileViewController.swift"; sourceTree = SOURCE_ROOT; };
 		89C0E9371E38FBDC00B87456 /* LookBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LookBookCell.swift; path = Views/LookBookCell.swift; sourceTree = "<group>"; };
 		89FECFBB1E4EE5D7005BDA78 /* Chat+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chat+Utils.swift"; sourceTree = "<group>"; };
 		BDD9AF6061B7C93C09BBD4DC /* Pods-SPG Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPG Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-SPG Client/Pods-SPG Client.release.xcconfig"; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 			children = (
 				894089911E377B6D0034D2DA /* ProfileViewController.swift */,
 				894089931E37A97D0034D2DA /* ContactViewController.swift */,
+				89AE64461E69A50D00790A01 /* EditProfileViewController.swift */,
 			);
 			name = ProfileView;
 			path = ProfileViewController;
@@ -758,6 +761,7 @@
 				5557E6921E114006008606A5 /* Constant.swift in Sources */,
 				7979C50C1E20BC8900C708D7 /* WhiteSectionHeaderView.swift in Sources */,
 				557FF33A1E404B1800A6480D /* LocalStylistsMapViewController.swift in Sources */,
+				89AE64471E69A50D00790A01 /* EditProfileViewController.swift in Sources */,
 				893E22911E4B3FF100F44F58 /* AppointmentServiceCell.swift in Sources */,
 				792899B71E2513CA00D3A8FD /* ReviewViewController.swift in Sources */,
 				893E22921E4B3FF100F44F58 /* DesiredLookCell.swift in Sources */,

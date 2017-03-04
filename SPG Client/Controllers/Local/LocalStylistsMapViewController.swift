@@ -10,12 +10,21 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class LocalStylistsMapViewController: UIViewController, MKMapViewDelegate {
+class LocalStylistsMapViewController: UIViewController {
     
     //MARK: - IBOutlet
     @IBOutlet weak var btnSwitch: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var stylistDetailView: UIView!
+    @IBOutlet weak var lblStylistname: UILabel!
+    @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var lblService: UILabel!
+    @IBOutlet weak var imgProfile: UIImageView!
+    
+    @IBOutlet weak var stylistDetailBottom: NSLayoutConstraint!
+    @IBOutlet weak var btnStylistDetails: UIButton!
     
     //MARK: - Variables
     
@@ -29,6 +38,9 @@ class LocalStylistsMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.delegate = self
+        stylistDetailBottom.constant = -stylistDetailView.frame.size.height
         
         configureTableView(tableView)
         tableView.alpha = 0
@@ -66,16 +78,35 @@ class LocalStylistsMapViewController: UIViewController, MKMapViewDelegate {
     //MARK: - UIButton Action Methods
     
     @IBAction func btnSwitchClicked(_ sender: Any) {
+        
+        stylistDetailBottom.constant = -stylistDetailView.frame.size.height
+        
         if mapView.isHidden {
+            resetAnnotationImage()
             tableView.isHidden = true
             mapView.isHidden = false
-            btnSwitch.image = UIImage(named: "map")
+            btnSwitch.image = UIImage(named: "list")
         } else {
             tableView.isHidden = false
             mapView.isHidden = true
-            btnSwitch.image = UIImage(named: "list")
+            btnSwitch.image = UIImage(named: "map")
         }
+        
+        self.view.layoutIfNeeded()
     }
+    
+    
+    @IBAction func btnShowStylistDetails_Click(_ sender: Any) {
+        
+        let tag = (sender as! UIButton).tag
+        
+        selectedIndexPath = IndexPath(row: tag, section: 0)
+        callServiceForProfileDetail()
+    }
+    
+    
+    //MARK: - UINavigation Methods
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == StylistSegue.stylistDetailSegue {
             let dv = segue.destination as! StylistProfileVC
@@ -201,6 +232,91 @@ extension LocalStylistsMapViewController: RequestManagerDelegate {
     }
 }
 
+//MARK: - MKMapDelegate Methods
+
+extension LocalStylistsMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if (annotation is MKUserLocation) {
+            //if annotation is not an MKPointAnnotation (eg. MKUserLocation),
+            //return nil so map draws default view for it (eg. blue dot)...
+            return nil
+        }
+        
+        let reuseId = "test"
+        
+        var anView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            anView?.image = #imageLiteral(resourceName: "mapDefaultPin")
+            anView?.canShowCallout = false
+        }
+        else {
+            //we are re-using a view, update its annotation reference...
+            anView?.annotation = annotation
+        }
+        
+        return anView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        resetAnnotationImage()
+        
+        let i : Int = Int(((view.annotation?.subtitle)!)!)!
+        
+        view.image = #imageLiteral(resourceName: "mapSelectedPin")
+        
+        let dict = arrStylist[i]
+        setAttributesToMapStylistDetails(dict: dict)
+        btnStylistDetails.tag = i
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        resetAnnotationImage()
+        showHideStylistDetailsView(show: false)
+    }
+    
+    func setAttributesToMapStylistDetails(dict : Dictionary<String, String>) {
+        
+        lblStylistname.text = dict[BusinessInfoParams.businessName]!
+        lblService.text = dict[BusinessInfoParams.profession]!
+        
+        if dict[BusinessInfoParams.logoImage]! != "" && dict[BusinessInfoParams.logoImage]! != "not define" {
+            let url = ImageDirectory.logoDir + "\(dict[BusinessInfoParams.logoImage]!)"
+            Utils.downloadImage(url, imageView: imgProfile)
+        }
+        
+        let address = "\(dict[BusinessInfoParams.businessStreet]!), \(dict[BusinessInfoParams.businessSuit]!), \(dict[BusinessInfoParams.businessCity]!), \(dict[BusinessInfoParams.businessState]!), \(dict[BusinessInfoParams.businessZipcode]!)"
+        
+        lblAddress.attributedText = getAttributedTextWithSpacing(text: address)
+        
+        showHideStylistDetailsView(show: true)
+    }
+    
+    func showHideStylistDetailsView(show: Bool) {
+        stylistDetailView.layoutIfNeeded()
+        if show {
+            stylistDetailBottom.constant = 0
+        } else {
+            stylistDetailBottom.constant = -stylistDetailView.frame.size.height
+        }
+        
+        UIView.animate(withDuration: 0.5) { 
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func resetAnnotationImage() {
+        for annotation in mapView.annotations {
+            let viewI = mapView.view(for: annotation)
+            
+            if !(viewI?.annotation is MKUserLocation){
+                viewI?.image = #imageLiteral(resourceName: "mapDefaultPin")
+            }
+        }
+    }
+}
+
 extension LocalStylistsMapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -228,21 +344,6 @@ extension LocalStylistsMapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error:"+error.localizedDescription)
-    }
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
-        print(view.annotation?.subtitle?! ?? 0)
-        let i : Int? = Int(((view.annotation?.subtitle)!)!)
-        print(i!)
-        print(arrStylist[i!])
-        
-        selectedIndexPath = IndexPath(row: i!, section: 0)
-        callServiceForProfileDetail()
-    }
-    
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        
     }
 }
 
