@@ -17,44 +17,51 @@ class Chat_Utils: NSObject {
                             FUserParams.FUSER_LASTNAME : userDefault.string(forKey: ClientsParams.lastName)!,
                             FUserParams.FUSER_FULLNAME : "\(userDefault.string(forKey: ClientsParams.firstName)!) \(userDefault.string(forKey: ClientsParams.lastName)!)",
                 FUserParams.FUSER_EMAIL : userDefault.string(forKey: ClientsParams.email),
-                FUserParams.FUSER_OBJECTID : user.uid,
-                FUserParams.FUSER_PICTURE : userDefault.string(forKey: ClientsParams.profilePic)!,
+                FUserParams.FUSER_OBJECTID  : user.uid,
+                FUserParams.FUSER_DBID      : userDefault.string(forKey: ClientsParams.enduserId)!,
+                FUserParams.FUSER_PICTURE   : userDefault.string(forKey: ClientsParams.profilePic)!,
                 FUserParams.FUSER_TYPE : "endUser"]
             userRef.setValue(userInfo)
         }
     }
     
-    class func startPrivateChat(email: String, completionHandler: @escaping (Dictionary<String, Any>) -> Void) {
+    class func startPrivateChat(email: String, completionHandler: @escaping (Recent) -> Void) {
         let user1 = FIRAuth.auth()?.currentUser
         
         fetchUserBasedOnEmail(email: email, completionHandler: { (dict: Dictionary<String, String>) in
             let userId1 = user1?.uid
             let userId2 = dict[FUserParams.FUSER_OBJECTID]!
             
-            let initials1 = initials(firstName: userDefault.string(forKey: ClientsParams.firstName)!, lastName: userDefault.string(forKey: ClientsParams.lastName)!)
+            let initials1 = initials(firstName: userDefault.string(forKey: PersonalInfoParams.firstName)!, lastName: userDefault.string(forKey: PersonalInfoParams.lastName)!)
             let initials2 = initials(firstName: dict[FUserParams.FUSER_FIRSTNAME]!, lastName: dict[FUserParams.FUSER_LASTNAME]!)
             
-            let picture1 = userDefault.string(forKey: ClientsParams.profilePic)!
+            let picture1 = userDefault.string(forKey: PersonalInfoParams.logoImage)!
             let picture2 = dict[FUserParams.FUSER_PICTURE]!
             
-            let name1   =   "\(userDefault.string(forKey: ClientsParams.firstName)!) \(userDefault.string(forKey: ClientsParams.lastName)!)"
+            let name1   =   "\(userDefault.string(forKey: PersonalInfoParams.firstName)!) \(userDefault.string(forKey: PersonalInfoParams.lastName)!)"
             let name2   =   dict[FUserParams.FUSER_FULLNAME]!
+            
+            let userDbId1   = "\(userDefault.string(forKey: StylistListParams.stylistId)!)"
+            let userDbId2   = "\(dict[FUserParams.FUSER_DBID]!)"
             
             let members : [String] =   [userId1!, userId2]
             
             let sorted      =   members.sorted(by: { $0 < $1 } )
             let groupId     =   md5HashOfString(string: sorted.joined(separator: ""))
             
+            var recent = Recent();
+            
             fetchMembers(groupId: groupId, completionHandler:  { userIds in
                 if !userIds.contains(userId1!) {
-                    createItem(userId: userId1!, groupId: groupId, initials: initials2, picture: picture2, description: name2, members: members, type: "private")
+                    recent = createItem(userId: userId1!, groupId: groupId, initials: initials2, picture: picture2, description: name2, members: members, type: "private", dbId: userDbId2)
                 }
+                
                 if !userIds.contains(userId2) {
-                    createItem(userId: userId2, groupId: groupId, initials: initials1, picture: picture1, description: name1, members: members, type: "private")
+                    _ = createItem(userId: userId2, groupId: groupId, initials: initials1, picture: picture1, description: name1, members: members, type: "private", dbId:  userDbId1)
                 }
+                
+                completionHandler(recent)
             })
-            
-            completionHandler([FRecentParams.FRECENT_GROUPID : groupId, FRecentParams.FRECENT_MEMBERS : members, FRecentParams.FRECENT_DESCRIPTION : name2,FRecentParams.FRECENT_TYPE : "private"])
         })
     }
     
@@ -72,6 +79,8 @@ class Chat_Utils: NSObject {
         fetchMembers(groupId: groupId, completionHandler: { userIds in
             let recentRef = FIRDatabase.database().reference(withPath: FRecentParams.FRECENT_PATH)
             
+            var count = 0
+            
             for userId in userIds {
                 let temp = "\(groupId)\(userId)"
                 let objectId    =   md5HashOfString(string: temp)
@@ -79,25 +88,42 @@ class Chat_Utils: NSObject {
                 let recentUserRef = recentRef.child(objectId)
                 
                 recentUserRef.observe(FIRDataEventType.value, with: { (snapshot) in
-                    
-                    if let postDict = snapshot.value as? Dictionary<String, Any> {
-                        var counter = Int("\(postDict[FRecentParams.FRECENT_COUNTER]!)")
-                        
-                        var recentDict = postDict
-                        
-                        counter = userId == (FIRAuth.auth()?.currentUser?.uid)! ? 0 : counter! + 1
-                        
-                        recentDict[FRecentParams.FRECENT_LASTMESSAGEDATE] = Date().timeIntervalSince1970
-                        recentDict[FRecentParams.FRECENT_COUNTER] = "\(counter!)"
-                        recentDict[FRecentParams.FRECENT_LASTMESSAGE] = lastMessage
-                        
-                        recentUserRef.setValue(recentDict)
+                    if count < userIds.count {
+                        if let postDict = snapshot.value as? Dictionary<String, Any> {
+                            var counter = Int("\(postDict[FRecentParams.FRECENT_COUNTER]!)")
+                            
+                            var recentDict = postDict
+                            
+                            counter = userId == (FIRAuth.auth()?.currentUser?.uid)! ? 0 : counter! + 1
+                            
+                            recentDict[FRecentParams.FRECENT_LASTMESSAGEDATE] = Date().timeIntervalSince1970
+                            recentDict[FRecentParams.FRECENT_COUNTER] = "\(counter!)"
+                            recentDict[FRecentParams.FRECENT_LASTMESSAGE] = lastMessage
+                            
+                            recentUserRef.setValue(recentDict)
+                            
+                            count += 1
+                        }
                     }
-                  
-                    recentUserRef.removeAllObservers()
                 })
             }
             
+        })
+    }
+    
+    class func resetCounter(objectId: String) {
+        
+        let recentRef = FIRDatabase.database().reference(withPath: FRecentParams.FRECENT_PATH).child(objectId)
+        
+        recentRef.observe(FIRDataEventType.value, with: { (snapshot) in
+            if let postDict = snapshot.value as? Dictionary<String, Any> {
+                var recentDict = postDict
+                
+                if "\(recentDict[FRecentParams.FRECENT_USERID]!)" == (FIRAuth.auth()?.currentUser?.uid)! {
+                    recentDict[FRecentParams.FRECENT_COUNTER] = "0"
+                    recentRef.setValue(recentDict)
+                }
+            }
         })
     }
     
@@ -122,7 +148,8 @@ class Chat_Utils: NSObject {
         })
     }
     
-    class func createItem(userId: String , groupId : String, initials: String, picture : String, description : String, members: [String], type: String) {
+    
+    class func createItem(userId: String , groupId : String, initials: String, picture : String, description : String, members: [String], type: String, dbId: String) -> Recent {
         
         let temp = "\(groupId)\(userId)"
         let objectId    =   md5HashOfString(string: temp)
@@ -141,9 +168,12 @@ class Chat_Utils: NSObject {
                              FRecentParams.FRECENT_LASTMESSAGE  :   "",
                              FRecentParams.FRECENT_LASTMESSAGEDATE  : Date().timeIntervalSince1970,
                              FRecentParams.FRECENT_ISDELETED    : false,
-                             FRecentParams.FRECENT_ISARCHIVED   : false] as [String : Any]
+                             FRecentParams.FRECENT_ISARCHIVED   : false,
+                             FRecentParams.FRECENT_DBID         : dbId] as [String : Any]
         
         recentRef.setValue(recentDict)
+        
+        return Recent(dict: recentDict)
     }
     
     class func initials(firstName: String, lastName: String) -> String {

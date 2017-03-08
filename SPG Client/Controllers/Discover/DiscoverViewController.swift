@@ -14,6 +14,8 @@ class DiscoverViewController: UIViewController {
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     
+    @IBOutlet weak var viewForSearchBar: UIView!
+    
     //MARK: - Variables
     
     var galleryImgaeArray = [Dictionary<String, String>]()
@@ -32,10 +34,17 @@ class DiscoverViewController: UIViewController {
     let paintTitle: NSString    =   "PAINT\nMakeup & Nails"
     let goTitle: NSString       =   "GO\nAll Things Skin"
     
+    var arrSearchResult     =   [Dictionary<String, String>]()
+    
+    var searchActive = false
+    var searchController: UISearchController!
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureSearchController()
         
         topHeaderButton_Click(self.view.viewWithTag(100) as! UIButton)
     }
@@ -45,6 +54,25 @@ class DiscoverViewController: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = false;
         self.tabBarController?.tabBar.isHidden = false;
+    }
+    
+    func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false // default is YES
+        
+        searchController.searchBar.searchBarStyle   =   .minimal
+        searchController.searchBar.placeholder      =   ""
+        
+        searchController.searchBar.sizeToFit()
+        
+        viewForSearchBar.addSubview(searchController.searchBar)
+        
+        definesPresentationContext = true
     }
     
     //MARK: - Helper Methods
@@ -127,7 +155,17 @@ class DiscoverViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == DiscoverSegue.imageDetailSegue {
             let dv = segue.destination as! DiscoverImageVC
-            dv.dict = galleryImgaeArray[selectedIndex.row] as Dictionary<String, String>
+            
+            var dict = Dictionary<String, String>()
+            
+            if searchController.searchBar.text != "" && searchActive {
+                dict = arrSearchResult[selectedIndex.row]
+                searchController.hidesNavigationBarDuringPresentation = true
+            } else {
+               dict = galleryImgaeArray[selectedIndex.row]
+            }
+            
+            dv.dict = dict
         }
     }
 }
@@ -140,6 +178,11 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if searchActive && searchController.searchBar.text != "" {
+            return arrSearchResult.count
+        }
+        
         return galleryImgaeArray.count
     }
     
@@ -149,7 +192,13 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
         
         if galleryImgaeArray.count > 0 {
             
-            let dict = galleryImgaeArray[indexPath.row]
+            var dict = Dictionary<String, String>()
+            
+            if searchActive && searchController.searchBar.text != "" {
+                dict = arrSearchResult[indexPath.row]
+            } else {
+                dict = galleryImgaeArray[indexPath.row]
+            }
             
             let url = ImageDirectory.gallaryDir + "\(dict["gallery_image_name"]!)"
             Utils.downloadImage(url, imageView: cell.desiredLookImage)
@@ -189,4 +238,73 @@ extension DiscoverViewController: RequestManagerDelegate {
         Utils.HideHud()
     }
 }
+
+//MARK: - UISearchBarDelegate
+
+extension DiscoverViewController : UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+        myCollectionView.reloadData()
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        // Put your key in predicate that is "Name"
+        let searchPredicate = NSPredicate(format: "gallery_image_name CONTAINS[C] %@", searchText)
+        arrSearchResult = (galleryImgaeArray as NSArray).filtered(using: searchPredicate) as! [Dictionary<String, String>]
+        
+        myCollectionView.reloadData()
+    }
+    
+    
+    // MARK: - UISearchControllerDelegate
+    
+    func presentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        debugPrint("UISearchControllerDelegate invoked method:.")
+        searchActive = false
+        myCollectionView.reloadData()
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    // MARK: - UISearchResultsUpdating
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
+
 

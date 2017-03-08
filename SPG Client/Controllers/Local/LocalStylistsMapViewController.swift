@@ -15,7 +15,7 @@ class LocalStylistsMapViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet weak var btnSwitch: UIBarButtonItem!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var myTableView: UITableView!
     
     @IBOutlet weak var stylistDetailView: UIView!
     @IBOutlet weak var lblStylistname: UILabel!
@@ -26,6 +26,7 @@ class LocalStylistsMapViewController: UIViewController {
     @IBOutlet weak var stylistDetailBottom: NSLayoutConstraint!
     @IBOutlet weak var btnStylistDetails: UIButton!
     
+    @IBOutlet weak var viewForSearchBar: UIView!
     //MARK: - Variables
     
     var arrStylist = [Dictionary<String,String>]()
@@ -33,6 +34,11 @@ class LocalStylistsMapViewController: UIViewController {
     var detailInfo = Dictionary<String, Any>()
     let locationManager = CLLocationManager()
     var isInitialized = false
+    
+    var arrSearchResult     =   [Dictionary<String, String>]()
+    
+    var searchActive = false
+    var searchController: UISearchController!
     
     //MARK: - Life Cycle
     
@@ -42,10 +48,12 @@ class LocalStylistsMapViewController: UIViewController {
         mapView.delegate = self
         stylistDetailBottom.constant = -stylistDetailView.frame.size.height
         
-        configureTableView(tableView)
-        tableView.alpha = 0
+        configureTableView(myTableView)
+        configureSearchController()
+        
+        myTableView.alpha = 0
         mapView.isHidden = true
-        tableView.isHidden = true
+        myTableView.isHidden = true
         
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
@@ -55,6 +63,25 @@ class LocalStylistsMapViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+    }
+    
+    func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false // default is YES
+        
+        searchController.searchBar.searchBarStyle   =   .minimal
+        searchController.searchBar.placeholder      =   "Find Local Stylists"
+        
+        searchController.searchBar.sizeToFit()
+        
+        viewForSearchBar.addSubview(searchController.searchBar)
+        
+        definesPresentationContext = true
     }
     
     //MARK: - Helper Methods
@@ -68,7 +95,12 @@ class LocalStylistsMapViewController: UIViewController {
     func callServiceForProfileDetail() {
         
         var dict = Dictionary<String, String>()
-        dict = arrStylist[selectedIndexPath.row]
+        
+        if searchActive && searchController.searchBar.text != "" {
+            dict = arrSearchResult[selectedIndexPath.row]
+        } else {
+            dict = arrStylist[selectedIndexPath.row]
+        }
         
         let innerJson = [Request.pass_data : [StylistListParams.stylistId : dict[StylistListParams.stylistId]!] as Dictionary<String, String>] as Dictionary<String, Any>
         innerJson.printJson()
@@ -83,11 +115,11 @@ class LocalStylistsMapViewController: UIViewController {
         
         if mapView.isHidden {
             resetAnnotationImage()
-            tableView.isHidden = true
+            myTableView.isHidden = true
             mapView.isHidden = false
             btnSwitch.image = UIImage(named: "list")
         } else {
-            tableView.isHidden = false
+            myTableView.isHidden = false
             mapView.isHidden = true
             btnSwitch.image = UIImage(named: "map")
         }
@@ -124,6 +156,9 @@ extension LocalStylistsMapViewController : UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchActive && searchController.searchBar.text != "" {
+            return arrSearchResult.count
+        }
         return arrStylist.count
     }
     
@@ -132,7 +167,11 @@ extension LocalStylistsMapViewController : UITableViewDelegate, UITableViewDataS
         
         var dict = Dictionary<String, String>()
         
-        dict = arrStylist[indexPath.row] as Dictionary<String, String>
+        if searchActive && searchController.searchBar.text != "" {
+            dict = arrSearchResult[indexPath.row]
+        } else {
+            dict = arrStylist[indexPath.row]
+        }
         
         if dict[BusinessInfoParams.businessName]!.characters.count > 0 {
             cell.lblStylistname.text = dict[BusinessInfoParams.businessName]!
@@ -187,9 +226,9 @@ extension LocalStylistsMapViewController: RequestManagerDelegate {
                     arrStylist   = resultDict["data"] as! [Dictionary<String, String>]
                     
                     if arrStylist.count > 0 {
-                        tableView.alpha = 1;
-                        tableView.isHidden = false
-                        reloadTableViewWithAnimation(myTableView: tableView)
+                        myTableView.alpha = 1;
+                        myTableView.isHidden = false
+                        reloadTableViewWithAnimation(myTableView: myTableView)
                         
                         var i: Int = 0
                         for dict:Dictionary<String, String> in arrStylist {
@@ -317,6 +356,8 @@ extension LocalStylistsMapViewController: MKMapViewDelegate {
     }
 }
 
+//MARK: - CLLocationManager Delegate
+
 extension LocalStylistsMapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -346,4 +387,74 @@ extension LocalStylistsMapViewController: CLLocationManagerDelegate {
         print("Error:"+error.localizedDescription)
     }
 }
+
+//MARK: - SearchResultsDelegate Methods
+
+extension LocalStylistsMapViewController : UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+        myTableView.reloadData()
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        // Put your key in predicate that is "Name"
+        let searchPredicate = NSPredicate(format: "business_name CONTAINS[C] %@", searchText)
+        arrSearchResult = (arrStylist as NSArray).filtered(using: searchPredicate) as! [Dictionary<String, String>]
+        
+        myTableView.reloadData()
+    }
+    
+    
+    // MARK: - UISearchControllerDelegate
+    
+    func presentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        debugPrint("UISearchControllerDelegate invoked method:.")
+        searchActive = false
+        myTableView.reloadData()
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    // MARK: - UISearchResultsUpdating
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
+
+
 

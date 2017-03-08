@@ -66,6 +66,17 @@ class LookBookImageVC: UIViewController {
     @IBAction func btnDeleteSave_Click(_ sender: Any) {
         callDeleteImageService()
     }
+    
+    @IBAction func btnShare_Click(_ sender: Any) {
+        
+        let imageToShare = [imgLookBook.image]
+        
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
     //MARK: - MemoryWarning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

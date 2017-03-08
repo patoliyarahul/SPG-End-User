@@ -9,11 +9,13 @@
 import UIKit
 
 class StylistsViewController: UIViewController {
-
+    
     //MARK: - IBOutlet
     @IBOutlet weak var btnCancel: UIBarButtonItem!
     @IBOutlet weak var myTableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var viewForSearchBar: UIView!
+    
     
     //MARK: - Variables
     
@@ -22,6 +24,13 @@ class StylistsViewController: UIViewController {
     var detailInfo      =   Dictionary<String, Any>()
     
     var selectedIndexPath = IndexPath(row: 0, section: 0)
+    
+    /// Search controller to help us with filtering.
+    var arrSearchMerged     =   [Dictionary<String, String>]()
+    var arrSearchResult     =   [Dictionary<String, String>]()
+    
+    var searchActive = false
+    var searchController: UISearchController!
     
     //MARK: - Life Cycle
     
@@ -34,7 +43,30 @@ class StylistsViewController: UIViewController {
         configureTableView(myTableView)
         myTableView.alpha = 0
         
+        configureSearchController()
+        
         callService()
+    }
+    
+    func configureSearchController() {
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false // default is YES
+        
+        searchController.searchBar.searchBarStyle   =   .minimal
+        searchController.searchBar.placeholder      =   "Find Stylists"
+        
+        searchController.searchBar.sizeToFit()
+        
+        viewForSearchBar.addSubview(searchController.searchBar)
+        
+        definesPresentationContext = true
+        
     }
     
     //MARK: - Helper Methods
@@ -49,7 +81,9 @@ class StylistsViewController: UIViewController {
         
         var dict = Dictionary<String, String>()
         
-        if selectedIndexPath.section == 0 {
+        if searchActive && searchController.searchBar.text != "" {
+            dict = arrSearchResult[selectedIndexPath.row]
+        } else if selectedIndexPath.section == 0 {
             dict = recomendedArray[selectedIndexPath.row]
         } else {
             dict = featuredArray[selectedIndexPath.row]
@@ -87,10 +121,19 @@ class StylistsViewController: UIViewController {
 
 extension StylistsViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if searchActive && searchController.searchBar.text != "" {
+            return 1
+        }
+        
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if searchActive && searchController.searchBar.text != "" {
+            return arrSearchResult.count
+        }
         
         if section == 0 {
             return recomendedArray.count
@@ -104,10 +147,12 @@ extension StylistsViewController : UITableViewDelegate, UITableViewDataSource {
         
         var dict = Dictionary<String, String>()
         
-        if indexPath.section == 0 {
-            dict = recomendedArray[indexPath.row] as Dictionary<String, String>
+        if searchActive && searchController.searchBar.text != "" {
+            dict = arrSearchResult[indexPath.row]
+        } else if indexPath.section == 0 {
+            dict = recomendedArray[indexPath.row]
         } else {
-            dict = recomendedArray[indexPath.row] as Dictionary<String, String>
+            dict = recomendedArray[indexPath.row]
         }
         
         cell.lblStylistname.text    =   dict[StylistListParams.businessName]
@@ -137,7 +182,10 @@ extension StylistsViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        
+        if searchActive && searchController.searchBar.text != "" {
+            return ""
+        } else if section == 0 {
             return "RECOMMENDED STYLIST"
         } else {
             return "FEATURED STYLIST"
@@ -183,6 +231,76 @@ extension StylistsViewController: RequestManagerDelegate {
     
     func onFault(_ error: Error!) {
         Utils.HideHud()
+    }
+}
+
+//MARK: - UISearchBarDelegate
+
+//MARK: - UISearchBarDelegate
+
+extension StylistsViewController : UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+        myTableView.reloadData()
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        // Put your key in predicate that is "Name"
+        let searchPredicate = NSPredicate(format: "business_name CONTAINS[C] %@", searchText)
+        arrSearchResult = (recomendedArray as NSArray).filtered(using: searchPredicate) as! [Dictionary<String, String>]
+        
+        myTableView.reloadData()
+    }
+    
+    
+    // MARK: - UISearchControllerDelegate
+    
+    func presentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        debugPrint("UISearchControllerDelegate invoked method:.")
+        searchActive = false
+        myTableView.reloadData()
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    // MARK: - UISearchResultsUpdating
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 }
 

@@ -904,16 +904,13 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Find Local Stylists" translatesAutoresizingMaskIntoConstraints="NO" id="5nj-v2-AFw">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYy-Io-EYJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lCN-jB-0pp">
-                                <rect key="frame" x="0.0" y="44" width="375" height="510"/>
-                                <connections>
-                                    <outlet property="delegate" destination="WKE-Vo-Noc" id="WNC-dh-ZnL"/>
-                                </connections>
-                            </mapView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="U25-bh-yhZ"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mGs-Hd-waQ">
                                 <rect key="frame" x="0.0" y="44" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -938,37 +935,37 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="249" text="Katie Summer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSG-D0-DUz">
-                                                    <rect key="frame" x="77" y="25" width="192" height="16.5"/>
+                                                    <rect key="frame" x="77" y="25" width="192" height="16"/>
                                                     <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="16"/>
                                                     <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="3017 Ocean Park Blvd. Santa Monica, CA 90405" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqh-bS-GDJ">
-                                                    <rect key="frame" x="77" y="45.5" width="278" height="10"/>
+                                                    <rect key="frame" x="77" y="45" width="278" height="10"/>
                                                     <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="11"/>
                                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="747" text="HAIR &amp; SALON SERVICES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-nF-C4e">
-                                                    <rect key="frame" x="77" y="61.5" width="278" height="7.5"/>
+                                                    <rect key="frame" x="77" y="61" width="278" height="8"/>
                                                     <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="8"/>
                                                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="104" contentMode="center" image="starEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="Sar-Tx-Uby">
-                                                    <rect key="frame" x="344" y="28.5" width="11" height="10"/>
+                                                    <rect key="frame" x="344" y="28" width="11" height="10"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="103" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="zup-05-hZc">
-                                                    <rect key="frame" x="329" y="28.5" width="11" height="10"/>
+                                                    <rect key="frame" x="329" y="28" width="11" height="10"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="102" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="Vdn-Bf-uql">
-                                                    <rect key="frame" x="314" y="28.5" width="11" height="10"/>
+                                                    <rect key="frame" x="314" y="28" width="11" height="10"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="iPN-Ox-yDI">
-                                                    <rect key="frame" x="299" y="28.5" width="11" height="10"/>
+                                                    <rect key="frame" x="299" y="28" width="11" height="10"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="h8o-gC-hbf">
-                                                    <rect key="frame" x="284" y="28.5" width="11" height="10"/>
+                                                    <rect key="frame" x="284" y="28" width="11" height="10"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ru-5d-UsN">
                                                     <rect key="frame" x="77" y="77" width="278" height="10"/>
@@ -1019,29 +1016,35 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                     <outlet property="delegate" destination="WKE-Vo-Noc" id="aEs-Zw-VtJ"/>
                                 </connections>
                             </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lCN-jB-0pp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WKE-Vo-Noc" id="WNC-dh-ZnL"/>
+                                </connections>
+                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3p-PM-pzh">
-                                <rect key="frame" x="0.0" y="456" width="375" height="98"/>
+                                <rect key="frame" x="0.0" y="455" width="375" height="99"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="3017 Ocean Park Blvd. Santa Monica, CA 90405" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bt-HF-jlA">
-                                        <rect key="frame" x="83" y="68" width="278" height="10"/>
+                                        <rect key="frame" x="83" y="69" width="278" height="10"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="11"/>
                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="103" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="9pi-cW-TLW">
-                                        <rect key="frame" x="128" y="47" width="11" height="10"/>
+                                        <rect key="frame" x="128" y="48" width="11" height="10"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="747" text="HAIR &amp; SALON SERVICES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1C-Zt-q6O">
-                                        <rect key="frame" x="83" y="35.5" width="278" height="7.5"/>
+                                        <rect key="frame" x="83" y="36" width="278" height="8"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="8"/>
                                         <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="102" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="O9M-wp-559">
-                                        <rect key="frame" x="113" y="47" width="11" height="10"/>
+                                        <rect key="frame" x="113" y="48" width="11" height="10"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="104" contentMode="center" image="starEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="sD6-mU-5dq">
-                                        <rect key="frame" x="143" y="47" width="11" height="10"/>
+                                        <rect key="frame" x="143" y="48" width="11" height="10"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userpic" translatesAutoresizingMaskIntoConstraints="NO" id="AWN-pF-5LJ">
                                         <rect key="frame" x="26" y="19" width="44" height="44"/>
@@ -1056,19 +1059,19 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="249" text="Katie Summer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCi-g0-1Zf">
-                                        <rect key="frame" x="83" y="19" width="112.5" height="14.5"/>
+                                        <rect key="frame" x="83" y="19" width="113" height="15"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="16"/>
                                         <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="19O-hG-Hdk">
-                                        <rect key="frame" x="98" y="47" width="11" height="10"/>
+                                        <rect key="frame" x="98" y="48" width="11" height="10"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="KEJ-dB-z6m">
-                                        <rect key="frame" x="83" y="47" width="11" height="10"/>
+                                        <rect key="frame" x="83" y="48" width="11" height="10"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVH-rM-7lm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                         <connections>
                                             <action selector="btnShowStylistDetails_Click:" destination="WKE-Vo-Noc" eventType="touchUpInside" id="7Sa-oM-wer"/>
                                         </connections>
@@ -1107,17 +1110,17 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="S3p-PM-pzh" firstAttribute="leading" secondItem="ebM-8o-Paw" secondAttribute="leading" id="1gC-BN-3Rc"/>
-                            <constraint firstAttribute="trailing" secondItem="5nj-v2-AFw" secondAttribute="trailing" id="F2Q-WE-s5E"/>
+                            <constraint firstItem="PYy-Io-EYJ" firstAttribute="leading" secondItem="ebM-8o-Paw" secondAttribute="leading" id="EtS-GG-x7F"/>
                             <constraint firstItem="OiH-cw-D4G" firstAttribute="top" secondItem="S3p-PM-pzh" secondAttribute="bottom" id="PF1-TP-Tjx"/>
                             <constraint firstItem="mGs-Hd-waQ" firstAttribute="leading" secondItem="ebM-8o-Paw" secondAttribute="leading" id="RbQ-4e-R6n"/>
                             <constraint firstItem="lCN-jB-0pp" firstAttribute="leading" secondItem="ebM-8o-Paw" secondAttribute="leading" id="U23-IA-AhG"/>
-                            <constraint firstItem="5nj-v2-AFw" firstAttribute="leading" secondItem="ebM-8o-Paw" secondAttribute="leading" id="b77-cd-M7h"/>
-                            <constraint firstItem="lCN-jB-0pp" firstAttribute="top" secondItem="5nj-v2-AFw" secondAttribute="bottom" id="cYq-Uo-vES"/>
-                            <constraint firstItem="mGs-Hd-waQ" firstAttribute="top" secondItem="5nj-v2-AFw" secondAttribute="bottom" id="fxc-gr-1Se"/>
-                            <constraint firstItem="5nj-v2-AFw" firstAttribute="top" secondItem="xFv-tv-PAh" secondAttribute="bottom" id="gEg-VI-xhY"/>
                             <constraint firstAttribute="trailing" secondItem="S3p-PM-pzh" secondAttribute="trailing" id="lvg-ex-i0t"/>
                             <constraint firstItem="OiH-cw-D4G" firstAttribute="top" secondItem="mGs-Hd-waQ" secondAttribute="bottom" id="mXL-G0-ajb"/>
+                            <constraint firstItem="PYy-Io-EYJ" firstAttribute="top" secondItem="xFv-tv-PAh" secondAttribute="bottom" id="n5V-xK-McO"/>
+                            <constraint firstItem="mGs-Hd-waQ" firstAttribute="top" secondItem="PYy-Io-EYJ" secondAttribute="bottom" id="nD4-3Y-2H2"/>
+                            <constraint firstAttribute="trailing" secondItem="PYy-Io-EYJ" secondAttribute="trailing" id="qI2-04-c0f"/>
                             <constraint firstAttribute="trailing" secondItem="lCN-jB-0pp" secondAttribute="trailing" id="uqH-aN-Ba8"/>
+                            <constraint firstItem="lCN-jB-0pp" firstAttribute="top" secondItem="xFv-tv-PAh" secondAttribute="bottom" id="uuR-ax-cqU"/>
                             <constraint firstItem="OiH-cw-D4G" firstAttribute="top" secondItem="lCN-jB-0pp" secondAttribute="bottom" id="veK-YR-RuU"/>
                             <constraint firstAttribute="trailing" secondItem="mGs-Hd-waQ" secondAttribute="trailing" id="xzW-ea-M3w"/>
                         </constraints>
@@ -1139,9 +1142,10 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                         <outlet property="lblService" destination="E1C-Zt-q6O" id="MQc-Tk-FCB"/>
                         <outlet property="lblStylistname" destination="gCi-g0-1Zf" id="9l6-Hg-Hvs"/>
                         <outlet property="mapView" destination="lCN-jB-0pp" id="yAi-RL-ik0"/>
+                        <outlet property="myTableView" destination="mGs-Hd-waQ" id="k1G-fp-FTb"/>
                         <outlet property="stylistDetailBottom" destination="PF1-TP-Tjx" id="5LK-Jq-aVg"/>
                         <outlet property="stylistDetailView" destination="S3p-PM-pzh" id="fgS-QC-AD6"/>
-                        <outlet property="tableView" destination="mGs-Hd-waQ" id="ypv-HH-Pjc"/>
+                        <outlet property="viewForSearchBar" destination="PYy-Io-EYJ" id="pqZ-9B-29l"/>
                         <segue destination="cZq-sJ-bVt" kind="show" identifier="stylistDetailSegue" id="zRy-wo-ly0"/>
                     </connections>
                 </viewController>
@@ -1525,25 +1529,25 @@ Personal information collected by Spray Paint Go, LLC. may be stored and process
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Firstname Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUF-nv-m9c">
-                                                    <rect key="frame" x="90" y="25" width="194.5" height="24"/>
+                                                    <rect key="frame" x="90" y="25" width="194" height="24"/>
                                                     <fontDescription key="fontDescription" name="TextaNarrow-Medium" family="TextaNarrow-Medium" pointSize="18"/>
                                                     <color key="textColor" red="0.38823529410000002" green="0.40784313729999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Message Content Goes Here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-Dy-YUu">
-                                                    <rect key="frame" x="90" y="57" width="223.5" height="18"/>
+                                                    <rect key="frame" x="90" y="57" width="223" height="18"/>
                                                     <fontDescription key="fontDescription" name="TextaNarrow-Light" family="TextaNarrow-Light" pointSize="18"/>
                                                     <color key="textColor" red="0.38823529410000002" green="0.40784313729999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08.08.2015" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-eA-yQX">
-                                                    <rect key="frame" x="296.5" y="30.5" width="61.5" height="14"/>
+                                                    <rect key="frame" x="296" y="30" width="62" height="15"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="12"/>
                                                     <color key="textColor" red="0.38823529410000002" green="0.40784313729999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1 new" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SB-cO-oo6">
-                                                    <rect key="frame" x="325.5" y="58.5" width="32.5" height="14"/>
+                                                    <rect key="frame" x="325" y="58" width="33" height="15"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="12"/>
                                                     <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

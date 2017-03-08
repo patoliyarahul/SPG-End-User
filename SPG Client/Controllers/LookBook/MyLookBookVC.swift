@@ -18,6 +18,7 @@ class MyLookBookVC: UIViewController {
     @IBOutlet weak var myCollectionView: UICollectionView!
     @IBOutlet weak var noLookBookView: UIView!
     
+    @IBOutlet weak var viewForSearchBar: UIView!
     //MARK: - Variables
     
     var lookBookArray   =   [Dictionary<String, String>]()
@@ -27,6 +28,12 @@ class MyLookBookVC: UIViewController {
     
     var delegate: MyLookBookDelegate?
     
+    /// Search controller to help us with filtering.
+    var arrSearchResult     =   [Dictionary<String, String>]()
+    
+    var searchActive = false
+    var searchController: UISearchController!
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -34,7 +41,27 @@ class MyLookBookVC: UIViewController {
         
         self.view.bringSubview(toFront: noLookBookView)
         
+        configureSearchController()
         callService()
+    }
+    
+    func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false // default is YES
+        
+        searchController.searchBar.searchBarStyle   =   .minimal
+        searchController.searchBar.placeholder      =   "Find Lookbook"
+        
+        searchController.searchBar.sizeToFit()
+        
+        viewForSearchBar.addSubview(searchController.searchBar)
+        
+        definesPresentationContext = true
     }
     
     //MARK: - Helper Methods
@@ -110,18 +137,26 @@ extension MyLookBookVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return lookBookArray.count
+        if searchActive && searchController.searchBar.text != "" {
+            return arrSearchResult.count
+        }
         
+        return lookBookArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MyLookBookCollectionCell
         
         if lookBookArray.count > 0 {
             
-            let dict = lookBookArray[indexPath.row]
+            var dict = Dictionary<String, String>()
+            
+            if searchActive && searchController.searchBar.text != "" {
+                dict = arrSearchResult[indexPath.row]
+            } else {
+                dict = lookBookArray[indexPath.row]
+            }
             
             cell.lookBookImage.image = #imageLiteral(resourceName: "lookbook_default_thumbnail")
             
@@ -165,6 +200,9 @@ extension MyLookBookVC : RequestManagerDelegate {
                     
                     if lookBookArray.count > 0 {
                         self.myCollectionView.reloadData()
+                        UIView.animate(withDuration: 0.5, animations: {
+                            self.noLookBookView.alpha = 0
+                        })
                     } else {
                         UIView.animate(withDuration: 0.5, animations: {
                             self.noLookBookView.alpha = 1
@@ -184,6 +222,7 @@ extension MyLookBookVC : RequestManagerDelegate {
     }
 }
 
+//MARK: - Lookbook Detail Delegate
 
 extension MyLookBookVC: LookBookDetailDelegate {
     func didDeleteLookBook() {
@@ -202,3 +241,73 @@ extension MyLookBookVC: LookBookDetailDelegate {
         }
     }
 }
+
+
+//MARK: - SearchResultsDelegate Methods
+
+extension MyLookBookVC : UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+        myCollectionView.reloadData()
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        // Put your key in predicate that is "Name"
+        let searchPredicate = NSPredicate(format: "lookbook_name CONTAINS[C] %@", searchText)
+        arrSearchResult = (lookBookArray as NSArray).filtered(using: searchPredicate) as! [Dictionary<String, String>]
+        
+        myCollectionView.reloadData()
+    }
+    
+    
+    // MARK: - UISearchControllerDelegate
+    
+    func presentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        debugPrint("UISearchControllerDelegate invoked method:.")
+        searchActive = false
+        myCollectionView.reloadData()
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    // MARK: - UISearchResultsUpdating
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
+

@@ -69,6 +69,17 @@ class DiscoverImageVC: UIViewController {
     @IBAction func btnSaveImage_Click(_ sender: Any) {
         self.performSegue(withIdentifier: LookBookSegue.saveImageSegue, sender: self)
     }
+    
+    @IBAction func btnShare_Click(_ sender: Any) {
+        let imageToShare = [imgStylistWork.image]
+        
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    
     //MARK: - MemoryWarning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

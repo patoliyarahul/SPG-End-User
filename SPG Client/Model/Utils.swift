@@ -93,6 +93,31 @@ class Utils: NSObject {
         }
     }
     
+    class func callServicePostInBackground(_ json: String, action: String, urlParamString: String, delegate: Any) {
+        
+        if ReachabilityManager.sharedInstance.isReachability {
+            
+            var finalUrl = "\(Constant.URL_PREFIX)/\(action)"
+            if !urlParamString.isEmpty {
+                finalUrl = "\(finalUrl)?key=\(urlParamString)"
+            }
+            
+            let requestManager: RequestManager = RequestManager()
+            requestManager.commandName = action
+//            requestManager.delegate = delegate as! RequestManagerDelegate
+            requestManager.callPostURL(finalUrl, parameters: json)
+        } else {
+            let alert = UIAlertController(title: "No Internet", message: "Please check your Internet connection.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Retry", style: .default) { (alert) in
+                //                self.callServicePost(json, action: action, urlParamString: urlParamString, delegate: delegate)
+            }
+            
+            let vc = delegate as! UIViewController
+            alert.addAction(okAction)
+            vc.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     class func callPhotoUpload(dict: NSMutableDictionary, action: String, data: Data, delegate: Any, photoKey: String) {
         if ReachabilityManager.sharedInstance.isReachability {
             Utils.Show()
@@ -300,6 +325,19 @@ extension Date {
         return dateFormatter.date(from: dateString)!
     }
     
+}
+
+func addSearchBar(searchController: UISearchController, myTableView: UITableView, placeHolder: String) {
+    
+    searchController.hidesNavigationBarDuringPresentation = true
+    searchController.dimsBackgroundDuringPresentation = false // default is YES
+    
+    searchController.searchBar.searchBarStyle   =   .minimal
+    searchController.searchBar.placeholder      =   placeHolder
+    
+    searchController.searchBar.sizeToFit()
+    
+    myTableView.tableHeaderView = searchController.searchBar
 }
 
 

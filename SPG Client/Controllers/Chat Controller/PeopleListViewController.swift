@@ -121,6 +121,11 @@ extension PeopleListViewController : UITableViewDelegate, UITableViewDataSource 
         
         cell.lblFullName.text = user.fullname
         
+        if user.picture.characters.count > 0 {
+            let logoUrl = ImageDirectory.logoDir + "\(user.picture)"
+            Utils.downloadImage(logoUrl, imageView: cell.profilePIc)
+        }
+        
         return cell
     }
     

@@ -98,6 +98,17 @@ struct Api {
     static let uploadProfilePic         =   "upload_profile_pic_end_user.php"
     
     static let editProfile              =   "edit_user_profile.php"
+    
+    static let contactSupport           =   "contact_support.php"
+    
+    static let sendChatNotification     =   "send_notification_for_chat.php"
+}
+
+struct ChatNotifParams {
+    static let sendBy           =   "sendBy"
+    static let recieverId       =   "recieverId"
+    static let message          =   "message"
+    static let recieverType     =   "recieverType"
 }
 
 struct InitialSegue {
@@ -331,6 +342,8 @@ struct FUserParams {
     
     static let FUSER_CREATEDAT						= "createdAt"			//	Interval
     static let FUSER_UPDATEDAT						= "updatedAt"			//	Interval
+    
+    static let FUSER_DBID                           =  "dbId"
 }
 
 struct FMessageParams {
@@ -391,6 +404,8 @@ struct FRecentParams {
     
     static let FRECENT_CREATEDAT					=   "createdAt"			//	Interval
     static let FRECENT_UPDATEDAT					=   "updatedAt"			//	Interval
+    
+    static let FRECENT_DBID                         =   "dbId"              // id from data base
 }
 
 struct FStatusParams {
@@ -472,9 +487,9 @@ struct ManualAppointmentParams {
 }
 
 enum CONNECTION_NETWORK_TYPE : String {
-    case WIFI_NETWORK = "Wifi"
-    case WWAN_NETWORK = "Cellular"
-    case OTHER = "Other"
+    case WIFI_NETWORK   =   "Wifi"
+    case WWAN_NETWORK   =   "Cellular"
+    case OTHER          =   "Other"
 }
 
 struct ControllerIdentifier {

@@ -19,7 +19,7 @@ final class ChatViewController: JSQMessagesViewController {
     
     var messages = [JSQMessage]()
     
-    var recentDict = Dictionary<String, Any>()
+    var recent : Recent!
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
@@ -69,7 +69,7 @@ final class ChatViewController: JSQMessagesViewController {
         
         self.senderDisplayName = "\(userDefault.string(forKey: ClientsParams.firstName)!) \(userDefault.string(forKey: ClientsParams.lastName)!)"
 
-        self.title = "\(recentDict[FRecentParams.FRECENT_DESCRIPTION]!)"
+        self.title = recent.description
         
         // No avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -77,7 +77,7 @@ final class ChatViewController: JSQMessagesViewController {
         
         collectionView.collectionViewLayout.messageBubbleFont = UIFont(name: "Lato-Light", size: 16)
         
-        channelRef = FIRDatabase.database().reference().child(FMessageParams.FMESSAGE_PATH).child("\(recentDict[FRecentParams.FRECENT_GROUPID]!)")
+        channelRef = FIRDatabase.database().reference().child(FMessageParams.FMESSAGE_PATH).child(recent.groupId)
         userIsTypingRef = channelRef.child("typingIndicator").child(self.senderId)
         usersTypingQuery = channelRef.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
         
@@ -87,6 +87,19 @@ final class ChatViewController: JSQMessagesViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         observeTyping()
+    }
+    
+    //MARK: - sendMessageNotification
+    
+    func sendMessageNotification(message: String, senderName: String) {
+        DispatchQueue.global(qos: .background).async {
+            let innerJson = ["pass_data" : [ ChatNotifParams.sendBy         : senderName,
+                                             ChatNotifParams.message        : "\(senderName): \(message)",
+                                             ChatNotifParams.recieverType   : "0",
+                                             ChatNotifParams.recieverId     : self.recent.dbId] as Dictionary<String, String>] as Dictionary<String, Any>
+            innerJson.printJson()
+            Utils.callServicePostInBackground(innerJson.json, action: Api.sendChatNotification, urlParamString: "", delegate: self)
+        }
     }
     
     //JSQMessagesViewController Methods
@@ -101,12 +114,13 @@ final class ChatViewController: JSQMessagesViewController {
         
         itemRef.setValue(messageItem) // 3
         
-        Chat_Utils.updateLastMessage(lastMessage: text, groupId: "\(recentDict[FRecentParams.FRECENT_GROUPID]!)")
-        
         JSQSystemSoundPlayer.jsq_playMessageSentSound() // 4
         
         finishSendingMessage() // 5
         isTyping = false
+        
+        sendMessageNotification(message: text!, senderName: senderDisplayName!)
+        Chat_Utils.updateLastMessage(lastMessage: text, groupId: recent.groupId)
     }
     
     override func didPressAccessoryButton(_ sender: UIButton) {
@@ -328,7 +342,6 @@ final class ChatViewController: JSQMessagesViewController {
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
-        
         picker.dismiss(animated: true, completion:nil)
         
         // 1

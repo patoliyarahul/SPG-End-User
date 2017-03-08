@@ -127,10 +127,10 @@ class ChatListViewController: UIViewController {
         
         if let recent = sender as? Recent {
             let chatVc = segue.destination as! ChatViewController
+            chatVc.recent = recent
             
-            chatVc.recentDict = [FRecentParams.FRECENT_GROUPID : recent.groupId, FRecentParams.FRECENT_MEMBERS : "", FRecentParams.FRECENT_DESCRIPTION : recent.description,FRecentParams.FRECENT_TYPE : "private"]
+            Chat_Utils.resetCounter(objectId: recent.objectId)
         }
-        
     }
 }
 
@@ -181,13 +181,14 @@ extension ChatListViewController : UITableViewDelegate , UITableViewDataSource {
 
 extension ChatListViewController: PeopleListDelegate {
     func didSelectUser(user: User) {
-        Chat_Utils.startPrivateChat(email: "\(user.email)", completionHandler: { (dict: Dictionary<String, Any>) in
+    
+        Chat_Utils.startPrivateChat(email: "\(user.email)") { (recent : Recent) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let chatViewController = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
             
-            chatViewController.recentDict = dict
+            chatViewController.recent = recent
             
             self.show(chatViewController, sender: self)
-        })
+        }
     }
 }

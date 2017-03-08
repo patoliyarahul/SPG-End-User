@@ -78,7 +78,7 @@ class BookingDetailViewController : UIViewController {
         myTableView.rowHeight = UITableViewAutomaticDimension
         myTableView.estimatedRowHeight = 30
     }
-    
+
     func callService() {
         
         let innerJson = [Request.pass_data: ["appointment_id": strAppointmentId] as Dictionary<String, String>] as Dictionary<String, Any>
@@ -115,9 +115,12 @@ class BookingDetailViewController : UIViewController {
         tableViewHeight.constant = CGFloat(serviceCellHeight * serviceArray.count)
         
         let desiredLookString   =   "\(detailsDict[AppointmentDetailParams.desiredLook]!)"
-        desiredLookArray        =   desiredLookString.components(separatedBy: ",")
         
-        myCollectionView.reloadData()
+        if desiredLookString.characters.count > 0 {
+            
+            desiredLookArray        =   desiredLookString.components(separatedBy: ",")
+            myCollectionView.reloadData()
+        }
         
         if desiredLookArray.count == 0 || desiredLookArray[0].characters.count == 0{
             UIView.animate(withDuration: 0.5, animations: {

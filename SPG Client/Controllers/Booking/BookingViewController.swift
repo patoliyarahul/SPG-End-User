@@ -17,12 +17,23 @@ class BookingViewController: UIViewController{
     @IBOutlet weak var myTableView: UITableView!
     
     @IBOutlet weak var blackTransperantView: UIView!
-    //MARK: - Variables
     
+    @IBOutlet weak var viewForSearch: UIView!
+    
+    //MARK: - Variables
     var selectedIndexPath   =   IndexPath(row: 0, section: 0)
     var arrUpcommingBooking =   [Dictionary<String, String>]()
     var arrPastBooking      =   [Dictionary<String, String>]()
     let sectionTitles       =   ["UPCOMING", "PAST"]
+    
+    var arrSearchMerged     =   [Dictionary<String, String>]()
+    var arrSearchResult     =   [Dictionary<String, String>]()
+    
+    var searchActive = false
+    var searchController: UISearchController!
+    
+    
+    //MARK : - LifeCyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +42,33 @@ class BookingViewController: UIViewController{
         
         let font = UIFont(name: "Gotham Book", size: 13)!
         cancelButton.setTitleTextAttributes([NSFontAttributeName: font], for: UIControlState.normal)
+        
+        configureSearchController()
         configureTableView()
         callService()
+        
         tableView.isHidden = true
     }
+    
+    func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false // default is YES
+        
+        searchController.searchBar.searchBarStyle   =   .minimal
+        searchController.searchBar.placeholder      =   "Search Bookings"
+        
+        searchController.searchBar.sizeToFit()
+        
+        viewForSearch.addSubview(searchController.searchBar)
+        
+        definesPresentationContext = true
+    }
+    
     
     //MARK: - Helper Methods
     
@@ -63,7 +97,10 @@ class BookingViewController: UIViewController{
             let vc = segue.destination as! BookingDetailViewController
             
             var dict = Dictionary<String, String>()
-            if selectedIndexPath.section == 0 {
+            
+            if searchActive && searchController.searchBar.text != "" {
+                dict = arrSearchResult[selectedIndexPath.row]
+            } else if selectedIndexPath.section == 0 {
                 dict = arrUpcommingBooking[selectedIndexPath.row]
             } else {
                 dict = arrPastBooking[selectedIndexPath.row]
@@ -82,22 +119,32 @@ class BookingViewController: UIViewController{
 extension BookingViewController: UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if searchActive && searchController.searchBar.text != "" {
+            return 1
+        }
         return 2
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if searchActive && searchController.searchBar.text != "" {
+            return ""
+        }
+        
         return sectionTitles[section]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 {
+        if searchActive && searchController.searchBar.text != "" {
+            return arrSearchResult.count
+        } else if section == 0 {
             if arrUpcommingBooking.count > 0 {
                 return arrUpcommingBooking.count
             }else {
                 return 1
             }
-        }else {
+        } else {
             if arrPastBooking.count > 0 {
                 return arrPastBooking.count
             }else {
@@ -114,10 +161,13 @@ extension BookingViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         if (indexPath.section == 0 && arrUpcommingBooking.count > 0) || (indexPath.section == 1 && arrPastBooking.count > 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "bookingsCell", for: indexPath) as! bookingsTableViewCell
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! bookingsTableViewCell
             
             var dictData = Dictionary<String, String>()
-            if indexPath.section == 0 {
+            if searchActive && searchController.searchBar.text != "" {
+                dictData = arrSearchResult[indexPath.row]
+            } else if indexPath.section == 0 {
                 dictData = arrUpcommingBooking[indexPath.row] 
             } else {
                 dictData = arrPastBooking[indexPath.row] 
@@ -159,6 +209,9 @@ extension BookingViewController : RequestManagerDelegate {
                 arrUpcommingBooking = resultDict["upcoming_data"] as! [Dictionary<String, String>]
                 arrPastBooking      = resultDict["past_data"] as! [Dictionary<String, String>]
                 //                tableView.reloadData()
+                
+                mergeUpcommingAndPastBookings()
+                
                 reloadTableViewWithAnimation(myTableView: tableView)
                 
             } else {
@@ -170,6 +223,12 @@ extension BookingViewController : RequestManagerDelegate {
     
     func onFault(_ error: Error!) {
         Utils.HideHud()
+    }
+    
+    func mergeUpcommingAndPastBookings() {
+        arrSearchMerged = [Dictionary<String, String>]()
+        arrSearchMerged.append(contentsOf: arrUpcommingBooking)
+        arrSearchMerged.append(contentsOf: arrPastBooking)
     }
 }
 
@@ -209,3 +268,76 @@ extension BookingViewController: BookingDetailsDelegate {
         callService()
     }
 }
+
+//MARK: - UISearchBarDelegate
+
+extension BookingViewController : UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+        myTableView.reloadData()
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        // Put your key in predicate that is "Name"
+        let searchPredicate = NSPredicate(format: "business_name CONTAINS[C] %@", searchText)
+        arrSearchResult = (arrSearchMerged as NSArray).filtered(using: searchPredicate) as! [Dictionary<String, String>]
+        
+        myTableView.reloadData()
+    }
+    
+    
+    // MARK: - UISearchControllerDelegate
+    
+    func presentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        debugPrint("UISearchControllerDelegate invoked method:.")
+        searchActive = false
+        myTableView.reloadData()
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        //debugPrint("UISearchControllerDelegate invoked method: \(__FUNCTION__).")
+    }
+    
+    // MARK: - UISearchResultsUpdating
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
+
+
+
+
+

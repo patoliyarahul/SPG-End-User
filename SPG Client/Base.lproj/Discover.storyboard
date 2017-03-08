@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -29,22 +28,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-f2-Zoh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ic_lookBook" translatesAutoresizingMaskIntoConstraints="NO" id="EEi-8m-nZ2">
-                                        <rect key="frame" x="20" y="26" width="24" height="20"/>
+                                        <rect key="frame" x="20" y="24" width="24" height="20"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Lookbook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gao-Kc-Qmi">
-                                        <rect key="frame" x="58" y="27" width="134" height="19"/>
+                                        <rect key="frame" x="58" y="27" width="148" height="14.5"/>
                                         <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="16"/>
                                         <color key="textColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_forward" translatesAutoresizingMaskIntoConstraints="NO" id="XJ9-Ed-iFr">
-                                        <rect key="frame" x="345" y="27" width="10" height="16"/>
+                                        <rect key="frame" x="345" y="25" width="10" height="16"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apQ-X9-cvF">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                         <connections>
                                             <action selector="btnSelectLookbook_Click:" destination="XQI-24-DSE" eventType="touchUpInside" id="G83-8l-wi4"/>
                                             <segue destination="ado-7b-m93" kind="show" identifier="selectLookBookSegue" id="OeU-yn-0fV"/>
@@ -67,14 +66,14 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z5D-N0-218">
-                                <rect key="frame" x="16" y="87" width="130" height="170"/>
+                                <rect key="frame" x="16" y="82.5" width="130" height="170"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="z5D-N0-218" secondAttribute="height" multiplier="13:17" id="yhN-8v-VxW"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G6p-VR-3CA">
-                                <rect key="frame" x="154" y="87" width="205" height="170"/>
+                                <rect key="frame" x="154" y="82.5" width="205" height="170"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -164,10 +163,10 @@ a Lookbook</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="68" id="cse-ff-0VS" customClass="SelectLookBookCell" customModule="SPG_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="68"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cse-ff-0VS" id="H5z-5p-ahk">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ss-SA-JSF">
@@ -336,12 +335,8 @@ Cg
                                     <constraint firstAttribute="height" constant="1" id="zoK-j1-LJ7"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="sSR-kE-Y2T">
-                                <rect key="frame" x="0.0" y="51" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wp2-zW-GXm">
-                                <rect key="frame" x="0.0" y="95" width="375" height="459"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vTN-EA-siq">
                                     <size key="itemSize" width="180" height="180"/>
@@ -351,7 +346,7 @@ Cg
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="XQD-Nl-bEI" customClass="DesiredLookCell" customModule="SPG_Client" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="0.0" width="180" height="180"/>
+                                        <rect key="frame" x="98" y="0.0" width="180" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
@@ -378,6 +373,13 @@ Cg
                                     <outlet property="delegate" destination="Mfa-cK-GVQ" id="CSO-0l-5qG"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPT-Wr-JbN">
+                                <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Cl3-nU-2BR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -389,17 +391,17 @@ Cg
                             <constraint firstItem="B1B-Rf-KG4" firstAttribute="top" secondItem="za4-bN-9D7" secondAttribute="bottom" id="DAw-oY-MyA"/>
                             <constraint firstAttribute="trailing" secondItem="uO1-pK-NWd" secondAttribute="trailing" id="Ds3-dZ-C1U"/>
                             <constraint firstItem="cwd-T0-JwZ" firstAttribute="width" secondItem="uO1-pK-NWd" secondAttribute="width" id="Dwb-a5-J7D"/>
-                            <constraint firstItem="sSR-kE-Y2T" firstAttribute="top" secondItem="B1B-Rf-KG4" secondAttribute="bottom" id="FPS-e0-opL"/>
                             <constraint firstItem="cwd-T0-JwZ" firstAttribute="height" secondItem="za4-bN-9D7" secondAttribute="height" id="GaN-sk-bne"/>
                             <constraint firstItem="za4-bN-9D7" firstAttribute="width" secondItem="cwd-T0-JwZ" secondAttribute="width" id="KnZ-tF-NeT"/>
+                            <constraint firstItem="TPT-Wr-JbN" firstAttribute="top" secondItem="uO1-pK-NWd" secondAttribute="bottom" id="ORb-1V-580"/>
                             <constraint firstAttribute="trailing" secondItem="B1B-Rf-KG4" secondAttribute="trailing" id="SbC-Ui-W32"/>
-                            <constraint firstItem="Wp2-zW-GXm" firstAttribute="top" secondItem="sSR-kE-Y2T" secondAttribute="bottom" id="XEy-ue-JeQ"/>
                             <constraint firstItem="uO1-pK-NWd" firstAttribute="leading" secondItem="cwd-T0-JwZ" secondAttribute="trailing" id="YQG-CT-rf2"/>
                             <constraint firstItem="B1B-Rf-KG4" firstAttribute="leading" secondItem="2XY-A6-dqh" secondAttribute="leading" id="eep-Fn-t4T"/>
-                            <constraint firstAttribute="trailing" secondItem="sSR-kE-Y2T" secondAttribute="trailing" id="fYa-c8-WIr"/>
-                            <constraint firstItem="sSR-kE-Y2T" firstAttribute="leading" secondItem="2XY-A6-dqh" secondAttribute="leading" id="ot6-jf-VNJ"/>
+                            <constraint firstItem="TPT-Wr-JbN" firstAttribute="leading" secondItem="2XY-A6-dqh" secondAttribute="leading" id="fB3-j2-Slr"/>
+                            <constraint firstAttribute="trailing" secondItem="TPT-Wr-JbN" secondAttribute="trailing" id="giz-7E-Ox2"/>
                             <constraint firstItem="za4-bN-9D7" firstAttribute="top" secondItem="raj-fx-N6C" secondAttribute="bottom" id="qbI-YN-TfX"/>
                             <constraint firstItem="uO1-pK-NWd" firstAttribute="height" secondItem="cwd-T0-JwZ" secondAttribute="height" id="qlZ-dK-3eo"/>
+                            <constraint firstItem="Wp2-zW-GXm" firstAttribute="top" secondItem="TPT-Wr-JbN" secondAttribute="bottom" id="s8H-ak-j1d"/>
                             <constraint firstItem="za4-bN-9D7" firstAttribute="leading" secondItem="2XY-A6-dqh" secondAttribute="leading" id="xMT-HJ-OTP"/>
                             <constraint firstItem="cwd-T0-JwZ" firstAttribute="top" secondItem="raj-fx-N6C" secondAttribute="bottom" id="zEh-2h-mja"/>
                         </constraints>
@@ -407,6 +409,7 @@ Cg
                     <navigationItem key="navigationItem" title="Discover" id="zKh-We-mHZ"/>
                     <connections>
                         <outlet property="myCollectionView" destination="Wp2-zW-GXm" id="6de-m2-irN"/>
+                        <outlet property="viewForSearchBar" destination="TPT-Wr-JbN" id="UY0-fG-5cN"/>
                         <segue destination="dBd-3H-lX6" kind="show" identifier="imageDetailSegue" id="lX2-qW-Ao0"/>
                     </connections>
                 </viewController>
@@ -475,6 +478,9 @@ Cg
                                     <constraint firstAttribute="width" secondItem="Tli-PB-Zp1" secondAttribute="height" multiplier="1:1" id="Wv2-z8-ag6"/>
                                 </constraints>
                                 <state key="normal" image="icon_share"/>
+                                <connections>
+                                    <action selector="btnShare_Click:" destination="dBd-3H-lX6" eventType="touchUpInside" id="qlX-L0-p2m"/>
+                                </connections>
                             </button>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esP-sx-F5L">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -548,7 +554,7 @@ Added to Lookbook!</string>
                     <tabBarItem key="tabBarItem" title="Discover" image="icon_nav_discover" id="MMx-Ty-Sup" userLabel="Discover"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="fYg-qg-zAV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="fYg-qg-zAV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -571,7 +577,7 @@ Added to Lookbook!</string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dOZ-Wi-Aea" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="e0T-rI-lq4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="e0T-rI-lq4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.36078431370000003" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
