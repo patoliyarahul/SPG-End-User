@@ -145,6 +145,7 @@ class Chat_Utils: NSObject {
             }
             
             completionHandler(userIds)
+            recentRef.removeAllObservers()
         })
     }
     
@@ -183,24 +184,7 @@ class Chat_Utils: NSObject {
         }
         
         return ""
-    }
-    
-    class func fetchRecents(groupId: String, completionHandler: @escaping ([String]) -> ()) {
-        let recentRef = FIRDatabase.database().reference(withPath: FRecentParams.FRECENT_PATH)
-        
-        let userIds = [String]()
-        
-        recentRef.queryOrdered(byChild: FRecentParams.FRECENT_GROUPID).queryEqual(toValue: groupId).observeSingleEvent(of: .value, with: { snapshot in
-            if snapshot.exists() {
-                let enumerator = snapshot.children
-                while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-                    print(rest.value!)
-                }
-            }
-            
-            completionHandler(userIds)
-        })
-    }
+    }    
 }
 
 func md5HashOfString(string: String) -> String {

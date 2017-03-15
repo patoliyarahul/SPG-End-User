@@ -175,6 +175,25 @@ extension ChatListViewController : UITableViewDelegate , UITableViewDataSource {
         let recent = recents[(indexPath as NSIndexPath).row]
         self.performSegue(withIdentifier: ChatSeuge.showChatSegue, sender: recent)
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let chatDict = self.recents[indexPath.row]
+            
+            if let index = self.recents.index(where: { $0.userId == "\(chatDict.userId)" }) {
+                recents.remove(at: index)
+                myTableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                FIRDatabase.database().reference().child(FRecentParams.FRECENT_PATH).child(chatDict.objectId).removeValue()
+            }
+            
+        }
+    }
 }
 
 //MARK: - PeopleList Delegate Method

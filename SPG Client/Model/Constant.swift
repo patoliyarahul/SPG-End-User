@@ -76,8 +76,6 @@ struct Api {
     
     static let getAllGalleryImages      =   "get_stylist_user_all_gallery_image_by_id.php"
     
-    static let uploadGalleryImage       =   "upload_gallery_image.php"
-    
     static let uploadBannerLogoImage    =   "upload_stylist_user_photo_logo_banner.php"
     static let deleteGalleryImage       =   "delete_gallery_byid.php"
     
